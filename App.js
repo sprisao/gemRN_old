@@ -3,6 +3,9 @@ import { StyleSheet, View } from 'react-native';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
+import Header from './components/Header';
+import HomeScreen from './components/HomeScreen';
+
 const fetchFonts = () => {
   return Font.loadAsync({
     'notoSans-Black': require('./assets/fonts/Noto_Sans_KR/NotoSansKR-Black.otf'),
@@ -27,7 +30,12 @@ export default function App() {
     );
   }
 
-  return <View style={styles.container}></View>;
+  return (
+    <View style={styles.container}>
+      <Header />
+      <HomeScreen />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
