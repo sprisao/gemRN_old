@@ -1,10 +1,19 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Button,
+  ScrollView,
+} from 'react-native';
+import { Video, AVPlaybackStatus } from 'expo-av';
 import HomeButton from './HomeButton';
 
 const HomeScreen = (props) => {
+  const [status, setStatus] = React.useState({});
   return (
-    <View style={styles.homeScreen}>
+    <ScrollView style={styles.homeScreen} showsVerticalScrollIndicator={false}>
       <View style={styles.homeButton_Container}>
         <HomeButton style={styles.homeBT_1}>
           <Text style={styles.homeBT_1_Header}>맛집</Text>
@@ -148,7 +157,31 @@ const HomeScreen = (props) => {
           </View>
         </HomeButton>
       </View>
-    </View>
+      <View style={styles.promotionSection}>
+        <Video
+          style={styles.video}
+          source={require('../assets/IMG_7090.MP4.mp4')}
+          resizeMode='cover'
+          rate={1}
+          shouldPlay={true}
+          isLooping={true}
+          muted={true}
+        />
+        <View style={styles.promoCover}>
+          <View style={styles.promoHeader}>
+            <Text style={styles.promoHeaderText}>젬 큐레이션</Text>
+          </View>
+          <View style={styles.promoArticle}>
+            <Text style={styles.promoArticleDescText}>
+              이화마을과 단계동 사이 위치한 감각적인 공간
+            </Text>
+            <Text style={styles.promoArticleNameText}>Neukölln</Text>
+            <Text style={styles.promoArticleDescText}>-</Text>
+            <Text style={styles.promoArticleMoreText}>더 알아보기</Text>
+          </View>
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -165,6 +198,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 10,
+    overflow: 'hidden',
   },
   homeBT_1: {
     flexDirection: 'column',
@@ -222,7 +256,7 @@ const styles = StyleSheet.create({
 
   homeBT_1_Paragraph: {
     fontFamily: 'notoSans-Light',
-    lineHeight: 18.5,
+    lineHeight: 15.5,
     fontSize: 13,
   },
   homeBT_3_Paragraph: {
@@ -247,7 +281,7 @@ const styles = StyleSheet.create({
   homeBT_1_emoji: {
     position: 'absolute',
     left: -15,
-    top: 5,
+    top: 10,
     width: 100,
     height: 100,
     ...Platform.select({
@@ -293,5 +327,62 @@ const styles = StyleSheet.create({
       },
       android: { elevation: 3 },
     }),
+  },
+
+  promotionSection: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 14,
+    borderRadius: 14,
+    overflow: 'hidden',
+    width: '100%',
+    height: 210,
+    marginBottom: 100,
+  },
+
+  video: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: 210,
+  },
+
+  promoCover: {
+    width: '100%',
+    height: '100%',
+    padding: 13,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  },
+  promoHeaderText: {
+    fontFamily: 'notoSans-Bold',
+    fontSize: 18,
+    color: 'white',
+    includeFontPadding: false,
+  },
+
+  promoArticle: {
+    marginTop: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  promoArticleNameText: {
+    fontSize: 15,
+    fontFamily: 'notoSans-Bold',
+    color: 'white',
+    includeFontPadding: false,
+  },
+  promoArticleDescText: {
+    fontSize: 14,
+    fontFamily: 'notoSans-Regular',
+    color: 'white',
+    includeFontPadding: false,
+  },
+  promoArticleMoreText: {
+    fontSize: 13,
+    fontFamily: 'notoSans-Light',
+    color: 'white',
+    includeFontPadding: false,
+    textDecorationLine: 'underline',
   },
 });
