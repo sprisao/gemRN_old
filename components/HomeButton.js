@@ -18,8 +18,7 @@ const styles = StyleSheet.create({
     borderRadius: 11.5,
     borderWidth: 0.65,
     borderColor: '#dfdfdf',
-    // backgroundColor: '#efefef',
-    backgroundColor: 'white',
+    backgroundColor: '#fdfdfd',
     overflow: 'hidden',
   },
 });

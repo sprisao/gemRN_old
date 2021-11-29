@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,180 +7,189 @@ import {
   Button,
   ScrollView,
 } from 'react-native';
-import { Video, AVPlaybackStatus } from 'expo-av';
+import { Video } from 'expo-av';
 import HomeButton from './HomeButton';
+import Footer from './Footer';
+import Separator from './Separator';
 
 const HomeScreen = (props) => {
   const [status, setStatus] = React.useState({});
   return (
     <ScrollView style={styles.homeScreen} showsVerticalScrollIndicator={false}>
-      <View style={styles.homeButton_Container}>
-        <HomeButton style={styles.homeBT_1}>
-          <Text style={styles.homeBT_1_Header}>맛집</Text>
-          <View style={styles.homeBT_1_Article}>
-            <Text style={styles.homeBT_1_Paragraph}>
-              검색없이 바로찾는 {'\n'}원주맛집!
-            </Text>
-          </View>
-          <View style={styles.homeBT_1_EmojiContainer}>
-            <Image
-              style={styles.homeBT_1_emoji}
-              resizeMode='cover'
-              source={require('../assets/images/emojis/restaurants.png')}
-            />
-          </View>
-        </HomeButton>
-        <HomeButton style={styles.homeBT_1}>
-          <Text style={styles.homeBT_1_Header}>카페</Text>
-          <View style={styles.homeBT_1_Article}>
-            <Text style={styles.homeBT_1_Paragraph}>
-              원주의 '거의'{'\n'}모든 카페를 한 눈에!
-            </Text>
-          </View>
-          <View style={styles.homeBT_1_EmojiContainer}>
-            <Image
-              style={styles.homeBT_1_emoji}
-              resizeMode='cover'
-              source={require('../assets/images/emojis/cafe.png')}
-            />
-          </View>
-        </HomeButton>
-      </View>
-      <View style={styles.homeButton_Container}>
-        <View style={styles.buttonWrapper}>
-          <HomeButton style={styles.homeBT_2}>
-            <Text style={styles.homeBT_2_Header}>호프·주점</Text>
-            <View style={styles.homeBT_2_EmojiContainer}>
-              <Image
-                style={styles.homeBT_2_emoji}
-                resizeMode='cover'
-                source={require('../assets/images/emojis/pub.png')}
-              />
-            </View>
-          </HomeButton>
-          <HomeButton style={styles.homeBT_2}>
-            <Text style={styles.homeBT_2_Header}>운동·헬스</Text>
-            <View style={styles.homeBT_2_EmojiContainer}>
-              <Image
-                style={styles.homeBT_2_emoji}
-                resizeMode='cover'
-                source={require('../assets/images/emojis/gym.png')}
-              />
-            </View>
-          </HomeButton>
-        </View>
-        <View style={styles.buttonWrapper}>
-          <HomeButton style={styles.homeBT_2}>
-            <Text style={styles.homeBT_2_Header}>미용·뷰티</Text>
-            <View style={styles.homeBT_2_EmojiContainer}>
-              <Image
-                style={styles.homeBT_2_emoji}
-                resizeMode='cover'
-                source={require('../assets/images/emojis/beauty.png')}
-              />
-            </View>
-          </HomeButton>
-          <HomeButton style={styles.homeBT_2}>
-            <Text style={styles.homeBT_2_Header}>스튜디오</Text>
-            <View style={styles.homeBT_2_EmojiContainer}>
-              <Image
-                style={styles.homeBT_2_emoji}
-                resizeMode='cover'
-                source={require('../assets/images/emojis/studio.png')}
-              />
-            </View>
-          </HomeButton>
-        </View>
-      </View>
-      <View style={styles.homeButton_Container}>
-        <View style={styles.buttonWrapper}>
-          <HomeButton style={styles.homeBT_2}>
-            <Text style={styles.homeBT_2_Header}>반려동물</Text>
-            <View style={styles.homeBT_2_EmojiContainer}>
-              <Image
-                style={styles.homeBT_2_emoji}
-                resizeMode='cover'
-                source={require('../assets/images/emojis/pets.png')}
-              />
-            </View>
-          </HomeButton>
-          <HomeButton style={styles.homeBT_2}>
-            <Text style={styles.homeBT_2_Header}>꽃</Text>
-            <View style={styles.homeBT_2_EmojiContainer}>
-              <Image
-                style={styles.homeBT_2_emoji}
-                resizeMode='cover'
-                source={require('../assets/images/emojis/flowershop.png')}
-              />
-            </View>
-          </HomeButton>
-        </View>
-        <View style={styles.buttonWrapper}>
-          <HomeButton style={styles.homeBT_2}>
-            <Text style={styles.homeBT_2_Header}>키즈</Text>
-            <View style={styles.homeBT_2_EmojiContainer}>
-              <Image
-                style={styles.homeBT_2_emoji}
-                resizeMode='cover'
-                source={require('../assets/images/emojis/kids.png')}
-              />
-            </View>
-          </HomeButton>
-          <HomeButton style={styles.homeBT_2}>
-            <Text style={styles.homeBT_2_Header}>교육·학원</Text>
-            <View style={styles.homeBT_2_EmojiContainer}>
-              <Image
-                style={styles.homeBT_2_emoji}
-                resizeMode='cover'
-                source={require('../assets/images/emojis/education.png')}
-              />
-            </View>
-          </HomeButton>
-        </View>
-      </View>
-      <View style={styles.homeButton_Container}>
-        <HomeButton style={styles.homeBT_3}>
-          <View>
-            <Text style={styles.homeBT_3_Header}>가볼만한 곳</Text>
-            <View style={styles.homeBT_3_Article}>
-              <Text style={styles.homeBT_3_Paragraph}>
-                관광, 레져, 인생샷 스팟까지 한눈에!
+      <View style={styles.homeScreen_Categories}>
+        <View style={styles.homeButton_Container}>
+          <HomeButton style={styles.homeBT_1}>
+            <Text style={styles.homeBT_1_Header}>맛집</Text>
+            <View style={styles.homeBT_1_Article}>
+              <Text style={styles.homeBT_1_Paragraph}>
+                검색없이 바로찾는 {'\n'}원주맛집!
               </Text>
             </View>
+            <View style={styles.homeBT_1_EmojiContainer}>
+              <Image
+                style={styles.homeBT_1_emoji}
+                resizeMode='cover'
+                source={require('../assets/images/emojis/restaurants.png')}
+              />
+            </View>
+          </HomeButton>
+          <HomeButton style={styles.homeBT_1}>
+            <Text style={styles.homeBT_1_Header}>카페</Text>
+            <View style={styles.homeBT_1_Article}>
+              <Text style={styles.homeBT_1_Paragraph}>
+                원주의 '거의'{'\n'}모든 카페를 한 눈에!
+              </Text>
+            </View>
+            <View style={styles.homeBT_1_EmojiContainer}>
+              <Image
+                style={styles.homeBT_1_emoji}
+                resizeMode='cover'
+                source={require('../assets/images/emojis/cafe.png')}
+              />
+            </View>
+          </HomeButton>
+        </View>
+        <View style={styles.homeButton_Container}>
+          <View style={styles.buttonWrapper}>
+            <HomeButton style={styles.homeBT_2}>
+              <Text style={styles.homeBT_2_Header}>호프·주점</Text>
+              <View style={styles.homeBT_2_EmojiContainer}>
+                <Image
+                  style={styles.homeBT_2_emoji}
+                  resizeMode='cover'
+                  source={require('../assets/images/emojis/pub.png')}
+                />
+              </View>
+            </HomeButton>
+            <HomeButton style={styles.homeBT_2}>
+              <Text style={styles.homeBT_2_Header}>운동·헬스</Text>
+              <View style={styles.homeBT_2_EmojiContainer}>
+                <Image
+                  style={styles.homeBT_2_emoji}
+                  resizeMode='cover'
+                  source={require('../assets/images/emojis/gym.png')}
+                />
+              </View>
+            </HomeButton>
           </View>
-          <View style={styles.homeBT_3_EmojiContainer}>
-            <Image
-              style={styles.homeBT_3_emoji}
-              resizeMode='cover'
-              source={require('../assets/images/emojis/sightseeing.png')}
-            />
+          <View style={styles.buttonWrapper}>
+            <HomeButton style={styles.homeBT_2}>
+              <Text style={styles.homeBT_2_Header}>미용·뷰티</Text>
+              <View style={styles.homeBT_2_EmojiContainer}>
+                <Image
+                  style={styles.homeBT_2_emoji}
+                  resizeMode='cover'
+                  source={require('../assets/images/emojis/beauty.png')}
+                />
+              </View>
+            </HomeButton>
+            <HomeButton style={styles.homeBT_2}>
+              <Text style={styles.homeBT_2_Header}>스튜디오</Text>
+              <View style={styles.homeBT_2_EmojiContainer}>
+                <Image
+                  style={styles.homeBT_2_emoji}
+                  resizeMode='cover'
+                  source={require('../assets/images/emojis/studio.png')}
+                />
+              </View>
+            </HomeButton>
           </View>
-        </HomeButton>
+        </View>
+        <View style={styles.homeButton_Container}>
+          <View style={styles.buttonWrapper}>
+            <HomeButton style={styles.homeBT_2}>
+              <Text style={styles.homeBT_2_Header}>반려동물</Text>
+              <View style={styles.homeBT_2_EmojiContainer}>
+                <Image
+                  style={styles.homeBT_2_emoji}
+                  resizeMode='cover'
+                  source={require('../assets/images/emojis/pets.png')}
+                />
+              </View>
+            </HomeButton>
+            <HomeButton style={styles.homeBT_2}>
+              <Text style={styles.homeBT_2_Header}>꽃</Text>
+              <View style={styles.homeBT_2_EmojiContainer}>
+                <Image
+                  style={styles.homeBT_2_emoji}
+                  resizeMode='cover'
+                  source={require('../assets/images/emojis/flowershop.png')}
+                />
+              </View>
+            </HomeButton>
+          </View>
+          <View style={styles.buttonWrapper}>
+            <HomeButton style={styles.homeBT_2}>
+              <Text style={styles.homeBT_2_Header}>키즈</Text>
+              <View style={styles.homeBT_2_EmojiContainer}>
+                <Image
+                  style={styles.homeBT_2_emoji}
+                  resizeMode='cover'
+                  source={require('../assets/images/emojis/kids.png')}
+                />
+              </View>
+            </HomeButton>
+            <HomeButton style={styles.homeBT_2}>
+              <Text style={styles.homeBT_2_Header}>교육·학원</Text>
+              <View style={styles.homeBT_2_EmojiContainer}>
+                <Image
+                  style={styles.homeBT_2_emoji}
+                  resizeMode='cover'
+                  source={require('../assets/images/emojis/education.png')}
+                />
+              </View>
+            </HomeButton>
+          </View>
+        </View>
+        <View style={styles.homeButton_Container}>
+          <HomeButton style={styles.homeBT_3}>
+            <View>
+              <Text style={styles.homeBT_3_Header}>가볼만한 곳</Text>
+              <View style={styles.homeBT_3_Article}>
+                <Text style={styles.homeBT_3_Paragraph}>
+                  관광, 레져, 인생샷 스팟까지 한눈에!
+                </Text>
+              </View>
+            </View>
+            <View style={styles.homeBT_3_EmojiContainer}>
+              <Image
+                style={styles.homeBT_3_emoji}
+                resizeMode='cover'
+                source={require('../assets/images/emojis/sightseeing.png')}
+              />
+            </View>
+          </HomeButton>
+        </View>
       </View>
+
       <View style={styles.promotionSection}>
-        <Video
-          style={styles.video}
-          source={require('../assets/IMG_7090.MP4.mp4')}
-          resizeMode='cover'
-          rate={1}
-          shouldPlay={true}
-          isLooping={true}
-          muted={true}
-        />
-        <View style={styles.promoCover}>
-          <View style={styles.promoHeader}>
-            <Text style={styles.promoHeaderText}>젬 큐레이션</Text>
-          </View>
-          <View style={styles.promoArticle}>
-            <Text style={styles.promoArticleDescText}>
-              이화마을과 단계동 사이 위치한 감각적인 공간
-            </Text>
-            <Text style={styles.promoArticleNameText}>Neukölln</Text>
-            <Text style={styles.promoArticleDescText}>-</Text>
-            <Text style={styles.promoArticleMoreText}>더 알아보기</Text>
+        <View style={styles.promotionWrapper}>
+          <Video
+            style={styles.video}
+            source={require('../assets/IMG_7090.MP4.mp4')}
+            resizeMode='cover'
+            rate={1}
+            shouldPlay={true}
+            isLooping={true}
+            muted={true}
+          />
+          <View style={styles.promoCover}>
+            <View style={styles.promoHeader}>
+              <Text style={styles.promoHeaderText}>젬 큐레이션</Text>
+            </View>
+            <View style={styles.promoArticle}>
+              <Text style={styles.promoArticleDescText}>
+                이화마을과 단계동 사이 위치한 감각적인 공간
+              </Text>
+              <Text style={styles.promoArticleNameText}>Neukölln</Text>
+              <Text style={styles.promoArticleDescText}>-</Text>
+              <Text style={styles.promoArticleMoreText}>더 알아보기</Text>
+            </View>
           </View>
         </View>
       </View>
+      <Separator />
+      <Footer />
     </ScrollView>
   );
 };
@@ -190,6 +199,9 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   homeScreen: {
     width: '100%',
+    height: '100%',
+  },
+  homeScreen_Categories: {
     paddingHorizontal: 13,
   },
   homeButton_Container: {
@@ -291,7 +303,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3,
       },
-      android: { elevation: 5 },
     }),
   },
 
@@ -308,7 +319,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 2,
       },
-      android: { elevation: 5 },
     }),
   },
 
@@ -325,27 +335,29 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.8,
         shadowRadius: 10,
       },
-      android: { elevation: 3 },
     }),
   },
 
   promotionSection: {
+    paddingHorizontal: 13,
+  },
+
+  promotionWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 14,
+    marginTop: 12,
     borderRadius: 14,
     overflow: 'hidden',
     width: '100%',
-    height: 210,
-    marginBottom: 100,
+    height: 200,
+    // marginBottom: 100,
   },
-
   video: {
     position: 'absolute',
     top: 0,
     left: 0,
     width: '100%',
-    height: 210,
+    height: 200,
   },
 
   promoCover: {
@@ -368,7 +380,7 @@ const styles = StyleSheet.create({
   },
   promoArticleNameText: {
     fontSize: 15,
-    fontFamily: 'notoSans-Bold',
+    fontFamily: 'notoSans-Medium',
     color: 'white',
     includeFontPadding: false,
   },
