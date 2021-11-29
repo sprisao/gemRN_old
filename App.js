@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
+// import { StoreProvider } from './context';
 
 import Header from './components/Header';
+
 import HomeScreen from './components/HomeScreen';
 
 const fetchFonts = () => {
@@ -31,10 +33,12 @@ export default function App() {
   }
 
   return (
+    // <StoreProvider>
     <View style={styles.container}>
       <Header />
       <HomeScreen />
     </View>
+    // {/* </StoreProvider> */}
   );
 }
 

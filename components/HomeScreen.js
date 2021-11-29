@@ -11,6 +11,7 @@ import { Video } from 'expo-av';
 import HomeButton from './HomeButton';
 import Footer from './Footer';
 import Separator from './Separator';
+import { TEST_VALUE } from '@env';
 
 const HomeScreen = (props) => {
   const [status, setStatus] = React.useState({});
