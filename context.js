@@ -19,7 +19,6 @@ import { REACT_APP_AIRTABLE_API_KEY } from '@env';
 // // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
 
-require('dotenv').config();
 const storeBase = new Airtable({
   apiKey: REACT_APP_AIRTABLE_API_KEY,
 }).base('app0tAUATUh8jBxX4');

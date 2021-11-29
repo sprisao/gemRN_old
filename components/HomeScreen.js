@@ -1,20 +1,48 @@
-import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Button,
-  ScrollView,
-} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { Video } from 'expo-av';
 import HomeButton from './HomeButton';
 import Footer from './Footer';
 import Separator from './Separator';
-import { TEST_VALUE } from '@env';
+import Airtable from 'airtable';
+import { REACT_APP_AIRTABLE_API_KEY } from '@env';
+
+var base = new Airtable({ apiKey: REACT_APP_AIRTABLE_API_KEY }).base(
+  'app0tAUATUh8jBxX4'
+);
 
 const HomeScreen = (props) => {
   const [status, setStatus] = React.useState({});
+  const [promotions, setPromotions] = useState([]);
+  const promotion = [];
+
+  useEffect(() => {
+    base('promotions')
+      .select({
+        view: 'online',
+        maxRecords: 10,
+      })
+      .eachPage(
+        function page(records, fetchNextPage) {
+          records.forEach(function (record) {
+            promotion.push({
+              id: record.id,
+              ...record._rawJson.fields,
+            });
+          });
+          setPromotions(promotion);
+          fetchNextPage();
+        },
+        function done(err) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        }
+      );
+  }, []);
+
+  console.log(promotions[0].promotionMedia[0].url);
   return (
     <ScrollView style={styles.homeScreen} showsVerticalScrollIndicator={false}>
       <View style={styles.homeScreen_Categories}>
@@ -167,7 +195,7 @@ const HomeScreen = (props) => {
         <View style={styles.promotionWrapper}>
           <Video
             style={styles.video}
-            source={require('../assets/IMG_7090.MP4.mp4')}
+            source={{ uri: promotions[3].promotionMedia[0].url }}
             resizeMode='cover'
             rate={1}
             shouldPlay={true}

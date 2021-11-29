@@ -33,12 +33,10 @@ export default function App() {
   }
 
   return (
-    // <StoreProvider>
     <View style={styles.container}>
       <Header />
       <HomeScreen />
     </View>
-    // {/* </StoreProvider> */}
   );
 }
 
