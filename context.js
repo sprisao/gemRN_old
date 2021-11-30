@@ -2,6 +2,10 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Airtable from 'airtable';
 import { REACT_APP_AIRTABLE_API_KEY } from '@env';
+
+const storeBase = new Airtable({ apiKey: REACT_APP_AIRTABLE_API_KEY }).base(
+  'app0tAUATUh8jBxX4'
+);
 // import { initializeApp } from 'firebase/app';
 
 // const firebaseConfig = {
@@ -18,10 +22,6 @@ import { REACT_APP_AIRTABLE_API_KEY } from '@env';
 
 // // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
-
-const storeBase = new Airtable({
-  apiKey: REACT_APP_AIRTABLE_API_KEY,
-}).base('app0tAUATUh8jBxX4');
 
 const Context = React.createContext();
 
@@ -715,8 +715,6 @@ const StoreProvider = ({ children }) => {
         locationCategories,
         newStores,
         promotions,
-
-        app,
       }}
     >
       {children}
