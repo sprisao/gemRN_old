@@ -4,10 +4,6 @@ import AppLoading from 'expo-app-loading';
 
 import GemNavigator from './navigation/GemNavigator';
 
-// import { StoreProvider } from './context';
-
-// import { useGlobalContext } from './context';
-
 const fetchFonts = () => {
   return Font.loadAsync({
     'notoSans-Black': require('./assets/fonts/Noto_Sans_KR/NotoSansKR-Black.otf'),

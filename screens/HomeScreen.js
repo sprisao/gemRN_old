@@ -13,52 +13,88 @@ const HomeScreen = (props) => {
       <View style={styles.homeScreen_Categories}>
         <View style={styles.homeButton_Container}>
           <HomeButton2x1
+            CategoryId={'recxEYsUuSaVk3ge2'}
             Category={'맛집'}
             Desc={'검색없이 바로찾는 원주맛집!'}
             imageUrl={require('../assets/images/emojis/restaurants.png')}
             onSelect={() => {
-              props.navigation.navigate({ routeName: 'SecondSelect' });
+              props.navigation.navigate({
+                routeName: 'SecondSelect',
+                params: {
+                  categoryId: 'recxEYsUuSaVk3ge2',
+                },
+              });
             }}
           />
           <HomeButton2x1
+            CategoryId={'rec1nohULLWQVqXZD'}
             Category={'카페'}
             Desc={'원주의 모든 카페를 한 눈에!'}
             imageUrl={require('../assets/images/emojis/cafe.png')}
             onSelect={() => {
-              props.navigation.navigate({ routeName: 'SecondSelect' });
+              props.navigation.navigate({
+                routeName: 'SecondSelect',
+                params: {
+                  categoryId: 'rec1nohULLWQVqXZD',
+                },
+              });
             }}
           />
         </View>
         <View style={styles.homeButton_Container}>
           <View style={styles.buttonWrapper}>
             <HomeButton4x1
+              CategoryId={'rectbHPCk3LZzfu6w'}
               Category={'호프·주점'}
               imageUrl={require('../assets/images/emojis/pub.png')}
               onSelect={() => {
-                props.navigation.navigate({ routeName: 'SecondSelect' });
+                props.navigation.navigate({
+                  routeName: 'SecondSelect',
+                  params: {
+                    categoryId: 'rectbHPCk3LZzfu6w',
+                  },
+                });
               }}
             />
             <HomeButton4x1
+              CategoryId={'recTQQfv194uE5O1K'}
               Category={'운동·헬스'}
               imageUrl={require('../assets/images/emojis/gym.png')}
               onSelect={() => {
-                props.navigation.navigate({ routeName: 'SecondSelect' });
+                props.navigation.navigate({
+                  routeName: 'SecondSelect',
+                  params: {
+                    categoryId: 'recTQQfv194uE5O1K',
+                  },
+                });
               }}
             />
           </View>
           <View style={styles.buttonWrapper}>
             <HomeButton4x1
+              CategoryId={'recse3cQXji2BWlNu'}
               Category={'미용·뷰티'}
               imageUrl={require('../assets/images/emojis/beauty.png')}
               onSelect={() => {
-                props.navigation.navigate({ routeName: 'SecondSelect' });
+                props.navigation.navigate({
+                  routeName: 'SecondSelect',
+                  params: {
+                    categoryId: 'recse3cQXji2BWlNu',
+                  },
+                });
               }}
             />
             <HomeButton4x1
+              CategoryId={'recqOzD4oznYyHeXS'}
               Category={'스튜디오'}
               imageUrl={require('../assets/images/emojis/studio.png')}
               onSelect={() => {
-                props.navigation.navigate({ routeName: 'SecondSelect' });
+                props.navigation.navigate({
+                  routeName: 'SecondSelect',
+                  params: {
+                    categoryId: 'recqOzD4oznYyHeXS',
+                  },
+                });
               }}
             />
           </View>
@@ -66,33 +102,57 @@ const HomeScreen = (props) => {
         <View style={styles.homeButton_Container}>
           <View style={styles.buttonWrapper}>
             <HomeButton4x1
+              CategoryId={'rec9dQcEElsgcAsD7'}
               Category={'반려동물'}
               imageUrl={require('../assets/images/emojis/pets.png')}
               onSelect={() => {
-                props.navigation.navigate({ routeName: 'SecondSelect' });
+                props.navigation.navigate({
+                  routeName: 'SecondSelect',
+                  params: {
+                    categoryId: 'rec9dQcEElsgcAsD7',
+                  },
+                });
               }}
             />
             <HomeButton4x1
+              CategoryId={'recoF9HKKfA3ZSxSP'}
               Category={'꽃'}
               imageUrl={require('../assets/images/emojis/flowershop.png')}
               onSelect={() => {
-                props.navigation.navigate({ routeName: 'SecondSelect' });
+                props.navigation.navigate({
+                  routeName: 'SecondSelect',
+                  params: {
+                    categoryId: 'recoF9HKKfA3ZSxSP',
+                  },
+                });
               }}
             />
           </View>
           <View style={styles.buttonWrapper}>
             <HomeButton4x1
+              CategoryId={'recXj7vVqBBJttGd8'}
               Category={'키즈'}
               imageUrl={require('../assets/images/emojis/kids.png')}
               onSelect={() => {
-                props.navigation.navigate({ routeName: 'SecondSelect' });
+                props.navigation.navigate({
+                  routeName: 'SecondSelect',
+                  params: {
+                    categoryId: 'recXj7vVqBBJttGd8',
+                  },
+                });
               }}
             />
             <HomeButton4x1
+              CategoryId={'recz1ftDhPT8VADjf'}
               Category={'교육·학원'}
               imageUrl={require('../assets/images/emojis/education.png')}
               onSelect={() => {
-                props.navigation.navigate({ routeName: 'SecondSelect' });
+                props.navigation.navigate({
+                  routeName: 'SecondSelect',
+                  params: {
+                    categoryId: 'recz1ftDhPT8VADjf',
+                  },
+                });
               }}
             />
           </View>
@@ -103,7 +163,12 @@ const HomeScreen = (props) => {
             Desc={'관광, 레져, 인생샷 스팟까지 한눈에!'}
             imageUrl={require('../assets/images/emojis/sightseeing.png')}
             onSelect={() => {
-              props.navigation.navigate({ routeName: 'SecondSelect' });
+              props.navigation.navigate({
+                routeName: 'SecondSelect',
+                params: {
+                  categoryId: ' ',
+                },
+              });
             }}
           />
         </View>

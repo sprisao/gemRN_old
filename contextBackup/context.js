@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useContext, useEffect } from 'react';
 import Airtable from 'airtable';
 import { REACT_APP_AIRTABLE_API_KEY } from '@env';
@@ -6,22 +5,6 @@ import { REACT_APP_AIRTABLE_API_KEY } from '@env';
 const storeBase = new Airtable({ apiKey: REACT_APP_AIRTABLE_API_KEY }).base(
   'app0tAUATUh8jBxX4'
 );
-// import { initializeApp } from 'firebase/app';
-
-// const firebaseConfig = {
-//   apiKey: 'AIzaSyBG5blnL2Sg_YMV71JAjzkUKm1a9T52Fz8',
-//   authDomain: 'gem-web-app.firebaseapp.com',
-//   databaseURL:
-//     'https://gem-web-app-default-rtdb.asia-southeast1.firebasedatabase.app',
-//   projectId: 'gem-web-app',
-//   storageBucket: 'gem-web-app.appspot.com',
-//   messagingSenderId: '244888179912',
-//   appId: '1:244888179912:web:89f9c3d98c9accb0d701fd',
-//   measurementId: 'G-B6WV89H0L0',
-// };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
 
 const Context = React.createContext();
 
