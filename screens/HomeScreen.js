@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { Video } from 'expo-av';
-import HomeButton from '../components/HomeScreen/HomeButton';
 import HomeButton2x1 from '../components/HomeScreen/HomeButton2x1';
+import HomeButton4x1 from '../components/HomeScreen/HomeButton4x1';
+import HomeButton1x1 from '../components/HomeScreen/HomeButton1x1';
 import Footer from '../components/Footer';
 import Separator from '../components/Separator';
 
@@ -17,7 +18,6 @@ const HomeScreen = (props) => {
             imageUrl={require('../assets/images/emojis/restaurants.png')}
             onSelect={() => {
               props.navigation.navigate({ routeName: 'SecondSelect' });
-              console.log(props.navigation.navigate);
             }}
           />
           <HomeButton2x1
@@ -26,120 +26,86 @@ const HomeScreen = (props) => {
             imageUrl={require('../assets/images/emojis/cafe.png')}
             onSelect={() => {
               props.navigation.navigate({ routeName: 'SecondSelect' });
-              console.log(props.navigation.navigate);
             }}
           />
         </View>
         <View style={styles.homeButton_Container}>
           <View style={styles.buttonWrapper}>
-            <HomeButton style={styles.homeBT_2}>
-              <Text style={styles.homeBT_2_Header}>호프·주점</Text>
-              <View style={styles.homeBT_2_EmojiContainer}>
-                <Image
-                  style={styles.homeBT_2_emoji}
-                  resizeMode='cover'
-                  source={require('../assets/images/emojis/pub.png')}
-                />
-              </View>
-            </HomeButton>
-            <HomeButton style={styles.homeBT_2}>
-              <Text style={styles.homeBT_2_Header}>운동·헬스</Text>
-              <View style={styles.homeBT_2_EmojiContainer}>
-                <Image
-                  style={styles.homeBT_2_emoji}
-                  resizeMode='cover'
-                  source={require('../assets/images/emojis/gym.png')}
-                />
-              </View>
-            </HomeButton>
+            <HomeButton4x1
+              Category={'호프·주점'}
+              imageUrl={require('../assets/images/emojis/pub.png')}
+              onSelect={() => {
+                props.navigation.navigate({ routeName: 'SecondSelect' });
+              }}
+            />
+            <HomeButton4x1
+              Category={'운동·헬스'}
+              imageUrl={require('../assets/images/emojis/gym.png')}
+              onSelect={() => {
+                props.navigation.navigate({ routeName: 'SecondSelect' });
+              }}
+            />
           </View>
           <View style={styles.buttonWrapper}>
-            <HomeButton style={styles.homeBT_2}>
-              <Text style={styles.homeBT_2_Header}>미용·뷰티</Text>
-              <View style={styles.homeBT_2_EmojiContainer}>
-                <Image
-                  style={styles.homeBT_2_emoji}
-                  resizeMode='cover'
-                  source={require('../assets/images/emojis/beauty.png')}
-                />
-              </View>
-            </HomeButton>
-            <HomeButton style={styles.homeBT_2}>
-              <Text style={styles.homeBT_2_Header}>스튜디오</Text>
-              <View style={styles.homeBT_2_EmojiContainer}>
-                <Image
-                  style={styles.homeBT_2_emoji}
-                  resizeMode='cover'
-                  source={require('../assets/images/emojis/studio.png')}
-                />
-              </View>
-            </HomeButton>
+            <HomeButton4x1
+              Category={'미용·뷰티'}
+              imageUrl={require('../assets/images/emojis/beauty.png')}
+              onSelect={() => {
+                props.navigation.navigate({ routeName: 'SecondSelect' });
+              }}
+            />
+            <HomeButton4x1
+              Category={'스튜디오'}
+              imageUrl={require('../assets/images/emojis/studio.png')}
+              onSelect={() => {
+                props.navigation.navigate({ routeName: 'SecondSelect' });
+              }}
+            />
           </View>
         </View>
         <View style={styles.homeButton_Container}>
           <View style={styles.buttonWrapper}>
-            <HomeButton style={styles.homeBT_2}>
-              <Text style={styles.homeBT_2_Header}>반려동물</Text>
-              <View style={styles.homeBT_2_EmojiContainer}>
-                <Image
-                  style={styles.homeBT_2_emoji}
-                  resizeMode='cover'
-                  source={require('../assets/images/emojis/pets.png')}
-                />
-              </View>
-            </HomeButton>
-            <HomeButton style={styles.homeBT_2}>
-              <Text style={styles.homeBT_2_Header}>꽃</Text>
-              <View style={styles.homeBT_2_EmojiContainer}>
-                <Image
-                  style={styles.homeBT_2_emoji}
-                  resizeMode='cover'
-                  source={require('../assets/images/emojis/flowershop.png')}
-                />
-              </View>
-            </HomeButton>
+            <HomeButton4x1
+              Category={'반려동물'}
+              imageUrl={require('../assets/images/emojis/pets.png')}
+              onSelect={() => {
+                props.navigation.navigate({ routeName: 'SecondSelect' });
+              }}
+            />
+            <HomeButton4x1
+              Category={'꽃'}
+              imageUrl={require('../assets/images/emojis/flowershop.png')}
+              onSelect={() => {
+                props.navigation.navigate({ routeName: 'SecondSelect' });
+              }}
+            />
           </View>
           <View style={styles.buttonWrapper}>
-            <HomeButton style={styles.homeBT_2}>
-              <Text style={styles.homeBT_2_Header}>키즈</Text>
-              <View style={styles.homeBT_2_EmojiContainer}>
-                <Image
-                  style={styles.homeBT_2_emoji}
-                  resizeMode='cover'
-                  source={require('../assets/images/emojis/kids.png')}
-                />
-              </View>
-            </HomeButton>
-            <HomeButton style={styles.homeBT_2}>
-              <Text style={styles.homeBT_2_Header}>교육·학원</Text>
-              <View style={styles.homeBT_2_EmojiContainer}>
-                <Image
-                  style={styles.homeBT_2_emoji}
-                  resizeMode='cover'
-                  source={require('../assets/images/emojis/education.png')}
-                />
-              </View>
-            </HomeButton>
+            <HomeButton4x1
+              Category={'키즈'}
+              imageUrl={require('../assets/images/emojis/kids.png')}
+              onSelect={() => {
+                props.navigation.navigate({ routeName: 'SecondSelect' });
+              }}
+            />
+            <HomeButton4x1
+              Category={'교육·학원'}
+              imageUrl={require('../assets/images/emojis/education.png')}
+              onSelect={() => {
+                props.navigation.navigate({ routeName: 'SecondSelect' });
+              }}
+            />
           </View>
         </View>
         <View style={styles.homeButton_Container}>
-          <HomeButton style={styles.homeBT_3}>
-            <View>
-              <Text style={styles.homeBT_3_Header}>가볼만한 곳</Text>
-              <View style={styles.homeBT_3_Article}>
-                <Text style={styles.homeBT_3_Paragraph}>
-                  관광, 레져, 인생샷 스팟까지 한눈에!
-                </Text>
-              </View>
-            </View>
-            <View style={styles.homeBT_3_EmojiContainer}>
-              <Image
-                style={styles.homeBT_3_emoji}
-                resizeMode='cover'
-                source={require('../assets/images/emojis/sightseeing.png')}
-              />
-            </View>
-          </HomeButton>
+          <HomeButton1x1
+            Category={'가볼만한 곳'}
+            Desc={'관광, 레져, 인생샷 스팟까지 한눈에!'}
+            imageUrl={require('../assets/images/emojis/sightseeing.png')}
+            onSelect={() => {
+              props.navigation.navigate({ routeName: 'SecondSelect' });
+            }}
+          />
         </View>
       </View>
 
@@ -193,88 +159,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     overflow: 'hidden',
   },
-  homeBT_2: {
-    width: '47%',
-    height: 82,
-    paddingHorizontal: 8,
-  },
-  homeBT_3: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    height: 100,
-    padding: 10,
-  },
 
   buttonWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '48.5%',
-  },
-  homeBT_2_Header: {
-    fontSize: 14.5,
-    fontFamily: 'notoSans-Medium',
-    letterSpacing: -0.95,
-    includeFontPadding: false,
-  },
-  homeBT_3_Header: {
-    fontSize: 18,
-    fontFamily: 'notoSans-Bold',
-    letterSpacing: -0.35,
-    includeFontPadding: false,
-  },
-
-  homeBT_3_Article: {
-    flexDirection: 'row',
-    width: '100%',
-    marginTop: 2,
-  },
-
-  homeBT_3_Paragraph: {
-    fontFamily: 'notoSans-Light',
-    lineHeight: 20,
-    fontSize: 13,
-  },
-
-  homeBT_2_EmojiContainer: {
-    flexDirection: 'row-reverse',
-    alignItems: 'flex-end',
-  },
-  homeBT_3_EmojiContainer: {
-    flexDirection: 'row-reverse',
-    alignItems: 'flex-end',
-  },
-
-  homeBT_2_emoji: {
-    position: 'absolute',
-    width: 40,
-    height: 40,
-    left: -8,
-    top: 12,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 3, height: 3 },
-        shadowOpacity: 0.5,
-        shadowRadius: 2,
-      },
-    }),
-  },
-
-  homeBT_3_emoji: {
-    position: 'absolute',
-    width: 80,
-    height: 80,
-    left: -5,
-    top: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 3, height: 3 },
-        shadowOpacity: 0.8,
-        shadowRadius: 10,
-      },
-    }),
   },
 
   promotionSection: {
