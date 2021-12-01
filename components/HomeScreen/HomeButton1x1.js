@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 11.5,
     borderWidth: 0.65,
     borderColor: '#dfdfdf',
-    backgroundColor: '#fdfdfd',
+    backgroundColor: '#f3f3f3',
     overflow: 'hidden',
     flexDirection: 'row',
     justifyContent: 'space-between',

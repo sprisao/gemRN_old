@@ -21,6 +21,7 @@ const HomeScreen = (props) => {
               props.navigation.navigate({
                 routeName: 'SecondSelect',
                 params: {
+                  categoryName: '맛집',
                   categoryId: 'recxEYsUuSaVk3ge2',
                 },
               });
@@ -35,6 +36,7 @@ const HomeScreen = (props) => {
               props.navigation.navigate({
                 routeName: 'SecondSelect',
                 params: {
+                  categoryName: '카페',
                   categoryId: 'rec1nohULLWQVqXZD',
                 },
               });
@@ -51,6 +53,7 @@ const HomeScreen = (props) => {
                 props.navigation.navigate({
                   routeName: 'SecondSelect',
                   params: {
+                    categoryName: '호프·주점',
                     categoryId: 'rectbHPCk3LZzfu6w',
                   },
                 });
@@ -64,6 +67,7 @@ const HomeScreen = (props) => {
                 props.navigation.navigate({
                   routeName: 'SecondSelect',
                   params: {
+                    categoryName: '운동·헬스',
                     categoryId: 'recTQQfv194uE5O1K',
                   },
                 });
@@ -79,6 +83,7 @@ const HomeScreen = (props) => {
                 props.navigation.navigate({
                   routeName: 'SecondSelect',
                   params: {
+                    categoryName: '미용·뷰티',
                     categoryId: 'recse3cQXji2BWlNu',
                   },
                 });
@@ -92,6 +97,7 @@ const HomeScreen = (props) => {
                 props.navigation.navigate({
                   routeName: 'SecondSelect',
                   params: {
+                    categoryName: '스튜디오',
                     categoryId: 'recqOzD4oznYyHeXS',
                   },
                 });
@@ -109,6 +115,7 @@ const HomeScreen = (props) => {
                 props.navigation.navigate({
                   routeName: 'SecondSelect',
                   params: {
+                    categoryName: '반려동물',
                     categoryId: 'rec9dQcEElsgcAsD7',
                   },
                 });
@@ -122,6 +129,7 @@ const HomeScreen = (props) => {
                 props.navigation.navigate({
                   routeName: 'SecondSelect',
                   params: {
+                    categoryName: '꽃',
                     categoryId: 'recoF9HKKfA3ZSxSP',
                   },
                 });
@@ -137,6 +145,7 @@ const HomeScreen = (props) => {
                 props.navigation.navigate({
                   routeName: 'SecondSelect',
                   params: {
+                    categoryName: '키즈',
                     categoryId: 'recXj7vVqBBJttGd8',
                   },
                 });
@@ -150,6 +159,7 @@ const HomeScreen = (props) => {
                 props.navigation.navigate({
                   routeName: 'SecondSelect',
                   params: {
+                    categoryName: '교육·학원',
                     categoryId: 'recz1ftDhPT8VADjf',
                   },
                 });
@@ -166,6 +176,7 @@ const HomeScreen = (props) => {
               props.navigation.navigate({
                 routeName: 'SecondSelect',
                 params: {
+                  categoryName: '가볼만한 곳',
                   categoryId: ' ',
                 },
               });
@@ -212,6 +223,7 @@ const styles = StyleSheet.create({
   homeScreen: {
     width: '100%',
     height: '100%',
+    backgroundColor: 'white',
   },
   homeScreen_Categories: {
     paddingHorizontal: 13,
