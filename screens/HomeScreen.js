@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { Video } from 'expo-av';
-import HomeButton from '../components/HomeButton';
+import HomeButton from '../components/HomeScreen/HomeButton';
+import HomeButton2x1 from '../components/HomeScreen/HomeButton2x1';
 import Footer from '../components/Footer';
 import Separator from '../components/Separator';
 
@@ -10,36 +11,24 @@ const HomeScreen = (props) => {
     <ScrollView style={styles.homeScreen} showsVerticalScrollIndicator={false}>
       <View style={styles.homeScreen_Categories}>
         <View style={styles.homeButton_Container}>
-          <HomeButton style={styles.homeBT_1}>
-            <Text style={styles.homeBT_1_Header}>맛집</Text>
-            <View style={styles.homeBT_1_Article}>
-              <Text style={styles.homeBT_1_Paragraph}>
-                검색없이 바로찾는 {'\n'}원주맛집!
-              </Text>
-            </View>
-            <View style={styles.homeBT_1_EmojiContainer}>
-              <Image
-                style={styles.homeBT_1_emoji}
-                resizeMode='cover'
-                source={require('../assets/images/emojis/restaurants.png')}
-              />
-            </View>
-          </HomeButton>
-          <HomeButton style={styles.homeBT_1}>
-            <Text style={styles.homeBT_1_Header}>카페</Text>
-            <View style={styles.homeBT_1_Article}>
-              <Text style={styles.homeBT_1_Paragraph}>
-                원주의 '거의'{'\n'}모든 카페를 한 눈에!
-              </Text>
-            </View>
-            <View style={styles.homeBT_1_EmojiContainer}>
-              <Image
-                style={styles.homeBT_1_emoji}
-                resizeMode='cover'
-                source={require('../assets/images/emojis/cafe.png')}
-              />
-            </View>
-          </HomeButton>
+          <HomeButton2x1
+            Category={'맛집'}
+            Desc={'검색없이 바로찾는 원주맛집!'}
+            imageUrl={require('../assets/images/emojis/restaurants.png')}
+            onSelect={() => {
+              props.navigation.navigate({ routeName: 'SecondSelect' });
+              console.log(props.navigation.navigate);
+            }}
+          />
+          <HomeButton2x1
+            Category={'카페'}
+            Desc={'원주의 모든 카페를 한 눈에!'}
+            imageUrl={require('../assets/images/emojis/cafe.png')}
+            onSelect={() => {
+              props.navigation.navigate({ routeName: 'SecondSelect' });
+              console.log(props.navigation.navigate);
+            }}
+          />
         </View>
         <View style={styles.homeButton_Container}>
           <View style={styles.buttonWrapper}>
@@ -204,12 +193,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     overflow: 'hidden',
   },
-  homeBT_1: {
-    flexDirection: 'column',
-    width: '48.5%',
-    height: 190,
-    paddingTop: 10,
-  },
   homeBT_2: {
     width: '47%',
     height: 82,
@@ -228,13 +211,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '48.5%',
   },
-
-  homeBT_1_Header: {
-    fontSize: 30,
-    fontFamily: 'notoSans-Bold',
-    letterSpacing: -0.35,
-    includeFontPadding: false,
-  },
   homeBT_2_Header: {
     fontSize: 14.5,
     fontFamily: 'notoSans-Medium',
@@ -248,32 +224,18 @@ const styles = StyleSheet.create({
     includeFontPadding: false,
   },
 
-  homeBT_1_Article: {
-    width: '100%',
-    marginTop: 2,
-  },
   homeBT_3_Article: {
     flexDirection: 'row',
     width: '100%',
     marginTop: 2,
   },
 
-  homeBT_1_Paragraph: {
-    fontFamily: 'notoSans-Light',
-    lineHeight: 15.5,
-    fontSize: 13,
-  },
   homeBT_3_Paragraph: {
     fontFamily: 'notoSans-Light',
     lineHeight: 20,
     fontSize: 13,
   },
 
-  homeBT_1_EmojiContainer: {
-    flexDirection: 'row-reverse',
-    width: '100%',
-    height: 40,
-  },
   homeBT_2_EmojiContainer: {
     flexDirection: 'row-reverse',
     alignItems: 'flex-end',
@@ -281,21 +243,6 @@ const styles = StyleSheet.create({
   homeBT_3_EmojiContainer: {
     flexDirection: 'row-reverse',
     alignItems: 'flex-end',
-  },
-  homeBT_1_emoji: {
-    position: 'absolute',
-    left: -15,
-    top: 10,
-    width: 100,
-    height: 100,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 3, height: 3 },
-        shadowOpacity: 0.25,
-        shadowRadius: 3,
-      },
-    }),
   },
 
   homeBT_2_emoji: {

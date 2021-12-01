@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Platform } from 'react-native';
 
 const HomeButton = (props) => {
   return (
