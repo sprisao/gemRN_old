@@ -3,11 +3,11 @@ import { StyleSheet, View } from 'react-native';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
-import Header from './components/Header';
+import GemNavigator from './navigation/GemNavigator';
 
-import HomeScreen from './screens/HomeScreen';
+// import { StoreProvider } from './context';
 
-import { StoreProvider } from './context';
+// import { useGlobalContext } from './context';
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -34,12 +34,9 @@ export default function App() {
   }
 
   return (
-    <StoreProvider>
-      <View style={styles.container}>
-        <Header />
-        <HomeScreen />
-      </View>
-    </StoreProvider>
+    // <StoreProvider>
+    <GemNavigator />
+    // </StoreProvider>
   );
 }
 

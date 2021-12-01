@@ -4,11 +4,8 @@ import { Video } from 'expo-av';
 import HomeButton from '../components/HomeButton';
 import Footer from '../components/Footer';
 import Separator from '../components/Separator';
-import { useGlobalContext } from '../context';
 
 const HomeScreen = (props) => {
-  const { promotions } = useGlobalContext();
-
   return (
     <ScrollView style={styles.homeScreen} showsVerticalScrollIndicator={false}>
       <View style={styles.homeScreen_Categories}>
@@ -161,7 +158,7 @@ const HomeScreen = (props) => {
         <View style={styles.promotionWrapper}>
           <Video
             style={styles.video}
-            source={{ uri: promotions[3].promotionMedia[0].url }}
+            // source={{ uri: promotions[3].promotionMedia[0].url }}
             resizeMode='cover'
             rate={1}
             shouldPlay={true}
