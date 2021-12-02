@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
+import { StoreProvider } from './Context';
+
 import GemNavigator from './navigation/GemNavigator';
 
 const fetchFonts = () => {
@@ -28,5 +30,9 @@ export default function App() {
     );
   }
 
-  return <GemNavigator />;
+  return (
+    <StoreProvider>
+      <GemNavigator />
+    </StoreProvider>
+  );
 }
