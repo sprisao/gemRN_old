@@ -2,8 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { Video } from 'expo-av';
 
-import AppLoading from 'expo-app-loading';
-
 import HomeButton2x1 from '../components/HomeScreen/HomeButton2x1';
 import HomeButton4x1 from '../components/HomeScreen/HomeButton4x1';
 import HomeButton1x1 from '../components/HomeScreen/HomeButton1x1';
@@ -13,6 +11,7 @@ import Separator from '../components/Separator';
 import Header from '../components/Header';
 
 import { useGlobalContext } from '../Context';
+
 const HomeScreen = (props) => {
   const { secondLoading } = useGlobalContext();
 
@@ -40,7 +39,7 @@ const HomeScreen = (props) => {
               imageUrl={require('../assets/images/emojis/restaurants.png')}
               onSelect={() => {
                 props.navigation.navigate({
-                  routeName: 'SecondSelect',
+                  name: 'SecondSelect',
                   params: {
                     categoryName: '맛집',
                     categoryId: 'recxEYsUuSaVk3ge2',
@@ -55,7 +54,7 @@ const HomeScreen = (props) => {
               imageUrl={require('../assets/images/emojis/cafe.png')}
               onSelect={() => {
                 props.navigation.navigate({
-                  routeName: 'SecondSelect',
+                  name: 'SecondSelect',
                   params: {
                     categoryName: '카페',
                     categoryId: 'rec1nohULLWQVqXZD',
@@ -72,7 +71,7 @@ const HomeScreen = (props) => {
                 imageUrl={require('../assets/images/emojis/pub.png')}
                 onSelect={() => {
                   props.navigation.navigate({
-                    routeName: 'SecondSelect',
+                    name: 'SecondSelect',
                     params: {
                       categoryName: '호프·주점',
                       categoryId: 'rectbHPCk3LZzfu6w',
@@ -86,7 +85,7 @@ const HomeScreen = (props) => {
                 imageUrl={require('../assets/images/emojis/gym.png')}
                 onSelect={() => {
                   props.navigation.navigate({
-                    routeName: 'SecondSelect',
+                    name: 'SecondSelect',
                     params: {
                       categoryName: '운동·헬스',
                       categoryId: 'recTQQfv194uE5O1K',
@@ -102,7 +101,7 @@ const HomeScreen = (props) => {
                 imageUrl={require('../assets/images/emojis/beauty.png')}
                 onSelect={() => {
                   props.navigation.navigate({
-                    routeName: 'SecondSelect',
+                    name: 'SecondSelect',
                     params: {
                       categoryName: '미용·뷰티',
                       categoryId: 'recse3cQXji2BWlNu',
@@ -116,7 +115,7 @@ const HomeScreen = (props) => {
                 imageUrl={require('../assets/images/emojis/studio.png')}
                 onSelect={() => {
                   props.navigation.navigate({
-                    routeName: 'SecondSelect',
+                    name: 'SecondSelect',
                     params: {
                       categoryName: '스튜디오',
                       categoryId: 'recqOzD4oznYyHeXS',
@@ -134,7 +133,7 @@ const HomeScreen = (props) => {
                 imageUrl={require('../assets/images/emojis/pets.png')}
                 onSelect={() => {
                   props.navigation.navigate({
-                    routeName: 'SecondSelect',
+                    name: 'SecondSelect',
                     params: {
                       categoryName: '반려동물',
                       categoryId: 'rec9dQcEElsgcAsD7',
@@ -148,7 +147,7 @@ const HomeScreen = (props) => {
                 imageUrl={require('../assets/images/emojis/flowershop.png')}
                 onSelect={() => {
                   props.navigation.navigate({
-                    routeName: 'SecondSelect',
+                    name: 'SecondSelect',
                     params: {
                       categoryName: '꽃',
                       categoryId: 'recoF9HKKfA3ZSxSP',
@@ -164,7 +163,7 @@ const HomeScreen = (props) => {
                 imageUrl={require('../assets/images/emojis/kids.png')}
                 onSelect={() => {
                   props.navigation.navigate({
-                    routeName: 'SecondSelect',
+                    name: 'SecondSelect',
                     params: {
                       categoryName: '키즈',
                       categoryId: 'recXj7vVqBBJttGd8',
@@ -178,7 +177,7 @@ const HomeScreen = (props) => {
                 imageUrl={require('../assets/images/emojis/education.png')}
                 onSelect={() => {
                   props.navigation.navigate({
-                    routeName: 'SecondSelect',
+                    name: 'SecondSelect',
                     params: {
                       categoryName: '교육·학원',
                       categoryId: 'recz1ftDhPT8VADjf',
@@ -195,7 +194,7 @@ const HomeScreen = (props) => {
               imageUrl={require('../assets/images/emojis/sightseeing.png')}
               onSelect={() => {
                 props.navigation.navigate({
-                  routeName: 'SecondSelect',
+                  name: 'SecondSelect',
                   params: {
                     categoryName: '가볼만한 곳',
                     categoryId: ' ',

@@ -15,7 +15,8 @@ const SecondSelectScreen = (props) => {
     locationCategories,
   } = useGlobalContext();
 
-  const catId = props.navigation.getParam('categoryId');
+  console.log('props', props);
+  const catId = props.route.params.categoryId;
 
   const selectedCategory = secondCategories.filter(
     (cat) => cat.firstCategoryId[0] === catId
@@ -28,7 +29,7 @@ const SecondSelectScreen = (props) => {
         emoji={data.item.emoji}
         onSecondSelect={() => {
           props.navigation.navigate({
-            routeName: 'Category',
+            name: 'Category',
             params: {
               secondCatId: data.item.id,
               selectedCatName: data.item.title,
@@ -57,14 +58,6 @@ const SecondSelectScreen = (props) => {
 };
 
 export default SecondSelectScreen;
-
-SecondSelectScreen.navigationOptions = (navigationData) => {
-  const catTitle = navigationData.navigation.getParam('categoryName');
-
-  return {
-    headerTitle: catTitle,
-  };
-};
 
 const styles = StyleSheet.create({
   screen: {

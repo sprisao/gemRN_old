@@ -1,9 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+// import { NavigationContainer } from 'react-navigation';
+// import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
+import { useGlobalContext } from '../Context';
+
 const CategoryScreen = (props) => {
-  const selectedCat = props.navigation.getParam('categoryName');
-  const selectedSecond = props.navigation.getParam('selectedCatName');
+  const selectedCat = props.route.params.categoryName;
+  const selectedSecond = props.route.params.selectedCatName;
+
+  const { secondCategories } = useGlobalContext();
+
+  console.log(secondCategories);
 
   return (
     <View style={styles.screen}>
@@ -16,7 +25,7 @@ const CategoryScreen = (props) => {
 export default CategoryScreen;
 
 CategoryScreen.navigationOptions = (navigationData) => {
-  const catTitle = navigationData.navigation.getParam('categoryName');
+  const catTitle = navigationData.route.params.categoryName;
 
   return {
     headerTitle: catTitle,

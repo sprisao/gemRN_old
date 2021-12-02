@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
+import { NavigationContainer } from '@react-navigation/native';
 import { StoreProvider } from './Context';
-
-import GemNavigator from './navigation/GemNavigator';
+import StackNavigator from './navigation/StackNavigator';
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -32,7 +32,9 @@ export default function App() {
 
   return (
     <StoreProvider>
-      <GemNavigator />
+      <NavigationContainer>
+        <StackNavigator />
+      </NavigationContainer>
     </StoreProvider>
   );
 }
