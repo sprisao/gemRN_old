@@ -23,6 +23,7 @@ const SecondSelectScreen = (props) => {
   );
 
   const renderSecondSelect = (data) => {
+    console.log('data', data.item.title);
     return (
       <SecondSelectButton
         title={data.item.title}
@@ -32,7 +33,7 @@ const SecondSelectScreen = (props) => {
             name: 'Category',
             params: {
               secondCatId: data.item.id,
-              selectedCatName: data.item.title,
+              secondCatName: data.item.title,
               categoryName: data.item.firstCategory[0],
             },
           });

@@ -19,8 +19,16 @@ export default function GemStack() {
           headerShown: false,
         }}
       />
-      <Stack.Screen name='SecondSelect' component={SecondSelectScreen} />
-      <Stack.Screen name='Category' component={CategoryScreen} />
+      <Stack.Screen
+        name='SecondSelect'
+        component={SecondSelectScreen}
+        options={({ route }) => ({ title: route.params.categoryName })}
+      />
+      <Stack.Screen
+        name='Category'
+        component={CategoryScreen}
+        options={({ route }) => ({ title: route.params.secondCatName })}
+      />
     </Stack.Navigator>
   );
 }
