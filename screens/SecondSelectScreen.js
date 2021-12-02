@@ -30,7 +30,7 @@ const SecondSelectScreen = (props) => {
         emoji={data.item.emoji}
         onSecondSelect={() => {
           props.navigation.navigate({
-            name: 'Category',
+            name: 'Restaurants',
             params: {
               secondCatId: data.item.id,
               secondCatName: data.item.title,

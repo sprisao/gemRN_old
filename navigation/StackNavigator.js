@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import SecondSelectScreen from '../screens/SecondSelectScreen';
 import CategoryScreen from '../screens/CategoryScreen';
+import Restaurants from '../screens/Restaurants';
 import EventsScreen from '../screens/EventsScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 
@@ -27,6 +28,11 @@ export default function GemStack() {
       <Stack.Screen
         name='Category'
         component={CategoryScreen}
+        options={({ route }) => ({ title: route.params.secondCatName })}
+      />
+      <Stack.Screen
+        name='Restaurants'
+        component={Restaurants}
         options={({ route }) => ({ title: route.params.secondCatName })}
       />
     </Stack.Navigator>
