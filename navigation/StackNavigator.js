@@ -35,6 +35,11 @@ export default function GemStack() {
         component={Restaurants}
         options={({ route }) => ({ title: route.params.secondCatName })}
       />
+      <Stack.Screen
+        name='Details'
+        component={DetailsScreen}
+        options={({ route }) => ({ title: route.params.secondCatName })}
+      />
     </Stack.Navigator>
   );
 }

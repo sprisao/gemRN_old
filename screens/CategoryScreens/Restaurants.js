@@ -1,28 +1,131 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { useGlobalContext } from '../../Context';
+import GridWrapper from '../../components/CategoryScreen/GridWrapper';
+import colors from '../../constants/styleSettings/colors';
 
 const Tab = createMaterialTopTabNavigator();
 
-import Res_Sec_All from '../../components/CategoryScreen/restaurants/Res_Sec_All';
-import Res_Sec_Bun from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_Ch from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_Chick from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_Don from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_Dosi from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_Gob from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_Gook from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_HamB from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_Jok from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_Kor from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_KorN from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_Night from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_Pizza from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_Salad from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_Tang from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-import Res_Sec_West from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
-
 const Restaurants = (props) => {
+  const { restaurants } = useGlobalContext();
+
+  const sliced = restaurants.slice(1, 300);
+
+  const all = sliced;
+  const jok = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'rec9AQaAKvzGDumyT'
+  );
+  const hamB = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'recGCR0nAaarWxMYF'
+  );
+  const ch = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'recKXAHESS8bfL9An'
+  );
+  const pizza = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'recNqj81zO9vo8Y1S'
+  );
+  const night = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'recWjPmQXkel8qmBF'
+  );
+  const don = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'reccIlp7IP4s9qZJm'
+  );
+  const west = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'reccSeNPsdGNsP3xA'
+  );
+  const chick = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'recgPMsTtxj5TGmYX'
+  );
+  const kor = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'recijnmBY043chgi0'
+  );
+  const tang = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'recu5oxlWN5AMn7KW'
+  );
+  const dosi = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'recwzwuLim1rnNhBu'
+  );
+  const salad = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'recwpFEyhZ1bKxqcB'
+  );
+  const bun = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'recxY2d5PwVXiKRHP'
+  );
+  const korN = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'rec7e1fQLpqKa2uXE'
+  );
+  const gook = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'recmL3e8AyRVYq1Xc'
+  );
+  const gob = sliced.filter(
+    (item) => item.secondCategoryId[0] === 'recLHWFM0c5dDC89u'
+  );
+
+  function All() {
+    return <GridWrapper data={all} />;
+  }
+
+  function Bun() {
+    return <GridWrapper data={bun} />;
+  }
+
+  function Chi() {
+    return <GridWrapper data={ch} />;
+  }
+
+  function Kor() {
+    return <GridWrapper data={kor} />;
+  }
+
+  function Chick() {
+    return <GridWrapper data={chick} />;
+  }
+
+  function Don() {
+    return <GridWrapper data={don} />;
+  }
+
+  function Pizza() {
+    return <GridWrapper data={pizza} />;
+  }
+
+  function Gob() {
+    return <GridWrapper data={gob} />;
+  }
+
+  function Dosi() {
+    return <GridWrapper data={dosi} />;
+  }
+
+  function Night() {
+    return <GridWrapper data={night} />;
+  }
+
+  function Gook() {
+    return <GridWrapper data={gook} />;
+  }
+
+  function HamB() {
+    return <GridWrapper data={hamB} />;
+  }
+
+  function KorN() {
+    return <GridWrapper data={korN} />;
+  }
+  function Jok() {
+    return <GridWrapper data={jok} />;
+  }
+  function Salad() {
+    return <GridWrapper data={salad} />;
+  }
+  function West() {
+    return <GridWrapper data={west} />;
+  }
+  function Tang() {
+    return <GridWrapper data={tang} />;
+  }
+
   return (
     <Tab.Navigator
       initialRouteName={props.route.params.secondCatName}
@@ -32,25 +135,32 @@ const Restaurants = (props) => {
           width: 80,
           height: 40,
         },
+        tabBarIndicatorStyle: {
+          borderBottomColor: colors.primary,
+          borderBottomWidth: 2,
+        },
+        lazy: true,
+        lazyPreloadDistance: 2,
+        lazyPlaceholder: () => <Text>로딩중</Text>,
       }}
     >
-      <Tab.Screen name='전체' component={Res_Sec_All} />
-      <Tab.Screen name='한식' component={Res_Sec_Kor} />
-      <Tab.Screen name='한식(면)' component={Res_Sec_KorN} />
-      <Tab.Screen name='분식' component={Res_Sec_Bun} />
-      <Tab.Screen name='중식' component={Res_Sec_Ch} />
-      <Tab.Screen name='치킨' component={Res_Sec_Chick} />
-      <Tab.Screen name='돈까스' component={Res_Sec_Don} />
-      <Tab.Screen name='도시락' component={Res_Sec_Dosi} />
-      <Tab.Screen name='곱창·구이' component={Res_Sec_Gob} />
-      <Tab.Screen name='국밥' component={Res_Sec_Gook} />
-      <Tab.Screen name='햄버거' component={Res_Sec_HamB} />
-      <Tab.Screen name='족발' component={Res_Sec_Jok} />
-      <Tab.Screen name='야식' component={Res_Sec_Night} />
-      <Tab.Screen name='피자' component={Res_Sec_Pizza} />
-      <Tab.Screen name='샐러드' component={Res_Sec_Salad} />
-      <Tab.Screen name='찜·탕·찌개' component={Res_Sec_Tang} />
-      <Tab.Screen name='아시안·양식' component={Res_Sec_West} />
+      <Tab.Screen name='전체' component={All} />
+      <Tab.Screen name='한식' component={Kor} />
+      <Tab.Screen name='한식(면)' component={KorN} />
+      <Tab.Screen name='분식' component={Bun} />
+      <Tab.Screen name='중식' component={Chi} />
+      <Tab.Screen name='치킨' component={Chick} />
+      <Tab.Screen name='돈까스' component={Don} />
+      <Tab.Screen name='도시락' component={Dosi} />
+      <Tab.Screen name='곱창·구이' component={Gob} />
+      <Tab.Screen name='국밥' component={Gook} />
+      <Tab.Screen name='햄버거' component={HamB} />
+      <Tab.Screen name='족발·보쌈' component={Jok} />
+      <Tab.Screen name='야식' component={Night} />
+      <Tab.Screen name='피자' component={Pizza} />
+      <Tab.Screen name='샐러드' component={Salad} />
+      <Tab.Screen name='찜·탕·찌개' component={Tang} />
+      <Tab.Screen name='아시안·양식' component={West} />
     </Tab.Navigator>
   );
 };
