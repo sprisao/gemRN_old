@@ -9,9 +9,14 @@ const storeBase = new Airtable({ apiKey: REACT_APP_AIRTABLE_API_KEY }).base(
 const Context = React.createContext();
 
 const StoreProvider = ({ children }) => {
-  const [navigationLoading, setNavigationLoading] = useState(true);
+  const [categoryLoading, setCategoryLoading] = useState(true);
   const [secondLoading, setSecondLoading] = useState(true);
   const [locationLoading, setLocationLoading] = useState(true);
+  const [restaurantLoading, setRestaurantLoading] = useState(true);
+  const [cafesLoading, setCafesLoading] = useState(true);
+
+  const [restaurants, setRestaurants] = useState([]);
+  const [cafes, setCafes] = useState([]);
 
   const [firstCategories, setFirstCategories] = useState([]);
   const [secondCategories, setSecondCategories] = useState([]);
@@ -20,6 +25,66 @@ const StoreProvider = ({ children }) => {
   const firstCategory = [];
   const secondCategory = [];
   const locationCategory = [];
+  const restaurant = [];
+  const cafe = [];
+
+  // 맛집 불러오기
+  useEffect(() => {
+    storeBase('stores')
+      .select({
+        view: 'restaurants',
+        pageSize: 100,
+      })
+      .eachPage(
+        function page(records, fetchNextPage) {
+          records.forEach(function (record) {
+            restaurant.push({
+              id: record.id,
+              ...record._rawJson.fields,
+            });
+          });
+          fetchNextPage();
+          setRestaurants(restaurant);
+        },
+        function done(err) {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log('맛집 불러오기 성공');
+            setRestaurantLoading(false);
+          }
+        }
+      );
+  }, []);
+
+  // 카페 불러오기
+  useEffect(() => {
+    storeBase('stores')
+      .select({
+        view: 'cafes',
+        pageSize: 100,
+      })
+      .eachPage(
+        function page(records, fetchNextPage) {
+          records.forEach(function (record) {
+            cafe.push({
+              id: record.id,
+              ...record._rawJson.fields,
+            });
+          });
+          fetchNextPage();
+          setCafes(cafe);
+        },
+        function done(err) {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log('카페 불러오기 성공');
+            setCafesLoading(false);
+          }
+        }
+      );
+  }, []);
 
   // 세컨드카테고리 데이터 불러오기
 
@@ -28,7 +93,6 @@ const StoreProvider = ({ children }) => {
       .select({
         view: 'data',
         pageSize: 50,
-        fields: ['title', 'firstCategoryId', 'id', 'emoji', 'firstCategory'],
       })
       .eachPage(
         function page(records, fetchNextPage) {
@@ -75,7 +139,7 @@ const StoreProvider = ({ children }) => {
             console.error(err);
           } else {
             console.log('카테고리 데이터 불러오기 성공');
-            setNavigationLoading(false);
+            setCategoryLoading(false);
           }
         }
       );
@@ -112,11 +176,14 @@ const StoreProvider = ({ children }) => {
   return (
     <Context.Provider
       value={{
-        navigationLoading,
+        categoryLoading,
         secondLoading,
         firstCategories,
         secondCategories,
         locationCategories,
+
+        restaurants,
+        cafes,
       }}
     >
       {children}

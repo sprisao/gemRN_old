@@ -23,7 +23,6 @@ const SecondSelectScreen = (props) => {
   );
 
   const renderSecondSelect = (data) => {
-    console.log('data', data.item.title);
     return (
       <SecondSelectButton
         title={data.item.title}
