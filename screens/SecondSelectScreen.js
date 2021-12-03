@@ -9,6 +9,7 @@ import { useGlobalContext } from '../Context';
 const SecondSelectScreen = (props) => {
   const { secondLoading, secondCategories } = useGlobalContext();
 
+  const firstCategory = props.route.params.categoryName;
   const catId = props.route.params.categoryId;
 
   const selectedCategory = secondCategories.filter(
@@ -22,7 +23,7 @@ const SecondSelectScreen = (props) => {
         emoji={data.item.emoji}
         onSecondSelect={() => {
           props.navigation.navigate({
-            name: 'Restaurants',
+            name: data.item.firstCategory[0],
             params: {
               secondCatId: data.item.id,
               secondCatName: data.item.title,
@@ -50,10 +51,10 @@ const SecondSelectScreen = (props) => {
         touchableValue='100%'
         onSecondSelect={() => {
           props.navigation.navigate({
-            name: 'Restaurants',
+            name: firstCategory,
             params: {
               secondCatName: '전체',
-              categoryName: '맛집',
+              categoryName: firstCategory,
             },
           });
         }}

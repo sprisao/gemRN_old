@@ -3,8 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from '../screens/HomeScreen';
 import SecondSelectScreen from '../screens/SecondSelectScreen';
-import CategoryScreen from '../screens/CategoryScreens/CategoryScreen';
 import Restaurants from '../screens/CategoryScreens/Restaurants';
+import Cafes from '../screens/CategoryScreens/Cafes';
 import EventsScreen from '../screens/EventsScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 
@@ -23,17 +23,17 @@ export default function GemStack() {
       <Stack.Screen
         name='SecondSelect'
         component={SecondSelectScreen}
-        options={({ route }) => ({ title: route.params.categoryName })}
+        options={({ route }) => ({ title: '카테고리' })}
       />
       <Stack.Screen
-        name='Category'
-        component={CategoryScreen}
-        options={({ route }) => ({ title: route.params.secondCatName })}
-      />
-      <Stack.Screen
-        name='Restaurants'
+        name='맛집'
         component={Restaurants}
-        options={({ route }) => ({ title: route.params.secondCatName })}
+        options={({ route }) => ({ title: '맛집' })}
+      />
+      <Stack.Screen
+        name='카페'
+        component={Cafes}
+        options={({ route }) => ({ title: '카페' })}
       />
       <Stack.Screen
         name='Details'

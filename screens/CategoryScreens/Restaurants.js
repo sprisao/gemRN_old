@@ -1,64 +1,63 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { useGlobalContext } from '../../Context';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import GridWrapper from '../../components/CategoryScreen/GridWrapper';
 import colors from '../../constants/styleSettings/colors';
+// import TopTabNavigation from './TopTabNavigator';
 
 const Tab = createMaterialTopTabNavigator();
 
-const Restaurants = (props) => {
+export default function Restaurants(props) {
   const { restaurants } = useGlobalContext();
+  const moveToPage = props.route.params.secondCatName;
 
-  const sliced = restaurants.slice(1, 300);
-
-  const all = sliced;
-  const jok = sliced.filter(
+  const all = restaurants;
+  const jok = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'rec9AQaAKvzGDumyT'
   );
-  const hamB = sliced.filter(
+  const hamB = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'recGCR0nAaarWxMYF'
   );
-  const ch = sliced.filter(
+  const ch = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'recKXAHESS8bfL9An'
   );
-  const pizza = sliced.filter(
+  const pizza = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'recNqj81zO9vo8Y1S'
   );
-  const night = sliced.filter(
+  const night = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'recWjPmQXkel8qmBF'
   );
-  const don = sliced.filter(
+  const don = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'reccIlp7IP4s9qZJm'
   );
-  const west = sliced.filter(
+  const west = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'reccSeNPsdGNsP3xA'
   );
-  const chick = sliced.filter(
+  const chick = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'recgPMsTtxj5TGmYX'
   );
-  const kor = sliced.filter(
+  const kor = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'recijnmBY043chgi0'
   );
-  const tang = sliced.filter(
+  const tang = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'recu5oxlWN5AMn7KW'
   );
-  const dosi = sliced.filter(
+  const dosi = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'recwzwuLim1rnNhBu'
   );
-  const salad = sliced.filter(
+  const salad = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'recwpFEyhZ1bKxqcB'
   );
-  const bun = sliced.filter(
+  const bun = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'recxY2d5PwVXiKRHP'
   );
-  const korN = sliced.filter(
+  const korN = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'rec7e1fQLpqKa2uXE'
   );
-  const gook = sliced.filter(
+  const gook = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'recmL3e8AyRVYq1Xc'
   );
-  const gob = sliced.filter(
+  const gob = restaurants.filter(
     (item) => item.secondCategoryId[0] === 'recLHWFM0c5dDC89u'
   );
 
@@ -128,7 +127,7 @@ const Restaurants = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={props.route.params.secondCatName}
+      initialRouteName={moveToPage}
       screenOptions={{
         tabBarScrollEnabled: true,
         tabBarItemStyle: {
@@ -139,9 +138,6 @@ const Restaurants = (props) => {
           borderBottomColor: colors.primary,
           borderBottomWidth: 2,
         },
-        lazy: true,
-        lazyPreloadDistance: 2,
-        lazyPlaceholder: () => <Text>로딩중</Text>,
       }}
     >
       <Tab.Screen name='전체' component={All} />
@@ -163,8 +159,4 @@ const Restaurants = (props) => {
       <Tab.Screen name='아시안·양식' component={West} />
     </Tab.Navigator>
   );
-};
-
-export default Restaurants;
-
-const styles = StyleSheet.create({});
+}
