@@ -2,8 +2,6 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import colors from '../../constants/styleSettings/colors';
-
 const Tab = createMaterialTopTabNavigator();
 
 import Res_Sec_All from '../../components/CategoryScreen/restaurants/Res_Sec_All';
@@ -25,7 +23,6 @@ import Res_Sec_Tang from '../../components/CategoryScreen/restaurants/Res_Sec_Bu
 import Res_Sec_West from '../../components/CategoryScreen/restaurants/Res_Sec_Bun';
 
 const Restaurants = (props) => {
-  console.log('props', props);
   return (
     <Tab.Navigator
       initialRouteName={props.route.params.secondCatName}

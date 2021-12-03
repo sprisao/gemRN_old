@@ -29,8 +29,6 @@ const CategoryScreen = (props) => {
 
   const { secondCategories } = useGlobalContext();
 
-  console.log(secondCategories);
-
   return (
     <Tab.Navigator>
       <Tab.Screen name='Home' component={HomeScreen} />

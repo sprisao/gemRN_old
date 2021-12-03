@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import colors from '../../constants/styleSettings/colors';
 
 const SecondSelectButton = (props) => {
-  console.log('SecondSelect', props);
   return (
     <View style={{ ...styles.gridItem, ...props.style }}>
       <TouchableOpacity

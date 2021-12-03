@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 
 const HomeButton2x1 = (props) => {
-  console.log(props);
   const imgSource = props.imageUrl;
   return (
     <TouchableOpacity style={styles.homeButton} onPress={props.onSelect}>

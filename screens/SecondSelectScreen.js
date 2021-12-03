@@ -9,7 +9,6 @@ import { useGlobalContext } from '../Context';
 const SecondSelectScreen = (props) => {
   const { secondLoading, secondCategories } = useGlobalContext();
 
-  console.log('props', props);
   const catId = props.route.params.categoryId;
 
   const selectedCategory = secondCategories.filter(
