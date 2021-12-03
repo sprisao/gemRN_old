@@ -5,8 +5,16 @@ import colors from '../../constants/styleSettings/colors';
 const SecondSelectButton = (props) => {
   console.log('SecondSelect', props);
   return (
-    <View style={styles.gridItem}>
-      <TouchableOpacity style={{ flex: 1 }} onPress={props.onSecondSelect}>
+    <View style={{ ...styles.gridItem, ...props.style }}>
+      <TouchableOpacity
+        style={{
+          flex: 1,
+          width: props.touchableValue,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        onPress={props.onSecondSelect}
+      >
         <View style={styles.buttonWrapper}>
           <Text>{props.emoji}</Text>
           <Text>{props.title}</Text>

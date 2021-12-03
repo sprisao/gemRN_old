@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React from 'react';
 
 import SecondSelectButton from '../components/SecondSelectScreen/SecondSelectButton';
 
@@ -7,13 +7,7 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { useGlobalContext } from '../Context';
 
 const SecondSelectScreen = (props) => {
-  const {
-    navigationLoading,
-    secondLoading,
-    firstCategories,
-    secondCategories,
-    locationCategories,
-  } = useGlobalContext();
+  const { secondLoading, secondCategories } = useGlobalContext();
 
   console.log('props', props);
   const catId = props.route.params.categoryId;
@@ -46,6 +40,25 @@ const SecondSelectScreen = (props) => {
   }
   return (
     <View style={styles.screen}>
+      <SecondSelectButton
+        title='전체'
+        emoji='🅰️'
+        style={{
+          width: '97%',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        touchableValue='100%'
+        onSecondSelect={() => {
+          props.navigation.navigate({
+            name: 'Restaurants',
+            params: {
+              secondCatName: '전체',
+              categoryName: '맛집',
+            },
+          });
+        }}
+      />
       <FlatList
         data={selectedCategory}
         keyExtractor={(item, index) => item.id}
@@ -65,5 +78,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 5,
+    marginTop: 12,
   },
 });

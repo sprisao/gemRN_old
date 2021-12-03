@@ -3,8 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from '../screens/HomeScreen';
 import SecondSelectScreen from '../screens/SecondSelectScreen';
-import CategoryScreen from '../screens/CategoryScreen';
-import Restaurants from '../screens/Restaurants';
+import CategoryScreen from '../screens/CategoryScreens/CategoryScreen';
+import Restaurants from '../screens/CategoryScreens/Restaurants';
 import EventsScreen from '../screens/EventsScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 
