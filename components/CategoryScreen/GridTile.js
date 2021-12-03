@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 const GridTile = (props) => {
   let preRank;
@@ -20,12 +21,6 @@ const GridTile = (props) => {
     );
   }
 
-  const LoadImages = React.memo(function LoadImage({ src }) {
-    return (
-      <Image source={{ uri: src }} style={styles.image} resizeMode='cover' />
-    );
-  });
-
   return (
     <View style={{ ...styles.gridTile, ...props.style }}>
       <TouchableOpacity
@@ -38,7 +33,11 @@ const GridTile = (props) => {
         onPress={props.onSecondSelect}
       >
         <View style={styles.tileWrapper}>
-          {/* <LoadImages src={props.image} /> */}
+          <FastImage
+            style={styles.image}
+            resizeMode={FastImage.resizeMode.cover}
+            source={{ uri: props.image }}
+          />
           <View style={styles.articleContainer}>
             <Text style={styles.desc}>{props.desc}</Text>
             <Text style={styles.name}>{props.name}</Text>
@@ -85,7 +84,7 @@ const styles = StyleSheet.create({
     includeFontPadding: false,
   },
   desc: {
-    lineHeight: 17,
+    lineHeight: 13,
     fontSize: 13,
     letterSpacing: -0.35,
     includeFontPadding: false,
