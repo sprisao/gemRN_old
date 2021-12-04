@@ -38,7 +38,7 @@ export default function GemStack() {
       <Stack.Screen
         name='Details'
         component={DetailsScreen}
-        options={({ route }) => ({ title: route.params.secondCatName })}
+        options={({ route }) => ({ title: route.params.storeName })}
       />
     </Stack.Navigator>
   );

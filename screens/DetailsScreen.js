@@ -1,10 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import PagerView from 'react-native-pager-view';
 
-const DetailsScreen = () => {
+const DetailsScreen = (props) => {
+  storeData = props.route.params.storeDetails;
   return (
-    <View style={styles.screen}>
-      <Text>DetailsScreen</Text>
+    <View style={{ flex: 1 }}>
+      <PagerView style={styles.viewPager} initialPage={0}>
+        <View style={styles.page} key='1'>
+          <Text>First page</Text>
+          <Text>Swipe ➡️</Text>
+        </View>
+        <View style={styles.page} key='2'>
+          <Text>Second page</Text>
+        </View>
+        <View style={styles.page} key='3'>
+          <Text>Third page</Text>
+        </View>
+      </PagerView>
     </View>
   );
 };
@@ -12,8 +25,10 @@ const DetailsScreen = () => {
 export default DetailsScreen;
 
 const styles = StyleSheet.create({
-  screen: {
+  viewPager: {
     flex: 1,
+  },
+  page: {
     justifyContent: 'center',
     alignItems: 'center',
   },

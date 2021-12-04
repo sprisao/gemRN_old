@@ -42,35 +42,89 @@ export default function Cafes(props) {
   );
 
   function All() {
-    return <GridWrapper data={all} />;
+    return (
+      <GridWrapper
+        data={all}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function View() {
-    return <GridWrapper data={view} />;
+    return (
+      <GridWrapper
+        data={view}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Brunch() {
-    return <GridWrapper data={brunch} />;
+    return (
+      <GridWrapper
+        data={brunch}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Dessert() {
-    return <GridWrapper data={dessert} />;
+    return (
+      <GridWrapper
+        data={dessert}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Atmosphere() {
-    return <GridWrapper data={atmosphere} />;
+    return (
+      <GridWrapper
+        data={atmosphere}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
   function Work() {
-    return <GridWrapper data={work} />;
+    return (
+      <GridWrapper
+        data={work}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
   function Nature() {
-    return <GridWrapper data={nature} />;
+    return (
+      <GridWrapper
+        data={nature}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
   function Bakery() {
-    return <GridWrapper data={bakery} />;
+    return (
+      <GridWrapper
+        data={bakery}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
   function Insta() {
-    return <GridWrapper data={insta} />;
+    return (
+      <GridWrapper
+        data={insta}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   return (

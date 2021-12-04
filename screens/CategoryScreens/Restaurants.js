@@ -62,67 +62,169 @@ export default function Restaurants(props) {
   );
 
   function All() {
-    return <GridWrapper data={all} />;
+    return (
+      <GridWrapper
+        data={all}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Bun() {
-    return <GridWrapper data={bun} />;
+    return (
+      <GridWrapper
+        data={bun}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Chi() {
-    return <GridWrapper data={ch} />;
+    return (
+      <GridWrapper
+        data={ch}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Kor() {
-    return <GridWrapper data={kor} />;
+    return (
+      <GridWrapper
+        data={kor}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Chick() {
-    return <GridWrapper data={chick} />;
+    return (
+      <GridWrapper
+        data={chick}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Don() {
-    return <GridWrapper data={don} />;
+    return (
+      <GridWrapper
+        data={don}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Pizza() {
-    return <GridWrapper data={pizza} />;
+    return (
+      <GridWrapper
+        data={pizza}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Gob() {
-    return <GridWrapper data={gob} />;
+    return (
+      <GridWrapper
+        data={gob}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Dosi() {
-    return <GridWrapper data={dosi} />;
+    return (
+      <GridWrapper
+        data={dosi}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Night() {
-    return <GridWrapper data={night} />;
+    return (
+      <GridWrapper
+        data={night}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function Gook() {
-    return <GridWrapper data={gook} />;
+    return (
+      <GridWrapper
+        data={gook}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function HamB() {
-    return <GridWrapper data={hamB} />;
+    return (
+      <GridWrapper
+        data={hamB}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   function KorN() {
-    return <GridWrapper data={korN} />;
+    return (
+      <GridWrapper
+        data={korN}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
   function Jok() {
-    return <GridWrapper data={jok} />;
+    return (
+      <GridWrapper
+        data={jok}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
   function Salad() {
-    return <GridWrapper data={salad} />;
+    return (
+      <GridWrapper
+        data={salad}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
   function West() {
-    return <GridWrapper data={west} />;
+    return (
+      <GridWrapper
+        data={west}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
   function Tang() {
-    return <GridWrapper data={tang} />;
+    return (
+      <GridWrapper
+        data={tang}
+        navigation={props.navigation}
+        route={props.route}
+      />
+    );
   }
 
   return (
@@ -138,6 +240,7 @@ export default function Restaurants(props) {
           borderBottomColor: colors.primary,
           borderBottomWidth: 2,
         },
+        lazy: true,
       }}
     >
       <Tab.Screen name='전체' component={All} />
@@ -146,7 +249,7 @@ export default function Restaurants(props) {
       <Tab.Screen name='분식' component={Bun} />
       <Tab.Screen name='중식' component={Chi} />
       <Tab.Screen name='치킨' component={Chick} />
-      <Tab.Screen name='돈까스' component={Don} />
+      <Tab.Screen name='돈까스·회' component={Don} />
       <Tab.Screen name='도시락' component={Dosi} />
       <Tab.Screen name='곱창·구이' component={Gob} />
       <Tab.Screen name='국밥' component={Gook} />
