@@ -23,22 +23,51 @@ export default function GemStack() {
       <Stack.Screen
         name='SecondSelect'
         component={SecondSelectScreen}
-        options={({ route }) => ({ title: '카테고리' })}
+        options={({ route }) => ({
+          title: '카테고리',
+          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerTintColor: '#f21d73',
+          headerTitleStyle: {
+            color: 'black',
+          },
+        })}
       />
       <Stack.Screen
         name='맛집'
         component={Restaurants}
-        options={({ route }) => ({ title: '맛집' })}
+        options={({ route }) => ({
+          title: '맛집',
+          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerTintColor: '#f21d73',
+          headerTitleStyle: {
+            color: 'black',
+          },
+        })}
       />
       <Stack.Screen
         name='카페'
         component={Cafes}
-        options={({ route }) => ({ title: '카페' })}
+        options={({ route }) => ({
+          title: '카페',
+          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerTintColor: '#f21d73',
+          headerTitleStyle: {
+            color: 'black',
+          },
+        })}
       />
+
       <Stack.Screen
         name='Details'
         component={DetailsScreen}
-        options={({ route }) => ({ title: route.params.storeName })}
+        options={({ route }) => ({
+          headerTransparent: true,
+          // headerBackTitleStyle: { color: 'transparent', fontSize: 15 },
+          headerTintColor: 'white',
+          headerTitleStyle: {
+            color: 'transparent',
+          },
+        })}
       />
     </Stack.Navigator>
   );
