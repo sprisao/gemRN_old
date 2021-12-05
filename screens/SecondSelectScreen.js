@@ -2,7 +2,7 @@ import React from 'react';
 
 import SecondSelectButton from '../components/SecondSelectScreen/SecondSelectButton';
 
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
 
 import { useGlobalContext } from '../Context';
 
@@ -40,26 +40,30 @@ const SecondSelectScreen = (props) => {
   }
   return (
     <View style={styles.screen}>
-      <SecondSelectButton
-        title='전체'
-        emoji='🅰️'
-        style={{
-          width: '97%',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-        touchableValue='100%'
-        onSecondSelect={() => {
-          props.navigation.navigate({
-            name: firstCategory,
-            params: {
-              secondCatName: '전체',
-              categoryName: firstCategory,
-            },
-          });
-        }}
-      />
       <FlatList
+        ListHeaderComponent={
+          <>
+            <SecondSelectButton
+              title='전체'
+              emoji='🅰️'
+              style={{
+                width: '97%',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              touchableValue='100%'
+              onSecondSelect={() => {
+                props.navigation.navigate({
+                  name: firstCategory,
+                  params: {
+                    secondCatName: '전체',
+                    categoryName: firstCategory,
+                  },
+                });
+              }}
+            />
+          </>
+        }
         data={selectedCategory}
         keyExtractor={(item, index) => item.id}
         renderItem={renderSecondSelect}
@@ -75,8 +79,6 @@ export default SecondSelectScreen;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     paddingHorizontal: 5,
     marginTop: 12,
   },
