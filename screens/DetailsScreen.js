@@ -21,7 +21,6 @@ const DetailsScreen = (props) => {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      {/* <View style={styles.headerDeco}></View> */}
       <View style={styles.detailHeader}>
         <View style={styles.HeaderLeft}>
           <Text style={styles.storeDesc}>{storeData.shortDescription}</Text>
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
   },
   HeaderLeft: {
     flexDirection: 'column',

@@ -15,10 +15,12 @@ const StoreProvider = ({ children }) => {
   const [restaurantLoading, setRestaurantLoading] = useState(true);
   const [menuLoading, setMenuLoading] = useState(true);
   const [cafesLoading, setCafesLoading] = useState(true);
+  const [promoLoading, setPromoLoading] = useState(true);
 
   const [restaurants, setRestaurants] = useState([]);
   const [cafes, setCafes] = useState([]);
   const [menu, setMenu] = useState([]);
+  const [promotions, setPromotions] = useState([]);
 
   const [firstCategories, setFirstCategories] = useState([]);
   const [secondCategories, setSecondCategories] = useState([]);
@@ -30,6 +32,7 @@ const StoreProvider = ({ children }) => {
   const restaurant = [];
   const cafe = [];
   const menuItem = [];
+  const promotion = [];
 
   // 맛집 불러오기
   useEffect(() => {
@@ -206,6 +209,35 @@ const StoreProvider = ({ children }) => {
       );
   }, []);
 
+  // 프로모션 불러오기
+  useEffect(() => {
+    storeBase('promotions')
+      .select({
+        view: 'online',
+        pageSize: 10,
+      })
+      .eachPage(
+        function page(records, fetchNextPage) {
+          records.forEach(function (record) {
+            promotion.push({
+              id: record.id,
+              ...record._rawJson.fields,
+            });
+          });
+          fetchNextPage();
+          setPromotions(promotion);
+        },
+        function done(err) {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log('프로모션 불러오기 성공');
+            setPromoLoading(false);
+          }
+        }
+      );
+  }, []);
+
   return (
     <Context.Provider
       value={{
@@ -218,6 +250,8 @@ const StoreProvider = ({ children }) => {
         menu,
         restaurants,
         cafes,
+        promotions,
+        promoLoading,
       }}
     >
       {children}

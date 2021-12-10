@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import { Video } from 'expo-av';
 
 import HomeButton2x1 from '../components/HomeScreen/HomeButton2x1';
 import HomeButton4x1 from '../components/HomeScreen/HomeButton4x1';
@@ -10,6 +9,7 @@ import Separator from '../components/Separator';
 
 import Header from '../components/Header';
 
+import HomePromotion from '../components/HomeScreen/HomePromotion';
 import { useGlobalContext } from '../Context';
 
 const HomeScreen = (props) => {
@@ -204,44 +204,12 @@ const HomeScreen = (props) => {
             />
           </View>
         </View>
-
-        <View style={styles.promotionSection}>
-          <View style={styles.promotionWrapper}>
-            <Video
-              style={styles.video}
-              // source={{ uri: promotions[3].promotionMedia[0].url }}
-              resizeMode='cover'
-              rate={1}
-              shouldPlay={true}
-              isLooping={true}
-              muted={true}
-            />
-            <View style={styles.promoCover}>
-              <View style={styles.promoHeader}>
-                <Text style={styles.promoHeaderText}>젬 큐레이션</Text>
-              </View>
-              <View style={styles.promoArticle}>
-                <Text style={styles.promoArticleDescText}>
-                  이화마을과 단계동 사이 위치한 감각적인 공간
-                </Text>
-                <Text style={styles.promoArticleNameText}>Neukölln</Text>
-                <Text style={styles.promoArticleDescText}>-</Text>
-                <Text style={styles.promoArticleMoreText}>더 알아보기</Text>
-              </View>
-            </View>
-          </View>
-        </View>
+        <HomePromotion />
         <Separator />
         <Footer />
       </ScrollView>
     </>
   );
-};
-
-HomeScreen.navigationOptions = (navigationData) => {
-  return {
-    headerShown: false,
-  };
 };
 
 export default HomeScreen;
@@ -268,65 +236,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '48.5%',
-  },
-
-  promotionSection: {
-    paddingHorizontal: 13,
-  },
-
-  promotionWrapper: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 12,
-    borderRadius: 14,
-    overflow: 'hidden',
-    width: '100%',
-    height: 200,
-    // marginBottom: 100,
-  },
-  video: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: 200,
-  },
-
-  promoCover: {
-    width: '100%',
-    height: '100%',
-    padding: 13,
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-  },
-  promoHeaderText: {
-    fontFamily: 'notoSans-Bold',
-    fontSize: 18,
-    color: 'white',
-    includeFontPadding: false,
-  },
-
-  promoArticle: {
-    marginTop: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  promoArticleNameText: {
-    fontSize: 15,
-    fontFamily: 'notoSans-Medium',
-    color: 'white',
-    includeFontPadding: false,
-  },
-  promoArticleDescText: {
-    fontSize: 14,
-    fontFamily: 'notoSans-Regular',
-    color: 'white',
-    includeFontPadding: false,
-  },
-  promoArticleMoreText: {
-    fontSize: 13,
-    fontFamily: 'notoSans-Light',
-    color: 'white',
-    includeFontPadding: false,
-    textDecorationLine: 'underline',
   },
 });
