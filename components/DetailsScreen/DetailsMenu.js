@@ -44,12 +44,16 @@ const DetailsMenu = (props) => {
 export default DetailsMenu;
 
 const styles = StyleSheet.create({
+  menuContainer: {
+    marginTop: 20,
+  },
   menuWrapper: { flex: 1, width: '100%', paddingHorizontal: 10 },
   menuHeader: {
     fontFamily: 'notoSans-Bold',
     fontSize: 22,
     marginVertical: 7,
     letterSpacing: -1,
+    marginLeft: 5,
   },
   menuItemWrapper: {
     paddingVertical: 10,
@@ -60,7 +64,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     height: 'auto',
     width: '100%',
-    marginBottom: 10,
+    marginBottom: 25,
   },
   imageContainer: {
     width: 120,
@@ -69,19 +73,22 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   articleContainer: {
-    width: '65%',
+    width: '62%',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     paddingVertical: 5,
+    // marginLeft: 10,
   },
   menuName: {
     fontFamily: 'notoSans-Medium',
     fontSize: 18,
+    lineHeight: 20,
   },
   menuDesc: {
     fontFamily: 'notoSans-Light',
     fontSize: 13,
     lineHeight: 14,
     letterSpacing: -0.35,
+    marginVertical: 10,
   },
 });

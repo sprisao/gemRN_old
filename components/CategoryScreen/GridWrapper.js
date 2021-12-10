@@ -16,7 +16,11 @@ const GridWrapper = (props) => {
         onSecondSelect={() => {
           props.navigation.navigate({
             name: 'Details',
-            params: { storeName: data.item.name, storeDetails: data.item },
+            params: {
+              storeName: data.item.name,
+              storeDetails: data.item,
+              Category: data.item.secondCategory[0],
+            },
           });
         }}
       />

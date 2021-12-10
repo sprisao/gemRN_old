@@ -1,5 +1,11 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Linking,
+  TouchableOpacity,
+} from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 const Infos = (props) => {
@@ -102,18 +108,44 @@ const Infos = (props) => {
           <Text style={styles.detailsInfo_ItemText}>
             {storeData.phoneNumber}
           </Text>
+          <TouchableOpacity
+            style={styles.infoButton}
+            onPress={() => {
+              Linking.openURL(`tel:${storeData.phoneNumber}`);
+            }}
+          >
+            <Feather name='external-link' size={15} color='black' />
+            <Text style={styles.buttonTitle}>전화걸기</Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.detailsInfo_Item}>
-          <Feather
-            style={{ marginRight: 10 }}
-            name='instagram'
-            size={16}
-            color='#a8a8a8'
-          />
-          <Text style={styles.detailsInfo_ItemText} numberOfLines={1}>
-            @{storeData.instagramAccount}
-          </Text>
-        </View>
+        {storeData.instagramAccount ? (
+          <View style={styles.detailsInfo_Item}>
+            <Feather
+              style={{ marginRight: 10 }}
+              name='instagram'
+              size={16}
+              color='#a8a8a8'
+            />
+            <Text style={styles.detailsInfo_ItemText} numberOfLines={1}>
+              @{storeData.instagramAccount}
+            </Text>
+            <TouchableOpacity
+              style={styles.infoButton}
+              onPress={() => {
+                Linking.openURL(
+                  `instagram://user?username=${storeData.instagramAccount}`
+                ).catch(() => {
+                  Linking.openURL(
+                    `https://www.instagram.com/${storeData.instagramAccount}`
+                  );
+                });
+              }}
+            >
+              <Feather name='external-link' size={15} color='black' />
+              <Text style={styles.buttonTitle}>보기</Text>
+            </TouchableOpacity>
+          </View>
+        ) : null}
         <View style={styles.detailsInfo_Item}>
           <Feather
             style={{ marginRight: 10 }}
@@ -121,9 +153,22 @@ const Infos = (props) => {
             size={16}
             color='#a8a8a8'
           />
-          <Text style={styles.detailsInfo_ItemText} numberOfLines={1}>
-            {storeData.naverLink}
-          </Text>
+          <View style={styles.naverLinkContainer}>
+            <Text style={styles.detailsInfo_ItemText} numberOfLines={1}>
+              {storeData.naverLink}
+            </Text>
+          </View>
+          <TouchableOpacity
+            style={styles.infoButton}
+            onPress={() => {
+              Linking.openURL(storeData.naverLink).catch(() => {
+                storeData.naverLink;
+              });
+            }}
+          >
+            <Feather name='external-link' size={15} color='black' />
+            <Text style={styles.buttonTitle}>보기</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -134,16 +179,19 @@ export default Infos;
 
 const styles = StyleSheet.create({
   detailsInfo: {
+    marginTop: 20,
     paddingHorizontal: 10,
   },
   detailsInfoHeader: {
     fontFamily: 'notoSans-Bold',
     fontSize: 22,
     marginVertical: 7,
+    marginLeft: 5,
     letterSpacing: -1,
   },
   detailsInfo_Item: {
     flexDirection: 'row',
+    width: '100%',
     alignItems: 'center',
     borderBottomWidth: 0.5,
     borderBottomColor: '#dddddd',
@@ -154,5 +202,17 @@ const styles = StyleSheet.create({
     fontFamily: 'notoSans-Light',
     includeFontPadding: false,
     paddingBottom: 2,
+  },
+  infoButton: {
+    marginHorizontal: 8,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonTitle: {
+    marginLeft: 3,
+  },
+  naverLinkContainer: {
+    width: '75%',
   },
 });

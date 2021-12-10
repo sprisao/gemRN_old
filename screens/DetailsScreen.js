@@ -10,14 +10,25 @@ import Infos from '../components/DetailsScreen/Infos';
 const DetailsScreen = (props) => {
   storeData = props.route.params.storeDetails;
 
+  let preRank;
+  if (storeData.preRating > 8) {
+    preRank = <Text style={styles.medals}>🏅🏅🏅</Text>;
+  } else if (storeData.preRating > 6) {
+    preRank = <Text style={styles.medals}>🏅🏅</Text>;
+  } else if (storeData.preRating > 3) {
+    preRank = <Text style={styles.medals}>🏅</Text>;
+  } else preRank = null;
+
   return (
-    <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      {/* <View style={styles.headerDeco}></View> */}
       <View style={styles.detailHeader}>
         <View style={styles.HeaderLeft}>
           <Text style={styles.storeDesc}>{storeData.shortDescription}</Text>
           <Text style={styles.storeName}>{storeData.name}</Text>
         </View>
         <View style={styles.HeaderRight}>
+          <Text>{preRank}</Text>
           <Text style={styles.miniAddress}>{storeData.miniAddress}</Text>
         </View>
       </View>
@@ -36,15 +47,21 @@ const styles = StyleSheet.create({
   detailScreen: {
     flex: 1,
   },
+  headerDeco: {
+    height: 20,
+    backgroundColor: 'black',
+    borderBottomLeftRadius: 2,
+    borderBottomRightRadius: 2,
+  },
   detailHeader: {
     flex: 1,
-    padding: 12,
+    paddingHorizontal: 10,
+    paddingTop: 10,
+    paddingBottom: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: 'white',
-    borderTopColor: '#ccc',
-    borderTopWidth: 1.25,
   },
   HeaderLeft: {
     flexDirection: 'column',
@@ -65,11 +82,17 @@ const styles = StyleSheet.create({
   },
   HeaderRight: {
     height: '100%',
+    paddingVertical: 6,
     flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
   },
   miniAddress: {
     fontFamily: 'notoSans-Regular',
     fontSize: 16,
+  },
+  medals: {
+    fontSize: 22,
+    letterSpacing: -6,
   },
 });

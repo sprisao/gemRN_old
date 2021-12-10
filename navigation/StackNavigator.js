@@ -1,12 +1,15 @@
 import React from 'react';
+import { Button } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from '../screens/HomeScreen';
 import SecondSelectScreen from '../screens/SecondSelectScreen';
 import Restaurants from '../screens/CategoryScreens/Restaurants';
 import Cafes from '../screens/CategoryScreens/Cafes';
-import EventsScreen from '../screens/EventsScreen';
 import DetailsScreen from '../screens/DetailsScreen';
+
+import DetailsHeaderRight from '../components/DetailsScreen/HeaderRight';
+import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +28,14 @@ export default function GemStack() {
         component={SecondSelectScreen}
         options={({ route }) => ({
           title: '카테고리',
+          headerBackImage: () => (
+            <Ionicons
+              name='ios-chevron-back'
+              size={24}
+              color='black'
+              style={{ marginLeft: 10 }}
+            />
+          ),
           headerBackTitleStyle: { color: '#666666', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
@@ -37,6 +48,14 @@ export default function GemStack() {
         component={Restaurants}
         options={({ route }) => ({
           title: '맛집',
+          headerBackImage: () => (
+            <Ionicons
+              name='ios-chevron-back'
+              size={24}
+              color='black'
+              style={{ marginLeft: 10 }}
+            />
+          ),
           headerBackTitleStyle: { color: '#666666', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
@@ -49,6 +68,14 @@ export default function GemStack() {
         component={Cafes}
         options={({ route }) => ({
           title: '카페',
+          headerBackImage: () => (
+            <Ionicons
+              name='ios-chevron-back'
+              size={24}
+              color='black'
+              style={{ marginLeft: 10 }}
+            />
+          ),
           headerBackTitleStyle: { color: '#666666', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
@@ -61,12 +88,22 @@ export default function GemStack() {
         name='Details'
         component={DetailsScreen}
         options={({ route }) => ({
+          title: route.params.storeName,
           // headerTransparent: true,
           headerBackTitleStyle: { color: 'transparent', fontSize: 15 },
           headerTintColor: 'black',
-          headerTitleStyle: {
-            color: 'transparent',
-          },
+          // headerTitleStyle: {
+          //   color: 'transparent',
+          // },
+          headerBackImage: () => (
+            <Ionicons
+              name='ios-chevron-back'
+              size={24}
+              color='black'
+              style={{ marginLeft: 10 }}
+            />
+          ),
+          headerRight: () => <DetailsHeaderRight />,
         })}
       />
     </Stack.Navigator>
