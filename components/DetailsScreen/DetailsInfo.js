@@ -7,8 +7,44 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import colors from '../../constants/styleSettings/colors';
 
 const DetailsInfo = (props) => {
+  let businessHours;
+
+  if (storeData.openHour || storeData.closeHOur) {
+    if (storeData.breaktimeStart) {
+      businessHours = (
+        <View style={styles.detailsInfo_Item}>
+          <Feather
+            style={{ marginRight: 10 }}
+            name='clock'
+            size={16}
+            color='#a8a8a8'
+          />
+          <Text style={styles.detailsInfo_ItemText}>
+            {storeData.openHour} ~ {storeData.closeHour} <Text> 휴게시간 </Text>
+            {storeData.breaktimeStart} ~ {storeData.breaktimeEnd}
+          </Text>
+        </View>
+      );
+    } else {
+      businessHours = (
+        <View style={styles.detailsInfo_Item}>
+          <Feather
+            style={{ marginRight: 10 }}
+            name='clock'
+            size={16}
+            color='#a8a8a8'
+          />
+          <Text style={styles.detailsInfo_ItemText}>
+            {storeData.openHour} ~ {storeData.closeHour}
+          </Text>
+        </View>
+      );
+    }
+  }
+
   let breakDays;
 
   if (storeData.breakDays) {
@@ -75,17 +111,7 @@ const DetailsInfo = (props) => {
     <View style={styles.detailsInfo}>
       <View style={styles.detailsInfoWrapper}>
         <Text style={styles.detailsInfoHeader}>상세정보</Text>
-        <View style={styles.detailsInfo_Item}>
-          <Feather
-            style={{ marginRight: 10 }}
-            name='clock'
-            size={16}
-            color='#a8a8a8'
-          />
-          <Text style={styles.detailsInfo_ItemText}>
-            {storeData.openHour} ~ {storeData.closeHour}
-          </Text>
-        </View>
+        {businessHours}
         {breakDays}
         <View style={styles.detailsInfo_Item}>
           <Feather
@@ -114,7 +140,7 @@ const DetailsInfo = (props) => {
               Linking.openURL(`tel:${storeData.phoneNumber}`);
             }}
           >
-            <Feather name='external-link' size={15} color='black' />
+            <Feather name='external-link' size={15} color={colors.primary} />
             <Text style={styles.buttonTitle}>전화걸기</Text>
           </TouchableOpacity>
         </View>
@@ -141,7 +167,7 @@ const DetailsInfo = (props) => {
                 });
               }}
             >
-              <Feather name='external-link' size={15} color='black' />
+              <Feather name='external-link' size={15} color={colors.primary} />
               <Text style={styles.buttonTitle}>보기</Text>
             </TouchableOpacity>
           </View>
@@ -166,7 +192,7 @@ const DetailsInfo = (props) => {
               });
             }}
           >
-            <Feather name='external-link' size={15} color='black' />
+            <Feather name='external-link' size={15} color={colors.primary} />
             <Text style={styles.buttonTitle}>보기</Text>
           </TouchableOpacity>
         </View>
@@ -200,6 +226,7 @@ const styles = StyleSheet.create({
   },
   detailsInfo_ItemText: {
     fontFamily: 'notoSans-Light',
+    fontSize: 16,
     includeFontPadding: false,
     paddingBottom: 2,
   },
@@ -211,6 +238,7 @@ const styles = StyleSheet.create({
   },
   buttonTitle: {
     marginLeft: 3,
+    color: colors.primary,
   },
   naverLinkContainer: {
     width: '75%',
