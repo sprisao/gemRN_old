@@ -13,10 +13,12 @@ const StoreProvider = ({ children }) => {
   const [secondLoading, setSecondLoading] = useState(true);
   const [locationLoading, setLocationLoading] = useState(true);
   const [restaurantLoading, setRestaurantLoading] = useState(true);
+  const [menuLoading, setMenuLoading] = useState(true);
   const [cafesLoading, setCafesLoading] = useState(true);
 
   const [restaurants, setRestaurants] = useState([]);
   const [cafes, setCafes] = useState([]);
+  const [menu, setMenu] = useState([]);
 
   const [firstCategories, setFirstCategories] = useState([]);
   const [secondCategories, setSecondCategories] = useState([]);
@@ -27,6 +29,7 @@ const StoreProvider = ({ children }) => {
   const locationCategory = [];
   const restaurant = [];
   const cafe = [];
+  const menuItem = [];
 
   // 맛집 불러오기
   useEffect(() => {
@@ -173,6 +176,36 @@ const StoreProvider = ({ children }) => {
       );
   }, []);
 
+  // 메뉴 데이터 로딩
+
+  useEffect(() => {
+    storeBase('menu')
+      .select({
+        view: 'Grid view',
+        pageSize: 100,
+      })
+      .eachPage(
+        function page(records, fetchNextPage) {
+          records.forEach(function (record) {
+            menuItem.push({
+              id: record.id,
+              ...record._rawJson.fields,
+            });
+          });
+          fetchNextPage();
+          setMenu(menuItem);
+        },
+        function done(err) {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log('메뉴 데이터 불러오기 성공');
+            setMenuLoading(false);
+          }
+        }
+      );
+  }, []);
+
   return (
     <Context.Provider
       value={{
@@ -181,7 +214,8 @@ const StoreProvider = ({ children }) => {
         firstCategories,
         secondCategories,
         locationCategories,
-
+        menuLoading,
+        menu,
         restaurants,
         cafes,
       }}

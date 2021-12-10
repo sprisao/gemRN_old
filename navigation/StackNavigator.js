@@ -26,7 +26,7 @@ export default function GemStack() {
         options={({ route }) => ({
           title: '카테고리',
           headerBackTitleStyle: { color: '#666666', fontSize: 15 },
-          headerTintColor: '#f21d73',
+          headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
           },
@@ -38,7 +38,7 @@ export default function GemStack() {
         options={({ route }) => ({
           title: '맛집',
           headerBackTitleStyle: { color: '#666666', fontSize: 15 },
-          headerTintColor: '#f21d73',
+          headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
           },
@@ -50,7 +50,7 @@ export default function GemStack() {
         options={({ route }) => ({
           title: '카페',
           headerBackTitleStyle: { color: '#666666', fontSize: 15 },
-          headerTintColor: '#f21d73',
+          headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
           },
@@ -61,9 +61,9 @@ export default function GemStack() {
         name='Details'
         component={DetailsScreen}
         options={({ route }) => ({
-          headerTransparent: true,
-          // headerBackTitleStyle: { color: 'transparent', fontSize: 15 },
-          headerTintColor: 'white',
+          // headerTransparent: true,
+          headerBackTitleStyle: { color: 'transparent', fontSize: 15 },
+          headerTintColor: 'black',
           headerTitleStyle: {
             color: 'transparent',
           },
