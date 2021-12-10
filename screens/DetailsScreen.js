@@ -5,7 +5,7 @@ import ImagesContainer from '../components/DetailsScreen/ImagesContainer';
 import DetailsCuration from '../components/DetailsScreen/DetailsCuration';
 import DetailsMenu from '../components/DetailsScreen/DetailsMenu';
 
-import Infos from '../components/DetailsScreen/Infos';
+import DetailsInfo from '../components/DetailsScreen/DetailsInfo';
 
 const DetailsScreen = (props) => {
   storeData = props.route.params.storeDetails;
@@ -36,7 +36,7 @@ const DetailsScreen = (props) => {
       {storeData.isPromotion ? <DetailsCuration Data={storeData} /> : null}
       {storeData.isMenu ? <DetailsMenu Data={storeData} /> : null}
 
-      <Infos Data={storeData} />
+      <DetailsInfo Data={storeData} />
     </ScrollView>
   );
 };

@@ -4,22 +4,15 @@ import colors from '../../constants/styleSettings/colors';
 
 const SecondSelectButton = (props) => {
   return (
-    <View style={{ ...styles.gridItem, ...props.style }}>
-      <TouchableOpacity
-        style={{
-          flex: 1,
-          width: props.touchableValue,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-        onPress={props.onSecondSelect}
-      >
-        <View style={styles.buttonWrapper}>
-          <Text>{props.emoji}</Text>
-          <Text>{props.title}</Text>
-        </View>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      style={{ ...styles.gridItem, ...props.style }}
+      onPress={props.onSecondSelect}
+    >
+      <View style={styles.buttonWrapper}>
+        <Text style={styles.buttonEmoji}>{props.emoji}</Text>
+        <Text>{props.title}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -27,9 +20,9 @@ export default SecondSelectButton;
 
 const styles = StyleSheet.create({
   gridItem: {
-    width: '47%',
     margin: 5,
-    height: 40,
+    width: '47%',
+    height: 'auto',
     borderRadius: 10,
     overflow: 'hidden',
     borderWidth: 1.25,
@@ -38,7 +31,11 @@ const styles = StyleSheet.create({
   },
   buttonWrapper: {
     flexDirection: 'row',
-    padding: 8,
     alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding: 12,
+  },
+  buttonEmoji: {
+    marginRight: 5,
   },
 });

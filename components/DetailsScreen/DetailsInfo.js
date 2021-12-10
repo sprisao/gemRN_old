@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-const Infos = (props) => {
+const DetailsInfo = (props) => {
   let breakDays;
 
   if (storeData.breakDays) {
@@ -175,7 +175,7 @@ const Infos = (props) => {
   );
 };
 
-export default Infos;
+export default DetailsInfo;
 
 const styles = StyleSheet.create({
   detailsInfo: {

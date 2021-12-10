@@ -3,7 +3,6 @@ import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { useGlobalContext } from '../../Context';
 import GridWrapper from '../../components/CategoryScreen/GridWrapper';
-import TopTabNavigation from './TopTabNavigator';
 import colors from '../../constants/styleSettings/colors';
 
 const Tab = createMaterialTopTabNavigator();
@@ -137,7 +136,7 @@ export default function Cafes(props) {
           height: 40,
         },
         tabBarIndicatorStyle: {
-          borderBottomColor: colors.primary,
+          borderBottomColor: 'black',
           borderBottomWidth: 2,
         },
       }}

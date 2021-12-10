@@ -2,8 +2,6 @@ import React from 'react';
 import { useGlobalContext } from '../../Context';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import GridWrapper from '../../components/CategoryScreen/GridWrapper';
-import colors from '../../constants/styleSettings/colors';
-// import TopTabNavigation from './TopTabNavigator';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -237,7 +235,7 @@ export default function Restaurants(props) {
           height: 40,
         },
         tabBarIndicatorStyle: {
-          borderBottomColor: colors.primary,
+          borderBottomColor: 'black',
           borderBottomWidth: 2,
         },
         lazy: true,

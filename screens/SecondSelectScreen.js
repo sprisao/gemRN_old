@@ -48,6 +48,7 @@ const SecondSelectScreen = (props) => {
               emoji='🅰️'
               style={{
                 width: '97%',
+                height: 'auto',
                 justifyContent: 'center',
                 alignItems: 'center',
               }}
@@ -81,5 +82,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 5,
     marginTop: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
