@@ -1,23 +1,39 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import { Feather } from '@expo/vector-icons';
 
 const GridTile = (props) => {
   let preRank;
   if (props.rating > 8) {
-    preRank = <Text>🏅🏅🏅</Text>;
+    preRank = (
+      <View style={styles.medalContainer}>
+        <Text style={styles.medals}>🏅🏅🏅</Text>
+      </View>
+    );
   } else if (props.rating > 6) {
-    preRank = <Text>🏅🏅</Text>;
+    preRank = (
+      <View style={styles.medalContainer}>
+        <Text style={styles.medals}>🏅🏅</Text>
+      </View>
+    );
   } else if (props.rating > 3) {
-    preRank = <Text>🏅</Text>;
+    preRank = (
+      <View style={styles.medalContainer}>
+        <Text style={styles.medals}>🏅</Text>
+      </View>
+    );
   } else preRank = null;
 
   let businessHour;
   if (props.openHour) {
     businessHour = (
-      <Text>
-        {props.openHour} ~ {props.closeHour}
-      </Text>
+      <View style={styles.hourContainer}>
+        <Feather name='clock' size={13} color='black' />
+        <Text style={styles.businessHour}>
+          {props.openHour} ~ {props.closeHour}
+        </Text>
+      </View>
     );
   }
 
@@ -39,9 +55,10 @@ const GridTile = (props) => {
             source={{ uri: props.image }}
           />
           <View style={styles.articleContainer}>
-            <Text style={styles.desc}>{props.desc}</Text>
-            <Text style={styles.name}>{props.name}</Text>
-            <Text>{props.location}</Text>
+            <View style={styles.nameContainer}>
+              <Text>{props.location}</Text>
+              <Text style={styles.name}>{props.name}</Text>
+            </View>
             {preRank}
             {businessHour}
           </View>
@@ -57,7 +74,8 @@ const styles = StyleSheet.create({
   gridTile: {
     width: '47%',
     // maxHeight: 300,
-    margin: 5,
+    marginHorizontal: 5,
+    marginBottom: 8,
     overflow: 'hidden',
   },
   tileWrapper: {
@@ -72,21 +90,31 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   articleContainer: {
-    marginTop: 10,
-    height: 120,
+    flexDirection: 'column',
+    marginTop: 5,
+    height: 'auto',
     width: '100%',
   },
+  nameContainer: {
+    marginBottom: 3,
+  },
   name: {
-    fontFamily: 'notoSans-Regular',
     letterSpacing: -0.35,
     fontSize: 20,
-    marginTop: 0,
-    includeFontPadding: false,
+    marginTop: 4,
   },
-  desc: {
-    lineHeight: 13,
-    fontSize: 13,
-    letterSpacing: -0.35,
-    includeFontPadding: false,
+  medalContainer: { marginVertical: 5 },
+  medals: {
+    fontSize: 14,
+    letterSpacing: -5,
+    marginLeft: -4,
+  },
+  hourContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 1,
+  },
+  businessHour: {
+    marginLeft: 3,
   },
 });
