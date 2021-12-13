@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     padding: 10,
     borderRadius: 11.5,
-    borderWidth: 0.65,
+    borderWidth: 1,
     borderColor: '#dfdfdf',
     backgroundColor: '#f3f3f3',
     overflow: 'hidden',
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   homeBT_1_Header: {
     fontSize: 35,
     fontFamily: 'blackSans',
-    letterSpacing: -2,
+    letterSpacing: -1.25,
     includeFontPadding: false,
     color: '#333333',
     marginBottom: -5,

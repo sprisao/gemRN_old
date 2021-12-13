@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ScrollView, SafeAreaView } from 'react-native';
 
 import HomeButton2x1 from '../components/HomeScreen/HomeButton2x1';
 import HomeButton4x1 from '../components/HomeScreen/HomeButton4x1';
-import HomeButton1x1 from '../components/HomeScreen/HomeButton1x1';
+import Banner from '../components/HomeScreen/Banner';
 import SightseeingBT from '../components/HomeScreen/SightseeingBT';
 import CurationBT from '../components/HomeScreen/CurationBT';
 import Footer from '../components/Footer';
@@ -98,6 +98,7 @@ const HomeScreen = (props) => {
               }}
             />
           </View>
+          <Banner></Banner>
           <View style={styles.homeButton_Container}>
             <View style={styles.buttonWrapper}>
               <HomeButton4x1

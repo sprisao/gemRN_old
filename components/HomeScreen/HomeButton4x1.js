@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
   homeButton: {
     paddingTop: 5,
     borderRadius: 11.5,
-    borderWidth: 0.65,
+    borderWidth: 1,
     borderColor: '#dfdfdf',
     backgroundColor: '#f3f3f3',
     overflow: 'hidden',
     width: '47%',
-    height: 78,
+    height: 76,
     paddingHorizontal: 8,
   },
   homeBT_2_Header: {

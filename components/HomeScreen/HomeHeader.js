@@ -47,7 +47,7 @@ export default HomeHeader;
 const styles = StyleSheet.create({
   homeHeader: {
     flex: 1,
-    paddingHorizontal: 12,
+    paddingHorizontal: 10,
     paddingVertical: 14,
     paddingTop: 20,
     backgroundColor: 'white',
