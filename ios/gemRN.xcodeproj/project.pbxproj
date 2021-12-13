@@ -358,8 +358,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.brucechoe.gemRN;
-				PRODUCT_NAME = gemRN;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.brucecompany.gem";
+				PRODUCT_NAME = gem;
 				SWIFT_OBJC_BRIDGING_HEADER = "gemRN/gemRN-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -384,8 +384,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.brucechoe.gemRN;
-				PRODUCT_NAME = gemRN;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.brucecompany.gem";
+				PRODUCT_NAME = gem;
 				SWIFT_OBJC_BRIDGING_HEADER = "gemRN/gemRN-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
