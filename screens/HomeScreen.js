@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, ScrollView, SafeAreaView } from 'react-native';
 import HomeButton2x1 from '../components/HomeScreen/HomeButton2x1';
 import HomeButton4x1 from '../components/HomeScreen/HomeButton4x1';
 import HomeButton1x1 from '../components/HomeScreen/HomeButton1x1';
+import SightseeingBT from '../components/HomeScreen/SightseeingBT';
+import CurationBT from '../components/HomeScreen/CurationBT';
 import Footer from '../components/Footer';
 import Separator from '../components/Separator';
 
@@ -40,7 +42,7 @@ const HomeScreen = (props) => {
             <HomeButton2x1
               CategoryId={'recxEYsUuSaVk3ge2'}
               Category={'맛집'}
-              Desc={'검색없이 바로찾는 원주맛집!'}
+              Desc={'검색없이 한번에\n바로찾는 원주맛집!'}
               imageUrl={require('../assets/images/emojis/restaurants.png')}
               onSelect={() => {
                 props.navigation.navigate({
@@ -55,7 +57,7 @@ const HomeScreen = (props) => {
             <HomeButton2x1
               CategoryId={'rec1nohULLWQVqXZD'}
               Category={'카페'}
-              Desc={'원주의 모든 카페를 한 눈에!'}
+              Desc={'원주의 \n모든 카페를 한 눈에!'}
               imageUrl={require('../assets/images/emojis/cafe.png')}
               onSelect={() => {
                 props.navigation.navigate({
@@ -69,16 +71,28 @@ const HomeScreen = (props) => {
             />
           </View>
           <View style={styles.homeButton_Container}>
-            <HomeButton1x1
+            <SightseeingBT
               Category={'가볼만한 곳'}
-              Desc={'관광, 레져, 인생샷 스팟까지 한눈에!'}
+              Desc={'관광, 레져,\n인생샷 스팟까지 한눈에!'}
               imageUrl={require('../assets/images/emojis/sightseeing.png')}
               onSelect={() => {
                 props.navigation.navigate({
                   name: 'SecondSelect',
                   params: {
                     categoryName: '가볼만한 곳',
-                    categoryId: ' ',
+                  },
+                });
+              }}
+            />
+            <CurationBT
+              Category={'젬 큐레이션'}
+              Desc={'젬이 소개하는\n보석같은 장소들'}
+              imageUrl={require('../assets/images/emojis/curation.png')}
+              onSelect={() => {
+                props.navigation.navigate({
+                  name: 'SecondSelect',
+                  params: {
+                    categoryName: '가볼만한 곳',
                   },
                 });
               }}
@@ -209,7 +223,6 @@ const HomeScreen = (props) => {
             </View>
           </View>
         </View>
-        <HomePromotion />
         <Separator />
         <Footer />
       </ScrollView>
@@ -226,7 +239,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   homeScreen_Categories: {
-    paddingHorizontal: 13,
+    paddingHorizontal: 10,
   },
   homeButton_Container: {
     width: '100%',

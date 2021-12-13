@@ -57,6 +57,8 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 5,
     marginBottom: 5,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
   },
   wrapper: {
     flexDirection: 'row',

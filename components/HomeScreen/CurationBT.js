@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { EvilIcons } from '@expo/vector-icons';
 
-const HomeButton2x1 = (props) => {
+const CurationBT = (props) => {
   const imgSource = props.imageUrl;
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={props.onSelect}>
@@ -23,7 +23,7 @@ const HomeButton2x1 = (props) => {
             name='chevron-right'
             size={35}
             color='black'
-            style={{ marginLeft: -19, marginRight: -13 }}
+            style={{ marginLeft: -15, marginRight: -13 }}
           />
         </View>
       </View>
@@ -31,24 +31,28 @@ const HomeButton2x1 = (props) => {
   );
 };
 
-export default HomeButton2x1;
+export default CurationBT;
 
 const styles = StyleSheet.create({
   buttonContainer: {
     padding: 10,
+    paddingBottom: 5,
     borderRadius: 11.5,
     borderWidth: 0.65,
     borderColor: '#dfdfdf',
     backgroundColor: '#f3f3f3',
     overflow: 'hidden',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     width: '48.5%',
-    height: 180,
+    height: 76,
   },
   imageContainer: {
-    width: 85,
-    height: 85,
+    position: 'absolute',
+    top: 5,
+    right: 5,
+    width: 45,
+    height: 45,
     shadowColor: '#000',
     shadowOffset: { width: 2, height: 3 },
     shadowOpacity: 0.15,
@@ -58,12 +62,12 @@ const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    // alignItems: 'center',
+    alignItems: 'center',
   },
   homeBT_1_Header: {
-    fontSize: 35,
+    fontSize: 23,
     fontFamily: 'blackSans',
-    letterSpacing: -2,
+    letterSpacing: -1.25,
     includeFontPadding: false,
     color: '#333333',
     marginBottom: -5,
@@ -72,17 +76,16 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
   },
   pgContainer: {
     width: 30,
   },
   paragraph: {
     fontFamily: 'SD-UL',
-    lineHeight: 15.5,
-    fontSize: 13,
-    marginBottom: 5,
-    textAlign: 'right',
+    lineHeight: 12,
+    fontSize: 11,
+    textAlign: 'left',
   },
   homeBT_1_emoji: {
     // position: 'absolute',

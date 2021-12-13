@@ -27,34 +27,35 @@ export default HomeButton4x1;
 
 const styles = StyleSheet.create({
   homeButton: {
-    paddingHorizontal: 13,
-    paddingTop: 13,
+    paddingTop: 5,
     borderRadius: 11.5,
     borderWidth: 0.65,
     borderColor: '#dfdfdf',
     backgroundColor: '#f3f3f3',
     overflow: 'hidden',
     width: '47%',
-    height: 82,
+    height: 78,
     paddingHorizontal: 8,
   },
   homeBT_2_Header: {
-    fontSize: 17,
-    fontFamily: 'blackSans',
+    fontSize: 16,
+    fontFamily: 'SD-EB',
     letterSpacing: -0.8,
     includeFontPadding: false,
     color: '#333333',
   },
 
   homeBT_2_EmojiContainer: {
+    width: 43,
+    height: 43,
+    position: 'absolute',
     flexDirection: 'row-reverse',
     alignItems: 'flex-end',
+    right: -1,
+    bottom: -1.5,
   },
   homeBT_2_emoji: {
-    position: 'absolute',
-    width: 40,
-    height: 40,
-    left: -8,
-    top: 12,
+    width: '100%',
+    height: '100%',
   },
 });
