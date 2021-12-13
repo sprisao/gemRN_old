@@ -44,10 +44,11 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   homeBT_1_Header: {
-    fontSize: 30,
-    fontFamily: 'notoSans-Bold',
-    letterSpacing: -0.35,
+    fontSize: 35,
+    fontFamily: 'blackSans',
+    letterSpacing: -2,
     includeFontPadding: false,
+    color: '#333333',
   },
   homeBT_1_Article: {
     width: '80%',
@@ -65,13 +66,5 @@ const styles = StyleSheet.create({
     top: 10,
     width: 100,
     height: 100,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 3, height: 3 },
-        shadowOpacity: 0.25,
-        shadowRadius: 3,
-      },
-    }),
   },
 });

@@ -28,7 +28,7 @@ export default HomeButton4x1;
 const styles = StyleSheet.create({
   homeButton: {
     paddingHorizontal: 13,
-    paddingTop: 8,
+    paddingTop: 13,
     borderRadius: 11.5,
     borderWidth: 0.65,
     borderColor: '#dfdfdf',
@@ -39,10 +39,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   homeBT_2_Header: {
-    fontSize: 14.5,
-    fontFamily: 'notoSans-Medium',
-    letterSpacing: -0.95,
+    fontSize: 17,
+    fontFamily: 'blackSans',
+    letterSpacing: -0.8,
     includeFontPadding: false,
+    color: '#333333',
   },
 
   homeBT_2_EmojiContainer: {
@@ -55,13 +56,5 @@ const styles = StyleSheet.create({
     height: 40,
     left: -8,
     top: 12,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 3, height: 3 },
-        shadowOpacity: 0.5,
-        shadowRadius: 2,
-      },
-    }),
   },
 });

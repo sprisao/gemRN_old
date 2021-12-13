@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'column-reverse',
     height: 145,
-    backgroundColor: colors.primary,
+    backgroundColor: '#c6c6c6',
     borderBottomLeftRadius: 14,
     borderBottomRightRadius: 14,
     paddingHorizontal: 14,

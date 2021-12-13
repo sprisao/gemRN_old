@@ -13,7 +13,7 @@ const DetailsMenu = (props) => {
           {menu.map((item) => {
             if (item.store_id[0] === storeData.id)
               return (
-                <View style={styles.menuItem}>
+                <View style={styles.menuItem} key={item.id}>
                   <View style={styles.imageContainer}>
                     <FastImage
                       source={{ uri: item.menuImage[0].url }}

@@ -209,7 +209,6 @@ const StoreProvider = ({ children }) => {
       );
   }, []);
 
-  // 프로모션 불러오기
   useEffect(() => {
     storeBase('promotions')
       .select({
@@ -231,7 +230,6 @@ const StoreProvider = ({ children }) => {
           if (err) {
             console.error(err);
           } else {
-            console.log('프로모션 불러오기 성공');
             setPromoLoading(false);
           }
         }

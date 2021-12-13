@@ -14,6 +14,16 @@ const fetchFonts = () => {
     'notoSans-Regular': require('./assets/fonts/Noto_Sans_KR/NotoSansKR-Regular.otf'),
     'notoSans-Light': require('./assets/fonts/Noto_Sans_KR/NotoSansKR-Light.otf'),
     'notoSans-Thin': require('./assets/fonts/Noto_Sans_KR/NotoSansKR-Thin.otf'),
+    'SD-UL': require('./assets/fonts/Apple_SD_Gothic_Neo/AppleSDGothicNeoUL.ttf'),
+    'SD-L': require('./assets/fonts/Apple_SD_Gothic_Neo/AppleSDGothicNeoL.ttf'),
+    'SD-T': require('./assets/fonts/Apple_SD_Gothic_Neo/AppleSDGothicNeoT.ttf'),
+    'SD-R': require('./assets/fonts/Apple_SD_Gothic_Neo/AppleSDGothicNeoR.ttf'),
+    'SD-M': require('./assets/fonts/Apple_SD_Gothic_Neo/AppleSDGothicNeoM.ttf'),
+    'SD-SB': require('./assets/fonts/Apple_SD_Gothic_Neo/AppleSDGothicNeoSB.ttf'),
+    'SD-B': require('./assets/fonts/Apple_SD_Gothic_Neo/AppleSDGothicNeoB.ttf'),
+    'SD-EB': require('./assets/fonts/Apple_SD_Gothic_Neo/AppleSDGothicNeoEB.ttf'),
+    'SD-H': require('./assets/fonts/Apple_SD_Gothic_Neo/AppleSDGothicNeoH.ttf'),
+    blackSans: require('./assets/fonts/Black_Han_Sans/BlackHanSans-Regular.ttf'),
   });
 };
 
