@@ -241,15 +241,33 @@ export default function Restaurants(props) {
       initialRouteName={moveToPage}
       screenOptions={{
         tabBarScrollEnabled: true,
+        tabBarStyle: {
+          height: 50,
+          // backgroundColor: 'blue',
+          alignItems: 'center',
+          padding: 0,
+          margin: 0,
+        },
         tabBarItemStyle: {
-          width: 80,
-          height: 40,
+          width: 'auto',
+          height: 25,
+          padding: 0,
+          margin: 1,
+          // backgroundColor: 'green',
+          alignItems: 'center',
+        },
+        tabBarLabelStyle: {
+          margin: 0,
+          paddingHorizontal: 10,
+          // borderWidth: 1,
+          fontFamily: 'SD-R',
+          fontSize: 13,
         },
         tabBarIndicatorStyle: {
           borderBottomColor: 'black',
-          borderBottomWidth: 2,
+          borderBottomWidth: 3,
+          borderRadius: 20,
         },
-        lazy: true,
       }}
     >
       <Tab.Screen name='전체' component={All} />
