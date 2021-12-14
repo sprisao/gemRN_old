@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from '../screens/HomeScreen';
@@ -8,6 +7,7 @@ import Restaurants from '../screens/CategoryScreens/Restaurants';
 import Cafes from '../screens/CategoryScreens/Cafes';
 import DetailsScreen from '../screens/DetailsScreen';
 
+import LocationPicker from '../components/CategoryScreen/LocationPicker';
 import DetailsHeaderRight from '../components/DetailsScreen/HeaderRight';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -46,7 +46,7 @@ export default function GemStack() {
       <Stack.Screen
         name='맛집'
         component={Restaurants}
-        options={({ route }) => ({
+        options={({ route, navigation }) => ({
           title: '맛집',
           headerBackImage: () => (
             <Ionicons
@@ -61,6 +61,9 @@ export default function GemStack() {
           headerTitleStyle: {
             color: 'black',
           },
+          headerRight: () => (
+            <LocationPicker navigation={navigation} route={route} />
+          ),
         })}
       />
       <Stack.Screen

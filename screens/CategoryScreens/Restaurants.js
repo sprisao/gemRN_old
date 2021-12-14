@@ -6,56 +6,67 @@ import GridWrapper from '../../components/CategoryScreen/GridWrapper';
 const Tab = createMaterialTopTabNavigator();
 
 export default function Restaurants(props) {
+  const currentLocation = props.route.params.location;
   const { restaurants } = useGlobalContext();
+
+  let localFilter;
+  if (currentLocation === '전체') {
+    localFilter = restaurants;
+  } else {
+    localFilter = restaurants.filter(
+      (item) => item.eupmyeondongRi === currentLocation
+    );
+  }
+
   const moveToPage = props.route.params.secondCatName;
 
-  const all = restaurants;
-  const jok = restaurants.filter(
+  const all = localFilter;
+  const jok = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'rec9AQaAKvzGDumyT'
   );
-  const hamB = restaurants.filter(
+  const hamB = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recGCR0nAaarWxMYF'
   );
-  const ch = restaurants.filter(
+  const ch = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recKXAHESS8bfL9An'
   );
-  const pizza = restaurants.filter(
+  const pizza = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recNqj81zO9vo8Y1S'
   );
-  const night = restaurants.filter(
+  const night = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recWjPmQXkel8qmBF'
   );
-  const don = restaurants.filter(
+  const don = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'reccIlp7IP4s9qZJm'
   );
-  const west = restaurants.filter(
+  const west = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'reccSeNPsdGNsP3xA'
   );
-  const chick = restaurants.filter(
+  const chick = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recgPMsTtxj5TGmYX'
   );
-  const kor = restaurants.filter(
+  const kor = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recijnmBY043chgi0'
   );
-  const tang = restaurants.filter(
+  const tang = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recu5oxlWN5AMn7KW'
   );
-  const dosi = restaurants.filter(
+  const dosi = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recwzwuLim1rnNhBu'
   );
-  const salad = restaurants.filter(
+  const salad = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recwpFEyhZ1bKxqcB'
   );
-  const bun = restaurants.filter(
+  const bun = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recxY2d5PwVXiKRHP'
   );
-  const korN = restaurants.filter(
+  const korN = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'rec7e1fQLpqKa2uXE'
   );
-  const gook = restaurants.filter(
+  const gook = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recmL3e8AyRVYq1Xc'
   );
-  const gob = restaurants.filter(
+  const gob = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recLHWFM0c5dDC89u'
   );
 
