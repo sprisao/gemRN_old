@@ -3,40 +3,47 @@ import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { useGlobalContext } from '../../Context';
 import GridWrapper from '../../components/CategoryScreen/GridWrapper';
-import colors from '../../constants/styleSettings/colors';
 
 const Tab = createMaterialTopTabNavigator();
 
 export default function Cafes(props) {
   const { cafes } = useGlobalContext();
+  const currentLocation = props.route.params.location;
+
+  let localFilter;
+  if (currentLocation === '전체') {
+    localFilter = cafes;
+  } else {
+    localFilter = cafes.filter(
+      (item) => item.eupmyeondongRi === currentLocation
+    );
+  }
   const moveToPage = props.route.params.secondCatName;
 
-  const all = cafes;
+  const all = localFilter;
 
-  const headerTitle = props.route.params.secondCatName;
-
-  const view = cafes.filter(
+  const view = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'rec8oWnvuNNY8pcrd'
   );
-  const brunch = cafes.filter(
+  const brunch = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recGU2LGE21U74UVF'
   );
-  const dessert = cafes.filter(
+  const dessert = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recUwXSvhzRW2ePyL'
   );
-  const atmosphere = cafes.filter(
+  const atmosphere = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recZuQtNZBNx198JS'
   );
-  const work = cafes.filter(
+  const work = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recavKfhMI5a7UCmE'
   );
-  const nature = cafes.filter(
+  const nature = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recrlq7SKKROlBl0x'
   );
-  const bakery = cafes.filter(
+  const bakery = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'recyouPHU8sgXOrhJ'
   );
-  const insta = cafes.filter(
+  const insta = localFilter.filter(
     (item) => item.secondCategoryId[0] === 'reczJ8Oy2h24xx2Ji'
   );
 
@@ -153,9 +160,3 @@ export default function Cafes(props) {
     </Tab.Navigator>
   );
 }
-
-Cafes.navigationOptions = () => {
-  return {
-    headerTitle: 'hi',
-  };
-};

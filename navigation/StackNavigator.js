@@ -69,7 +69,7 @@ export default function GemStack() {
       <Stack.Screen
         name='카페'
         component={Cafes}
-        options={({ route }) => ({
+        options={({ route, navigation }) => ({
           title: '카페',
           headerBackImage: () => (
             <Ionicons
@@ -84,6 +84,9 @@ export default function GemStack() {
           headerTitleStyle: {
             color: 'black',
           },
+          headerRight: () => (
+            <LocationPicker navigation={navigation} route={route} />
+          ),
         })}
       />
 
