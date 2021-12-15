@@ -11,7 +11,6 @@ import Separator from '../components/Separator';
 
 import HomeHeader from '../components/HomeScreen/HomeHeader';
 
-import HomePromotion from '../components/HomeScreen/HomePromotion';
 import { useGlobalContext } from '../Context';
 
 const HomeScreen = (props) => {
@@ -85,10 +84,7 @@ const HomeScreen = (props) => {
               imageUrl={require('../assets/images/emojis/curation.png')}
               onSelect={() => {
                 props.navigation.navigate({
-                  name: 'SecondSelect',
-                  params: {
-                    categoryName: '가볼만한 곳',
-                  },
+                  name: 'Curations',
                 });
               }}
             />

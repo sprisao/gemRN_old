@@ -6,6 +6,7 @@ import SecondSelectScreen from '../screens/SecondSelectScreen';
 import Restaurants from '../screens/CategoryScreens/Restaurants';
 import Cafes from '../screens/CategoryScreens/Cafes';
 import DetailsScreen from '../screens/DetailsScreen';
+import Curations from '../screens/Curations';
 
 import LocationPicker from '../components/CategoryScreen/LocationPicker';
 import DetailsHeaderRight from '../components/DetailsScreen/HeaderRight';
@@ -87,6 +88,26 @@ export default function GemStack() {
           headerRight: () => (
             <LocationPicker navigation={navigation} route={route} />
           ),
+        })}
+      />
+      <Stack.Screen
+        name='Curations'
+        component={Curations}
+        options={({ route, navigation }) => ({
+          title: '젬 큐레이션 ✨',
+          headerBackImage: () => (
+            <Ionicons
+              name='ios-chevron-back'
+              size={24}
+              color='black'
+              style={{ marginLeft: 10 }}
+            />
+          ),
+          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerTintColor: 'black',
+          headerTitleStyle: {
+            color: 'black',
+          },
         })}
       />
 

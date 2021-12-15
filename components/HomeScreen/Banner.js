@@ -30,7 +30,6 @@ const Banner = (props) => {
     return () => clearTimeout(counter);
   }, [selectedIndex]);
 
-  console.log(selectedIndex);
   const scrollEnded = (event) => {
     const viewSize = event.nativeEvent.layoutMeasurement.width;
 

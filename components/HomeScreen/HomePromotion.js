@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
-import { Video } from 'expo-av';
 import { useGlobalContext } from '../../Context';
 import PagerView from 'react-native-pager-view';
 
