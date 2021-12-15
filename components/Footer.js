@@ -1,21 +1,35 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 const Footer = () => {
+  const [isShow, setisShow] = useState(false);
+  const pressHandler = () => {
+    if (!isShow) {
+      setisShow(true);
+    } else {
+      setisShow(false);
+    }
+  };
   return (
     <View style={styles.footer}>
       <View style={styles.footer_Wrapper}>
-        <View style={styles.CompanyName}>
-          <Text style={styles.CompanyNameText}>Bruce Corporation</Text>
-        </View>
-        <View style={styles.CompanyDetails}>
-          <Text style={styles.CompanyDetailsText}>
-            브루스 코퍼레이션 | 대표: 최종혁
-          </Text>
-          <Text style={styles.CompanyDetailsText}>
-            사업자등록번호:103-28-01020 | 통신판매업: 2020-강원원주-00664
-          </Text>
-        </View>
+        <TouchableWithoutFeedback onPress={pressHandler}>
+          <View style={styles.CompanyName}>
+            <Text style={styles.CompanyNameText}>Bruce Corporation</Text>
+            <Feather name='chevron-down' size={24} color='black' />
+          </View>
+        </TouchableWithoutFeedback>
+        {isShow ? (
+          <View style={styles.CompanyDetails}>
+            <Text style={styles.CompanyDetailsText}>
+              브루스 코퍼레이션 | 대표: 최종혁
+            </Text>
+            <Text style={styles.CompanyDetailsText}>
+              사업자등록번호:103-28-01020 | 통신판매업: 2020-강원원주-00664
+            </Text>
+          </View>
+        ) : null}
         <View style={styles.Copyright}>
           <Text style={styles.CopyrightText}>
             Copyright © 2020 Bruce Corp. All rights reserved.
@@ -53,6 +67,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 13,
     paddingBottom: 40,
+  },
+  CompanyName: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   CompanyNameText: {
     includeFontPadding: false,

@@ -21,13 +21,13 @@ const HomeHeader = (props) => {
           <Text style={styles.headerText}>어디가지? 고민할 땐-!</Text>
         </TouchableOpacity>
         <View style={styles.rightBox}>
-          <View style={styles.locationPicker_Container}>
+          <TouchableOpacity style={styles.locationPicker_Container}>
             <View style={styles.locationWrapper}>
               <Feather name='map-pin' size={13} color='black' />
               <Text style={styles.locationText}>강원도 원주시</Text>
               <Feather name='chevron-down' size={15} color='black' />
             </View>
-          </View>
+          </TouchableOpacity>
           <View style={styles.travelMode_Container}>
             <View style={styles.travelWrapper}>
               <Text style={styles.travelText}>여행모드</Text>

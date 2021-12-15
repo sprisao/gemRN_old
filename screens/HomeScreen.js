@@ -31,12 +31,7 @@ const HomeScreen = (props) => {
         style={styles.homeScreen}
         showsVerticalScrollIndicator={false}
       >
-        <HomeHeader
-          navigation={props.navigation}
-          onTab={props.navigation.navigate({
-            name: 'Home',
-          })}
-        />
+        <HomeHeader navigation={props.navigation} onTab={() => {}} />
         <View style={styles.homeScreen_Categories}>
           <View style={styles.homeButton_Container}>
             <HomeButton2x1

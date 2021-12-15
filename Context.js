@@ -16,11 +16,13 @@ const StoreProvider = ({ children }) => {
   const [menuLoading, setMenuLoading] = useState(true);
   const [cafesLoading, setCafesLoading] = useState(true);
   const [promoLoading, setPromoLoading] = useState(true);
+  const [adsLoading, setAdsLoading] = useState(true);
 
   const [restaurants, setRestaurants] = useState([]);
   const [cafes, setCafes] = useState([]);
   const [menu, setMenu] = useState([]);
   const [promotions, setPromotions] = useState([]);
+  const [ads, setAds] = useState([]);
 
   const [firstCategories, setFirstCategories] = useState([]);
   const [secondCategories, setSecondCategories] = useState([]);
@@ -33,6 +35,7 @@ const StoreProvider = ({ children }) => {
   const cafe = [];
   const menuItem = [];
   const promotion = [];
+  const ad = [];
 
   // 맛집 불러오기
   useEffect(() => {
@@ -236,6 +239,34 @@ const StoreProvider = ({ children }) => {
       );
   }, []);
 
+  useEffect(() => {
+    storeBase('ads')
+      .select({
+        view: 'data',
+        pageSize: 10,
+      })
+      .eachPage(
+        function page(records, fetchNextPage) {
+          records.forEach(function (record) {
+            ad.push({
+              id: record.id,
+              ...record._rawJson.fields,
+            });
+          });
+          fetchNextPage();
+          setAds(ad);
+        },
+        function done(err) {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log('Ads 불러오기 완료 ');
+            setAdsLoading(false);
+          }
+        }
+      );
+  }, []);
+
   return (
     <Context.Provider
       value={{
@@ -250,6 +281,8 @@ const StoreProvider = ({ children }) => {
         cafes,
         promotions,
         promoLoading,
+        ads,
+        adsLoading,
       }}
     >
       {children}
