@@ -45,7 +45,7 @@ const Banner = (props) => {
       <ScrollView
         horizontal
         pagingEnabled
-        style={{ width: '100%', height: '100%', backgroundColor: 'yellow' }}
+        style={{ width: '100%', height: '100%' }}
         onMomentumScrollEnd={scrollEnded}
         showsHorizontalScrollIndicator={false}
         ref={scrollRef}

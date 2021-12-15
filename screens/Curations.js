@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   },
   videoContainer: {
     width: '100%',
-    height: 165,
+    height: 170,
   },
   video: {
     width: '100%',
