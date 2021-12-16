@@ -14,9 +14,9 @@ import HomeHeader from '../components/HomeScreen/HomeHeader';
 import { useGlobalContext } from '../Context';
 
 const HomeScreen = (props) => {
-  const { promoLoading } = useGlobalContext();
+  const { restaurantLoading } = useGlobalContext();
 
-  if (promoLoading) {
+  if (restaurantLoading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>로딩중이쥐롱</Text>
