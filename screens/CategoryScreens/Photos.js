@@ -6,7 +6,7 @@ import GridWrapper from '../../components/CategoryScreen/GridWrapper';
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function Beauties(props) {
+export default function Photos(props) {
   const { others } = useGlobalContext();
   // 1차 카테고리 값 불러오기
   const currentCategory = props.route.params.categoryName;
@@ -31,23 +31,14 @@ export default function Beauties(props) {
   // 받아온 카테고리의 데이터를 2차 카테고리 별로 정리
   const all = localFilter;
 
-  const hair = localFilter.filter(
-    (item) => item.secondCategoryId[0] === 'rectmhblFe6SXqbDG'
+  const studio = localFilter.filter(
+    (item) => item.secondCategoryId[0] === 'recqa1nIU4oQNloOS'
   );
-  const nail = localFilter.filter(
-    (item) => item.secondCategoryId[0] === 'reccLo8LhIMBVi92x'
+  const wedding = localFilter.filter(
+    (item) => item.secondCategoryId[0] === 'recDvcF8MOdX7X3Zs'
   );
-  const waxing = localFilter.filter(
-    (item) => item.secondCategoryId[0] === 'rec9EMDNL5gv2M3VF'
-  );
-  const massage = localFilter.filter(
-    (item) => item.secondCategoryId[0] === 'recIFB4JmiXOAiOxC'
-  );
-  const tanning = localFilter.filter(
-    (item) => item.secondCategoryId[0] === 'recP2Ywh8j0Pr4PQL'
-  );
-  const eyebrow = localFilter.filter(
-    (item) => item.secondCategoryId[0] === 'recwYEHRWLdoboEUc'
+  const self = localFilter.filter(
+    (item) => item.secondCategoryId[0] === 'recINBMqK1tHCGa77'
   );
 
   // 네비게이션 생성을 위한 function 정의
@@ -60,55 +51,28 @@ export default function Beauties(props) {
       />
     );
   }
-  function Hair() {
+  function Studio() {
     return (
       <GridWrapper
-        data={hair}
+        data={studio}
         navigation={props.navigation}
         route={props.route}
       />
     );
   }
-  function Nail() {
+  function Wedding() {
     return (
       <GridWrapper
-        data={nail}
+        data={wedding}
         navigation={props.navigation}
         route={props.route}
       />
     );
   }
-  function Waxing() {
+  function Self() {
     return (
       <GridWrapper
-        data={waxing}
-        navigation={props.navigation}
-        route={props.route}
-      />
-    );
-  }
-  function Massage() {
-    return (
-      <GridWrapper
-        data={massage}
-        navigation={props.navigation}
-        route={props.route}
-      />
-    );
-  }
-  function Tanning() {
-    return (
-      <GridWrapper
-        data={tanning}
-        navigation={props.navigation}
-        route={props.route}
-      />
-    );
-  }
-  function Eyebrow() {
-    return (
-      <GridWrapper
-        data={eyebrow}
+        data={self}
         navigation={props.navigation}
         route={props.route}
       />
@@ -120,22 +84,23 @@ export default function Beauties(props) {
       initialRouteName={moveToPage}
       screenOptions={{
         tabBarScrollEnabled: true,
-        tabBarStyle: {
-          height: 50,
+        tabBarIndicatorContainerStyle: {
           alignItems: 'center',
-          padding: 0,
-          margin: 0,
+          justifyContent: 'center',
+        },
+        tabBarStyle: {
+          // justifyContent: 'space-between',
+          height: 45,
         },
         tabBarItemStyle: {
-          width: 'auto',
-          height: 25,
-          padding: 0,
-          margin: 1,
           alignItems: 'center',
+          width: 85,
+          padding: 0,
+          paddingTop: 10,
+          margin: 0,
         },
         tabBarLabelStyle: {
-          margin: 0,
-          paddingHorizontal: 10,
+          flex: 1,
           fontFamily: 'SD-R',
           fontSize: 13,
         },
@@ -147,12 +112,9 @@ export default function Beauties(props) {
       }}
     >
       <Tab.Screen name='전체' component={All} />
-      <Tab.Screen name='미용실' component={Hair} />
-      <Tab.Screen name='네일샵' component={Nail} />
-      <Tab.Screen name='왁싱샵' component={Waxing} />
-      <Tab.Screen name='마사지샵' component={Massage} />
-      <Tab.Screen name='태닝샵' component={Tanning} />
-      <Tab.Screen name='눈썹관리' component={Eyebrow} />
+      <Tab.Screen name='스튜디오' component={Studio} />
+      <Tab.Screen name='웨딩' component={Wedding} />
+      <Tab.Screen name='셀프' component={Self} />
     </Tab.Navigator>
   );
 }

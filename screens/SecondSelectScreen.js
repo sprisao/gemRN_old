@@ -28,6 +28,7 @@ const SecondSelectScreen = (props) => {
               secondCatId: data.item.id,
               secondCatName: data.item.title,
               categoryName: data.item.firstCategory[0],
+              selectedCategory: selectedCategory,
             },
           });
         }}
@@ -59,6 +60,7 @@ const SecondSelectScreen = (props) => {
                   params: {
                     secondCatName: '전체',
                     categoryName: firstCategory,
+                    selectedCategory: selectedCategory,
                   },
                 });
               }}

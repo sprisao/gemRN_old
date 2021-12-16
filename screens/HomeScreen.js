@@ -100,7 +100,7 @@ const HomeScreen = (props) => {
                   props.navigation.navigate({
                     name: 'SecondSelect',
                     params: {
-                      categoryName: '호프주점',
+                      categoryName: '호프・주점',
                       categoryId: 'rectbHPCk3LZzfu6w',
                     },
                   });
@@ -114,7 +114,7 @@ const HomeScreen = (props) => {
                   props.navigation.navigate({
                     name: 'SecondSelect',
                     params: {
-                      categoryName: '운동헬스',
+                      categoryName: '운동・헬스',
                       categoryId: 'recTQQfv194uE5O1K',
                     },
                   });
@@ -130,7 +130,7 @@ const HomeScreen = (props) => {
                   props.navigation.navigate({
                     name: 'SecondSelect',
                     params: {
-                      categoryName: '미용뷰티',
+                      categoryName: '미용・뷰티',
                       categoryId: 'recse3cQXji2BWlNu',
                     },
                   });
@@ -138,13 +138,13 @@ const HomeScreen = (props) => {
               />
               <HomeButton4x1
                 CategoryId={'recqOzD4oznYyHeXS'}
-                Category={'스튜디오'}
+                Category={'사진'}
                 imageUrl={require('../assets/images/emojis/studio.png')}
                 onSelect={() => {
                   props.navigation.navigate({
                     name: 'SecondSelect',
                     params: {
-                      categoryName: '스튜디오',
+                      categoryName: '사진',
                       categoryId: 'recqOzD4oznYyHeXS',
                     },
                   });
@@ -206,7 +206,7 @@ const HomeScreen = (props) => {
                   props.navigation.navigate({
                     name: 'SecondSelect',
                     params: {
-                      categoryName: '교육학원',
+                      categoryName: '교육・학원',
                       categoryId: 'recz1ftDhPT8VADjf',
                     },
                   });
