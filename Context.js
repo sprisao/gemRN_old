@@ -18,11 +18,16 @@ const StoreProvider = ({ children }) => {
   const [promoLoading, setPromoLoading] = useState(true);
   const [adsLoading, setAdsLoading] = useState(true);
 
+  const [othersLoading, setOthersLoading] = useState(true);
+  const [spotsLoading, setSpotsLoading] = useState(true);
+
   const [restaurants, setRestaurants] = useState([]);
   const [cafes, setCafes] = useState([]);
   const [menu, setMenu] = useState([]);
   const [promotions, setPromotions] = useState([]);
   const [ads, setAds] = useState([]);
+  const [spots, setSpots] = useState([]);
+  const [others, setOthers] = useState([]);
 
   const [firstCategories, setFirstCategories] = useState([]);
   const [secondCategories, setSecondCategories] = useState([]);
@@ -36,9 +41,11 @@ const StoreProvider = ({ children }) => {
   const menuItem = [];
   const promotion = [];
   const ad = [];
+  const spot = [];
+  const other = [];
 
-  // 맛집 불러오기
   useEffect(() => {
+    // 맛집 불러오기
     storeBase('stores')
       .select({
         view: 'restaurants',
@@ -64,10 +71,7 @@ const StoreProvider = ({ children }) => {
           }
         }
       );
-  }, []);
-
-  // 카페 불러오기
-  useEffect(() => {
+    // 카페 불러오기
     storeBase('stores')
       .select({
         view: 'cafes',
@@ -93,11 +97,7 @@ const StoreProvider = ({ children }) => {
           }
         }
       );
-  }, []);
-
-  // 세컨드카테고리 데이터 불러오기
-
-  useEffect(() => {
+    // 세컨드카테고리 데이터 불러오기
     storeBase('secondCategoryData')
       .select({
         view: 'data',
@@ -123,10 +123,6 @@ const StoreProvider = ({ children }) => {
           }
         }
       );
-  }, []);
-
-  // 카테고리 데이터 불러오기
-  useEffect(() => {
     storeBase('firstCategoryData')
       .select({
         view: 'Grid view',
@@ -152,9 +148,6 @@ const StoreProvider = ({ children }) => {
           }
         }
       );
-  }, []);
-
-  useEffect(() => {
     storeBase('locationCategoryData')
       .select({
         view: 'data',
@@ -180,11 +173,6 @@ const StoreProvider = ({ children }) => {
           }
         }
       );
-  }, []);
-
-  // 메뉴 데이터 로딩
-
-  useEffect(() => {
     storeBase('menu')
       .select({
         view: 'Grid view',
@@ -210,9 +198,6 @@ const StoreProvider = ({ children }) => {
           }
         }
       );
-  }, []);
-
-  useEffect(() => {
     storeBase('promotions')
       .select({
         view: 'online',
@@ -237,9 +222,6 @@ const StoreProvider = ({ children }) => {
           }
         }
       );
-  }, []);
-
-  useEffect(() => {
     storeBase('ads')
       .select({
         view: 'data',
@@ -265,6 +247,58 @@ const StoreProvider = ({ children }) => {
           }
         }
       );
+
+    // 기타 카테고리 업체들 불러오기
+    storeBase('stores')
+      .select({
+        view: 'others',
+      })
+      .eachPage(
+        function page(records, fetchNextPage) {
+          records.forEach(function (record) {
+            other.push({
+              id: record.id,
+              ...record._rawJson.fields,
+            });
+          });
+          fetchNextPage();
+          setOthers(other);
+        },
+        function done(err) {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log('기타 카테고리 불러오기 완료');
+            setOthersLoading(false);
+          }
+        }
+      );
+
+    // 기타 카테고리 업체들 불러오기
+    storeBase('spots')
+      .select({
+        view: 'data',
+      })
+      .eachPage(
+        function page(records, fetchNextPage) {
+          records.forEach(function (record) {
+            spot.push({
+              id: record.id,
+              ...record._rawJson.fields,
+            });
+          });
+          fetchNextPage();
+          setSpots(spot);
+        },
+        function done(err) {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log('가볼만한곳 불러오기 완료');
+            setSpotsLoading(false);
+          }
+        }
+      );
   }, []);
 
   return (
@@ -275,6 +309,7 @@ const StoreProvider = ({ children }) => {
         firstCategories,
         secondCategories,
         locationCategories,
+        restaurantLoading,
         menuLoading,
         menu,
         restaurants,
@@ -283,6 +318,10 @@ const StoreProvider = ({ children }) => {
         promoLoading,
         ads,
         adsLoading,
+        spotsLoading,
+        spots,
+        othersLoading,
+        others,
       }}
     >
       {children}
