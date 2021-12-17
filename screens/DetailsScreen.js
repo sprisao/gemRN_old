@@ -27,8 +27,10 @@ const DetailsScreen = (props) => {
           <Text style={styles.storeName}>{storeData.name}</Text>
         </View>
         <View style={styles.HeaderRight}>
-          <Text>{preRank}</Text>
-          <Text style={styles.miniAddress}>{storeData.miniAddress}</Text>
+          <View style={styles.rankContainer}>{preRank}</View>
+          <View style={styles.addressContainer}>
+            <Text style={styles.miniAddress}>{storeData.miniAddress}</Text>
+          </View>
         </View>
       </View>
       <ImagesContainer Images={storeData.images} />
@@ -63,6 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   HeaderLeft: {
+    width: '85%',
     flexDirection: 'column',
     padding: 0,
     margin: 0,

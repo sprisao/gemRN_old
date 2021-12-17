@@ -14,9 +14,9 @@ import HomeHeader from '../components/HomeScreen/HomeHeader';
 import { useGlobalContext } from '../Context';
 
 const HomeScreen = (props) => {
-  const { restaurantLoading } = useGlobalContext();
+  const { cafesLoading } = useGlobalContext();
 
-  if (restaurantLoading) {
+  if (cafesLoading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>로딩중이쥐롱</Text>
@@ -71,7 +71,7 @@ const HomeScreen = (props) => {
               imageUrl={require('../assets/images/emojis/sightseeing.png')}
               onSelect={() => {
                 props.navigation.navigate({
-                  name: 'SecondSelect',
+                  name: 'SpotSelect',
                   params: {
                     categoryName: '가볼만한 곳',
                   },

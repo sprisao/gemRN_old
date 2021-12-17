@@ -19,7 +19,7 @@ import Photos from '../screens/CategoryScreens/Photos';
 
 import SpotsSelectScreen from '../screens/SpotsSelectScreen';
 
-import Spots from '../screens/CategoryScreens/Beauties';
+import Spots from '../screens/CategoryScreens/Spots';
 
 import LocationPicker from '../components/CategoryScreen/LocationPicker';
 import DetailsHeaderRight from '../components/DetailsScreen/HeaderRight';
@@ -31,7 +31,7 @@ export default function GemStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name='Home'
+        name='홈'
         component={HomeScreen}
         options={{
           headerShown: false,
@@ -45,12 +45,12 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />
           ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -65,12 +65,12 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />
           ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -88,12 +88,12 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />
           ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -111,12 +111,12 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />
           ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -134,12 +134,12 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />
           ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -157,12 +157,12 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />
           ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -180,12 +180,12 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />
           ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -203,12 +203,12 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />
           ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -226,12 +226,12 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />
           ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -249,12 +249,12 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />
           ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -272,35 +272,12 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />
           ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
-          headerTintColor: 'black',
-          headerTitleStyle: {
-            color: 'black',
-          },
-          headerRight: () => (
-            <LocationPicker navigation={navigation} route={route} />
-          ),
-        })}
-      />
-      <Stack.Screen
-        name='SpotsSelectScreen'
-        component={SpotsSelectScreen}
-        options={({ route, navigation }) => ({
-          title: '가볼만한 곳',
-          headerBackImage: () => (
-            <Ionicons
-              name='ios-chevron-back'
-              size={24}
-              color='black'
-              style={{ marginLeft: 10 }}
-            />
-          ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -319,12 +296,56 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />
           ),
-          headerBackTitleStyle: { color: '#666666', fontSize: 15 },
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
+          headerTintColor: 'black',
+          headerTitleStyle: {
+            color: 'black',
+          },
+        })}
+      />
+
+      <Stack.Screen
+        name='SpotSelect'
+        component={SpotsSelectScreen}
+        options={({ route, navigation }) => ({
+          title: '카테고리',
+          headerBackImage: () => (
+            <Ionicons
+              name='ios-chevron-back'
+              size={20}
+              color='white'
+              style={{ marginLeft: 10 }}
+            />
+          ),
+          headerBackTitleStyle: { color: 'white', fontSize: 15 },
+          headerTransparent: true,
+          headerTintColor: 'white',
+          headerTitleStyle: {
+            color: 'transparent',
+          },
+        })}
+      />
+
+      <Stack.Screen
+        name='Spots'
+        component={Spots}
+        options={({ route, navigation }) => ({
+          title: '가볼만한 곳',
+          headerBackImage: () => (
+            <Ionicons
+              name='ios-chevron-back'
+              size={20}
+              color='black'
+              style={{ marginLeft: 10 }}
+            />
+          ),
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
+          // headerTransparent: true,
           headerTintColor: 'black',
           headerTitleStyle: {
             color: 'black',
@@ -346,7 +367,7 @@ export default function GemStack() {
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
-              size={24}
+              size={20}
               color='black'
               style={{ marginLeft: 10 }}
             />

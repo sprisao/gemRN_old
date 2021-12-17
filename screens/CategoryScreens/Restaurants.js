@@ -241,25 +241,23 @@ export default function Restaurants(props) {
       initialRouteName={moveToPage}
       screenOptions={{
         tabBarScrollEnabled: true,
-        tabBarStyle: {
-          height: 50,
-          // backgroundColor: 'blue',
+        tabBarIndicatorContainerStyle: {
           alignItems: 'center',
-          padding: 0,
-          margin: 0,
+          justifyContent: 'center',
+        },
+        tabBarStyle: {
+          // justifyContent: 'space-between',
+          height: 45,
         },
         tabBarItemStyle: {
-          width: 'auto',
-          height: 25,
-          padding: 0,
-          margin: 1,
-          // backgroundColor: 'green',
           alignItems: 'center',
+          width: 85,
+          padding: 0,
+          paddingTop: 10,
+          margin: 0,
         },
         tabBarLabelStyle: {
-          margin: 0,
-          paddingHorizontal: 10,
-          // borderWidth: 1,
+          flex: 1,
           fontFamily: 'SD-R',
           fontSize: 13,
         },

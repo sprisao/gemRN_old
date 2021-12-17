@@ -2,7 +2,7 @@ import React from 'react';
 
 import SecondSelectButton from '../components/SecondSelectScreen/SecondSelectButton';
 
-import { StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 import { useGlobalContext } from '../Context';
 

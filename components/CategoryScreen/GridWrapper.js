@@ -3,6 +3,13 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import GridTile from './GridTile';
 
 const GridWrapper = (props) => {
+  console.log(props.isSpot);
+
+  let spotFilter;
+
+  if (props.isSpot) {
+    spotFilter = 'SpotDetails';
+  } else spotFilter = 'Details';
   const renderStoreGrid = (data) => {
     return (
       <GridTile
@@ -19,7 +26,6 @@ const GridWrapper = (props) => {
             params: {
               storeName: data.item.name,
               storeDetails: data.item,
-              Category: data.item.secondCategory[0],
             },
           });
         }}

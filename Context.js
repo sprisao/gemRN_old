@@ -20,6 +20,7 @@ const StoreProvider = ({ children }) => {
 
   const [othersLoading, setOthersLoading] = useState(true);
   const [spotsLoading, setSpotsLoading] = useState(true);
+  const [spotCategoryLoading, setSpotCategoryLoading] = useState(true);
 
   const [restaurants, setRestaurants] = useState([]);
   const [cafes, setCafes] = useState([]);
@@ -32,6 +33,9 @@ const StoreProvider = ({ children }) => {
   const [firstCategories, setFirstCategories] = useState([]);
   const [secondCategories, setSecondCategories] = useState([]);
   const [locationCategories, setlocationCategories] = useState([]);
+  const [spotCategories, setSpotCategories] = useState([]);
+
+  const spotCategory = [];
 
   const firstCategory = [];
   const secondCategory = [];
@@ -299,6 +303,32 @@ const StoreProvider = ({ children }) => {
           }
         }
       );
+
+    // 기타 카테고리 업체들 불러오기
+    storeBase('spotsCategory')
+      .select({
+        view: 'data',
+      })
+      .eachPage(
+        function page(records, fetchNextPage) {
+          records.forEach(function (record) {
+            spotCategory.push({
+              id: record.id,
+              ...record._rawJson.fields,
+            });
+          });
+          fetchNextPage();
+          setSpotCategories(spotCategory);
+        },
+        function done(err) {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log('가볼만한곳 카테고리 불러오기 완료');
+            setSpotCategoryLoading(false);
+          }
+        }
+      );
   }, []);
 
   return (
@@ -322,6 +352,8 @@ const StoreProvider = ({ children }) => {
         spots,
         othersLoading,
         others,
+        spotCategories,
+        spotCategoryLoading,
       }}
     >
       {children}
