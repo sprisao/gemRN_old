@@ -20,6 +20,15 @@ const CategoryTest = (props) => {
   const tabsRef = useRef();
   const indexRef = useRef();
 
+  let localFilter;
+  if (currentLocation === '전체') {
+    localFilter = restaurants;
+  } else {
+    localFilter = restaurants.filter(
+      (item) => item.eupmyeondongRi === currentLocation
+    );
+  }
+
   const groupBy = function (data, key) {
     return data.reduce(function (storage, item) {
       const group = item[key];
@@ -30,7 +39,7 @@ const CategoryTest = (props) => {
   };
 
   const orderData = (data, key) => {
-    const container = [{ category: '전체', data: restaurants }];
+    const container = [{ category: '전체', data: localFilter }];
     const preData = groupBy(data, key);
     const getData = Object.entries(preData);
 
@@ -43,16 +52,7 @@ const CategoryTest = (props) => {
     return container;
   };
 
-  const dataSet = orderData(restaurants, 'secondCategory');
-
-  let localFilter;
-  if (currentLocation === '전체') {
-    localFilter = restaurants;
-  } else {
-    localFilter = restaurants.filter(
-      (item) => item.eupmyeondongRi === currentLocation
-    );
-  }
+  const dataSet = orderData(localFilter, 'secondCategory');
 
   const tabToPage = (e) => {
     pageRef.current.scrollToIndex({
@@ -63,17 +63,15 @@ const CategoryTest = (props) => {
   };
 
   const pageToTab = (e) => {
-    console.log(e.nativeEvent.contentOffset.x);
     const offset = e.nativeEvent.contentOffset.x;
     const pageIndex = offset / deviceWidth;
-    console.log(pageIndex);
-
-    // TabScroll
-    tabsRef.current.scrollToIndex({
-      animated: true,
-      index: pageIndex,
-      viewPosition: 0.5,
-    });
+    if (offset > 0) {
+      tabsRef.current.scrollToIndex({
+        animated: true,
+        index: pageIndex,
+        viewPosition: 0.5,
+      });
+    }
   };
 
   const renderTabs = ({ item, index }) => {
@@ -103,9 +101,14 @@ const CategoryTest = (props) => {
           ref={tabsRef}
           data={dataSet}
           keyExtractor={(item) => item.id}
-          // getItemLayout={(data, index) => ({length: })}
           renderItem={renderTabs}
           horizontal
+          showsHorizontalScrollIndicator={false}
+          getItemLayout={(data, index) => ({
+            length: 110,
+            offset: 110 * index,
+            index,
+          })}
         />
       </View>
       <FlatList
@@ -115,6 +118,7 @@ const CategoryTest = (props) => {
         renderItem={renderPage}
         onScroll={pageToTab}
         horizontal
+        showsHorizontalScrollIndicator={false}
         pagingEnabled
         initialNumToRender={1}
         maxToRenderPerBatch={1}
