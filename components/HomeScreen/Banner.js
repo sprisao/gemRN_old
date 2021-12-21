@@ -1,12 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Dimensions,
-  Image,
-} from 'react-native';
+import { StyleSheet, View, ScrollView, Dimensions, Image } from 'react-native';
 
 import { useGlobalContext } from '../../Context';
 
@@ -14,7 +7,7 @@ const DEVICE_WIDTH = Dimensions.get('window').width;
 
 const Banner = (props) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const { adsLoading, ads } = useGlobalContext();
+  const { ads } = useGlobalContext();
 
   scrollRef = useRef();
 
@@ -50,7 +43,7 @@ const Banner = (props) => {
         showsHorizontalScrollIndicator={false}
         ref={scrollRef}
       >
-        {ads.map((item, index) => (
+        {ads.map((item) => (
           <Image
             style={styles.bannerImage}
             key={item.id}

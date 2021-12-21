@@ -70,7 +70,6 @@ const StoreProvider = ({ children }) => {
           if (err) {
             console.error(err);
           } else {
-            console.log('맛집 불러오기 성공');
             setRestaurantLoading(false);
           }
         }
@@ -96,7 +95,6 @@ const StoreProvider = ({ children }) => {
           if (err) {
             console.error(err);
           } else {
-            console.log('카페 불러오기 성공');
             setCafesLoading(false);
           }
         }
@@ -122,7 +120,6 @@ const StoreProvider = ({ children }) => {
           if (err) {
             console.error(err);
           } else {
-            console.log('세컨드 카테고리 데이터 불러오기 성공');
             setSecondLoading(false);
           }
         }
@@ -147,7 +144,6 @@ const StoreProvider = ({ children }) => {
           if (err) {
             console.error(err);
           } else {
-            console.log('카테고리 데이터 불러오기 성공');
             setCategoryLoading(false);
           }
         }
@@ -172,7 +168,6 @@ const StoreProvider = ({ children }) => {
           if (err) {
             console.error(err);
           } else {
-            console.log('로케이션 카테고리 데이터 불러오기 성공');
             setLocationLoading(false);
           }
         }
@@ -197,7 +192,6 @@ const StoreProvider = ({ children }) => {
           if (err) {
             console.error(err);
           } else {
-            console.log('메뉴 데이터 불러오기 성공');
             setMenuLoading(false);
           }
         }
@@ -246,7 +240,6 @@ const StoreProvider = ({ children }) => {
           if (err) {
             console.error(err);
           } else {
-            console.log('Ads 불러오기 완료 ');
             setAdsLoading(false);
           }
         }
@@ -272,7 +265,6 @@ const StoreProvider = ({ children }) => {
           if (err) {
             console.error(err);
           } else {
-            console.log('기타 카테고리 불러오기 완료');
             setOthersLoading(false);
           }
         }
@@ -298,7 +290,6 @@ const StoreProvider = ({ children }) => {
           if (err) {
             console.error(err);
           } else {
-            console.log('가볼만한곳 불러오기 완료');
             setSpotsLoading(false);
           }
         }
@@ -324,7 +315,6 @@ const StoreProvider = ({ children }) => {
           if (err) {
             console.error(err);
           } else {
-            console.log('가볼만한곳 카테고리 불러오기 완료');
             setSpotCategoryLoading(false);
           }
         }

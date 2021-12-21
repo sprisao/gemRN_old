@@ -3,10 +3,7 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import GridTile from './GridTile';
 
 const GridWrapper = (props) => {
-  console.log(props.isSpot);
-
   let spotFilter;
-
   if (props.isSpot) {
     spotFilter = 'SpotDetails';
   } else spotFilter = 'Details';

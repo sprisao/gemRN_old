@@ -23,7 +23,7 @@ const SecondSelectScreen = (props) => {
         emoji={data.item.emoji}
         onSecondSelect={() => {
           props.navigation.navigate({
-            name: data.item.firstCategory[0],
+            name: data.item.firstCategory,
             params: {
               secondCatId: data.item.id,
               secondCatName: data.item.title,
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     paddingHorizontal: 5,
-    marginTop: 12,
+    paddingTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',

@@ -25,6 +25,7 @@ import LocationPicker from '../components/CategoryScreen/LocationPicker';
 import DetailsHeaderRight from '../components/DetailsScreen/HeaderRight';
 import { Ionicons } from '@expo/vector-icons';
 
+import CategoryTest from '../screens/CategoryScreens/CategoryTest';
 const Stack = createStackNavigator();
 
 export default function GemStack() {
@@ -62,6 +63,30 @@ export default function GemStack() {
         component={Restaurants}
         options={({ route, navigation }) => ({
           title: '맛집',
+          headerBackImage: () => (
+            <Ionicons
+              name='ios-chevron-back'
+              size={20}
+              color='black'
+              style={{ marginLeft: 10 }}
+            />
+          ),
+          headerBackTitleStyle: { color: 'black', fontSize: 15 },
+          headerTintColor: 'black',
+          headerTitleStyle: {
+            color: 'black',
+          },
+          headerRight: () => (
+            <LocationPicker navigation={navigation} route={route} />
+          ),
+        })}
+      />
+
+      <Stack.Screen
+        name='테스트'
+        component={CategoryTest}
+        options={({ route, navigation }) => ({
+          title: '테스트',
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
