@@ -50,6 +50,6 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     paddingHorizontal: 8,
-    marginTop: 15,
+    paddingTop: 10,
   },
 });

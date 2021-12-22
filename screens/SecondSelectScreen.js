@@ -9,26 +9,25 @@ import { useGlobalContext } from '../Context';
 const SecondSelectScreen = (props) => {
   const { secondLoading, secondCategories } = useGlobalContext();
 
-  const firstCategory = props.route.params.categoryName;
-  const catId = props.route.params.categoryId;
+  const firstCategory_id = props.route.params.categoryId;
 
-  const selectedCategory = secondCategories.filter(
-    (cat) => cat.firstCategoryId[0] === catId
-  );
+  const categoryContainer = [{ category: '전체', emoji: '🅰️' }];
+  secondCategories.forEach((item) => {
+    if (item.firstCategoryId[0] === firstCategory_id) {
+      categoryContainer.push({ category: item.title, emoji: item.emoji });
+    }
+  });
 
   const renderSecondSelect = (data) => {
     return (
       <SecondSelectButton
-        title={data.item.title}
+        category={data.item.category}
         emoji={data.item.emoji}
         onSecondSelect={() => {
           props.navigation.navigate({
-            name: data.item.firstCategory,
+            name: '테스트',
             params: {
-              secondCatId: data.item.id,
-              secondCatName: data.item.title,
-              categoryName: data.item.firstCategory[0],
-              selectedCategory: selectedCategory,
+              selectedCategory: data.item.category,
             },
           });
         }}
@@ -42,33 +41,8 @@ const SecondSelectScreen = (props) => {
   return (
     <View style={styles.screen}>
       <FlatList
-        ListHeaderComponent={
-          <>
-            <SecondSelectButton
-              title='전체'
-              emoji='🅰️'
-              style={{
-                width: '97%',
-                height: 'auto',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-              touchableValue='100%'
-              onSecondSelect={() => {
-                props.navigation.navigate({
-                  name: firstCategory,
-                  params: {
-                    secondCatName: '전체',
-                    categoryName: firstCategory,
-                    selectedCategory: selectedCategory,
-                  },
-                });
-              }}
-            />
-          </>
-        }
-        data={selectedCategory}
-        keyExtractor={(item, index) => item.id}
+        data={categoryContainer}
+        keyExtractor={(item, index) => item.emoji}
         renderItem={renderSecondSelect}
         style={{ width: '100%' }}
         numColumns={2}

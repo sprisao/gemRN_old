@@ -10,7 +10,7 @@ const SecondSelectButton = (props) => {
     >
       <View style={styles.buttonWrapper}>
         <Text style={styles.buttonEmoji}>{props.emoji}</Text>
-        <Text>{props.title}</Text>
+        <Text>{props.category}</Text>
       </View>
     </TouchableOpacity>
   );

@@ -40,7 +40,7 @@ const HomeScreen = (props) => {
               imageUrl={require('../assets/images/emojis/restaurants.png')}
               onSelect={() => {
                 props.navigation.navigate({
-                  name: '테스트',
+                  name: 'SecondSelect',
                   params: {
                     categoryName: '맛집',
                     categoryId: 'recxEYsUuSaVk3ge2',
