@@ -1,75 +1,61 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
-  ActivityIndicator,
-  ScrollView,
+  FlatList,
+  Image,
 } from 'react-native';
-import { Video } from 'expo-av';
+
 import { useGlobalContext } from '../Context';
 
 const Curations = (props) => {
   const { cafes } = useGlobalContext();
 
   const promotions = cafes.filter((item) => item.isPromotion === true);
-  const [isPreloading, setIsPreloading] = useState(true);
+
+  const renderCuration = ({ item }) => {
+    return (
+      <TouchableOpacity
+        style={styles.curationContainer}
+        key={item.id}
+        onPress={() => {
+          props.navigation.navigate({
+            name: 'Details',
+            params: {
+              storeName: item.name,
+              storeDetails: item,
+            },
+          });
+        }}
+      >
+        <View style={styles.videoContainer}>
+          <Image
+            style={styles.video}
+            source={{ uri: item.images[0].url }}
+            resizeMode='cover'
+          />
+        </View>
+        <View style={styles.articleContainer}>
+          <Text style={styles.copy}>{item.mainCopy}</Text>
+          <Text style={styles.storeName}>{item.name}</Text>
+          <Text style={styles.address}>{item.miniAddress}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.wrapper}></View>
-      {promotions.map((item) => {
-        return (
-          <TouchableOpacity
-            style={styles.curationContainer}
-            key={item.id}
-            onPress={() => {
-              props.navigation.navigate({
-                name: 'Details',
-                params: {
-                  storeName: item.name,
-                  storeDetails: item,
-                  Category: item.secondCategory[0],
-                },
-              });
-            }}
-          >
-            <View style={styles.videoContainer}>
-              {isPreloading && (
-                <ActivityIndicator
-                  animating
-                  color={'gray'}
-                  size='large'
-                  style={{
-                    flex: 1,
-                    position: 'absolute',
-                    top: '50%',
-                    left: '45%',
-                  }}
-                />
-              )}
-              <Video
-                ref={this._handleVideoRef}
-                onReadyForDisplay={() => setIsPreloading(false)}
-                onLoadStart={() => setIsPreloading(true)}
-                style={styles.video}
-                source={{ uri: item.promotionMedia[0].url }}
-                resizeMode='cover'
-                rate={1}
-                shouldPlay={true}
-                isLooping={true}
-                // muted={true}
-              />
-            </View>
-            <View style={styles.articleContainer}>
-              <Text style={styles.copy}>{item.mainCopy}</Text>
-              <Text style={styles.storeName}>{item.name}</Text>
-              <Text style={styles.address}>{item.miniAddress}</Text>
-            </View>
-          </TouchableOpacity>
-        );
-      })}
-    </ScrollView>
+    <View style={styles.container}>
+      <FlatList
+        renderItem={renderCuration}
+        data={promotions}
+        keyExtractor={(item, index) => {
+          item.id;
+        }}
+      />
+    </View>
   );
 };
 export default Curations;
