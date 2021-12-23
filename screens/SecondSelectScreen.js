@@ -7,7 +7,6 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { useGlobalContext } from '../Context';
 
 const SecondSelectScreen = (props) => {
-  console.log(props.route.params);
   const { secondLoading, secondCategories } = useGlobalContext();
 
   const firstCategory = props.route.params.categoryName;
@@ -32,6 +31,7 @@ const SecondSelectScreen = (props) => {
               firstCategory: firstCategory,
               selectedCategory: data.item.category,
               mainDataSet: props.route.params.mainDataSet,
+              categoryName: props.route.params.categoryName,
             },
           });
         }}

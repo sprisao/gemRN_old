@@ -91,7 +91,7 @@ const CategoryScreen = (props) => {
     return (
       <TouchableOpacity
         style={[
-          styles.button,
+          styles.tab,
           { borderBottomWidth: index === selectedIndex ? 3 : 0 },
         ]}
         onPress={() => tabHandler(index)}
@@ -99,7 +99,7 @@ const CategoryScreen = (props) => {
         <View style={styles.textContainer}>
           <Text
             style={[
-              styles.buttonText,
+              styles.tabText,
               { opacity: index === selectedIndex ? 1 : 0.75 },
             ]}
           >
@@ -125,11 +125,11 @@ const CategoryScreen = (props) => {
 
   return (
     <View style={styles.screen}>
-      <View style={styles.buttonContainer}>
+      <View style={styles.tabsContainer}>
         <FlatList
           ref={tabsRef}
           data={dataSet}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.category}
           renderItem={renderTabs}
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -143,7 +143,7 @@ const CategoryScreen = (props) => {
       <FlatList
         ref={pageRef}
         data={dataSet}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.category}
         renderItem={renderPage}
         onScroll={scrollHandler}
         horizontal
@@ -167,12 +167,12 @@ export default CategoryScreen;
 const styles = StyleSheet.create({
   screen: { flex: 1 },
   page: { width: deviceWidth },
-  buttonContainer: { height: 'auto' },
-  button: {
+  tabsContainer: { height: 'auto', width: '100%', backgroundColor: 'white' },
+  tab: {
     width: 75,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+
     paddingTop: 10,
     paddingBottom: 7,
     borderBottomColor: 'black',
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 1,
   },
-  buttonText: {
+  tabText: {
     fontFamily: 'SD-L',
     letterSpacing: -0.25,
     fontSize: 13,

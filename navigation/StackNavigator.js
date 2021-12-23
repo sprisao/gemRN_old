@@ -31,7 +31,7 @@ export default function GemStack() {
         name='SecondSelect'
         component={SecondSelectScreen}
         options={({ route }) => ({
-          title: '카테고리',
+          title: route.params.categoryName,
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
@@ -52,7 +52,7 @@ export default function GemStack() {
         name='CategoryScreen'
         component={CategoryScreen}
         options={({ route, navigation }) => ({
-          title: '카테고리',
+          title: route.params.categoryName,
           headerBackImage: () => (
             <Ionicons
               name='ios-chevron-back'
