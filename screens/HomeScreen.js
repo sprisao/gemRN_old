@@ -14,7 +14,8 @@ import HomeHeader from '../components/HomeScreen/HomeHeader';
 import { useGlobalContext } from '../Context';
 
 const HomeScreen = (props) => {
-  const { cafesLoading } = useGlobalContext();
+  const { cafesLoading, restaurants, cafes, others, spots } =
+    useGlobalContext();
 
   if (cafesLoading) {
     return (
@@ -44,6 +45,7 @@ const HomeScreen = (props) => {
                   params: {
                     categoryName: '맛집',
                     categoryId: 'recxEYsUuSaVk3ge2',
+                    mainDataSet: restaurants,
                   },
                 });
               }}
@@ -59,6 +61,7 @@ const HomeScreen = (props) => {
                   params: {
                     categoryName: '카페',
                     categoryId: 'rec1nohULLWQVqXZD',
+                    mainDataSet: cafes,
                   },
                 });
               }}
@@ -74,6 +77,7 @@ const HomeScreen = (props) => {
                   name: 'SpotSelect',
                   params: {
                     categoryName: '가볼만한 곳',
+                    mainDataSet: spots,
                   },
                 });
               }}
@@ -102,6 +106,9 @@ const HomeScreen = (props) => {
                     params: {
                       categoryName: '호프・주점',
                       categoryId: 'rectbHPCk3LZzfu6w',
+                      mainDataSet: others.filter(
+                        (item) => item.firstCategory[0] === '호프・주점'
+                      ),
                     },
                   });
                 }}
@@ -116,6 +123,9 @@ const HomeScreen = (props) => {
                     params: {
                       categoryName: '운동・헬스',
                       categoryId: 'recTQQfv194uE5O1K',
+                      mainDataSet: others.filter(
+                        (item) => item.firstCategory[0] === '운동・헬스'
+                      ),
                     },
                   });
                 }}
@@ -132,6 +142,9 @@ const HomeScreen = (props) => {
                     params: {
                       categoryName: '미용・뷰티',
                       categoryId: 'recse3cQXji2BWlNu',
+                      mainDataSet: others.filter(
+                        (item) => item.firstCategory[0] === '미용・뷰티'
+                      ),
                     },
                   });
                 }}
@@ -146,6 +159,9 @@ const HomeScreen = (props) => {
                     params: {
                       categoryName: '사진',
                       categoryId: 'recqOzD4oznYyHeXS',
+                      mainDataSet: others.filter(
+                        (item) => item.firstCategory[0] === '사진'
+                      ),
                     },
                   });
                 }}
@@ -164,6 +180,9 @@ const HomeScreen = (props) => {
                     params: {
                       categoryName: '반려동물',
                       categoryId: 'rec9dQcEElsgcAsD7',
+                      mainDataSet: others.filter(
+                        (item) => item.firstCategory[0] === '반려동물'
+                      ),
                     },
                   });
                 }}
@@ -178,6 +197,9 @@ const HomeScreen = (props) => {
                     params: {
                       categoryName: '꽃',
                       categoryId: 'recoF9HKKfA3ZSxSP',
+                      mainDataSet: others.filter(
+                        (item) => item.firstCategory[0] === '꽃'
+                      ),
                     },
                   });
                 }}
@@ -194,6 +216,9 @@ const HomeScreen = (props) => {
                     params: {
                       categoryName: '키즈',
                       categoryId: 'recXj7vVqBBJttGd8',
+                      mainDataSet: others.filter(
+                        (item) => item.firstCategory[0] === '키즈'
+                      ),
                     },
                   });
                 }}
@@ -208,6 +233,9 @@ const HomeScreen = (props) => {
                     params: {
                       categoryName: '교육・학원',
                       categoryId: 'recz1ftDhPT8VADjf',
+                      mainDataSet: others.filter(
+                        (item) => item.firstCategory[0] === '교육・학원'
+                      ),
                     },
                   });
                 }}

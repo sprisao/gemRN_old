@@ -7,8 +7,10 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { useGlobalContext } from '../Context';
 
 const SecondSelectScreen = (props) => {
+  console.log(props.route.params);
   const { secondLoading, secondCategories } = useGlobalContext();
 
+  const firstCategory = props.route.params.categoryName;
   const firstCategory_id = props.route.params.categoryId;
 
   const categoryContainer = [{ category: '전체', emoji: '🅰️' }];
@@ -25,9 +27,11 @@ const SecondSelectScreen = (props) => {
         emoji={data.item.emoji}
         onSecondSelect={() => {
           props.navigation.navigate({
-            name: '테스트',
+            name: 'CategoryScreen',
             params: {
+              firstCategory: firstCategory,
               selectedCategory: data.item.category,
+              mainDataSet: props.route.params.mainDataSet,
             },
           });
         }}

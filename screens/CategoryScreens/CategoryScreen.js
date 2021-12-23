@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,14 +8,13 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import GridWrapper from '../../components/CategoryScreen/GridWrapper';
-import { useGlobalContext } from '../../Context';
 
 const deviceWidth = Dimensions.get('window').width;
 
-const CategoryTest = (props) => {
+const CategoryScreen = (props) => {
+  const mainDataSet = props.route.params.mainDataSet;
   const currentLocation = props.route.params.location;
 
-  const { restaurants, secondCategories } = useGlobalContext();
   const initialIndex = [];
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -24,9 +23,9 @@ const CategoryTest = (props) => {
 
   let localFilter;
   if (currentLocation === '전체') {
-    localFilter = restaurants;
+    localFilter = mainDataSet;
   } else {
-    localFilter = restaurants.filter(
+    localFilter = mainDataSet.filter(
       (item) => item.eupmyeondongRi === currentLocation
     );
   }
@@ -163,7 +162,7 @@ const CategoryTest = (props) => {
   );
 };
 
-export default CategoryTest;
+export default CategoryScreen;
 
 const styles = StyleSheet.create({
   screen: { flex: 1 },
