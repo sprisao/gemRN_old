@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { useGlobalContext } from '../../Context';
 import FastImage from 'react-native-fast-image';
 
 const DetailsMenu = (props) => {
   const { menu, menuLoading } = useGlobalContext();
+
   return (
     <View style={styles.menuContainer}>
       <View style={styles.menuWrapper}>
@@ -13,7 +14,7 @@ const DetailsMenu = (props) => {
           {menu.map((item) => {
             if (item.store_id[0] === storeData.id)
               return (
-                <View style={styles.menuItem} key={item.id}>
+                <View style={styles.menuItem} key={item.menu}>
                   <View style={styles.imageContainer}>
                     <FastImage
                       source={{ uri: item.menuImage[0].url }}
@@ -45,14 +46,14 @@ export default DetailsMenu;
 
 const styles = StyleSheet.create({
   menuContainer: {
-    marginTop: 20,
+    marginTop: 10,
   },
-  menuWrapper: { flex: 1, width: '100%', paddingHorizontal: 10 },
+  menuWrapper: { flex: 1, width: '100%', paddingHorizontal: 15 },
   menuHeader: {
-    fontFamily: 'notoSans-Bold',
+    fontFamily: 'SD-EB',
     fontSize: 22,
     marginVertical: 7,
-    letterSpacing: -1,
+    letterSpacing: -0.5,
     marginLeft: 5,
   },
   menuItemWrapper: {
@@ -73,21 +74,18 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   articleContainer: {
-    width: '62%',
+    width: '60%',
     flexDirection: 'column',
     justifyContent: 'center',
     paddingVertical: 5,
-    // marginLeft: 10,
   },
   menuName: {
-    fontFamily: 'notoSans-Medium',
+    fontFamily: 'SD-B',
     fontSize: 18,
-    lineHeight: 20,
   },
   menuDesc: {
-    fontFamily: 'notoSans-Light',
+    fontFamily: 'SD-UL',
     fontSize: 13,
-    lineHeight: 14,
     letterSpacing: -0.35,
     marginVertical: 10,
   },

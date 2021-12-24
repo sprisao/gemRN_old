@@ -9,6 +9,8 @@ import {
 import { Feather } from '@expo/vector-icons';
 import colors from '../../constants/styleSettings/colors';
 
+import { Entypo } from '@expo/vector-icons';
+
 const DetailsInfo = (props) => {
   let businessHours;
 
@@ -109,61 +111,99 @@ const DetailsInfo = (props) => {
 
   return (
     <View style={styles.detailsInfo}>
+      <Entypo
+        name='chevron-small-down'
+        size={24}
+        color='black'
+        style={{ marginBottom: 5 }}
+      />
       <View style={styles.detailsInfoWrapper}>
-        <Text style={styles.detailsInfoHeader}>상세정보</Text>
-        {businessHours}
-        {breakDays}
-        <View style={styles.detailsInfo_Item}>
-          <Feather
-            style={{ marginRight: 10 }}
-            name='map-pin'
-            size={16}
-            color='#a8a8a8'
-          />
-          <Text style={styles.detailsInfo_ItemText} numberOfLines={1}>
-            {storeData.fullAddress}
-          </Text>
-        </View>
-        <View style={styles.detailsInfo_Item}>
-          <Feather
-            style={{ marginRight: 10 }}
-            name='phone-outgoing'
-            size={16}
-            color='#a8a8a8'
-          />
-          <Text style={styles.detailsInfo_ItemText}>
-            {storeData.phoneNumber}
-          </Text>
-          <TouchableOpacity
-            style={styles.infoButton}
-            onPress={() => {
-              Linking.openURL(`tel:${storeData.phoneNumber}`);
-            }}
-          >
-            <Feather name='external-link' size={15} color={colors.primary} />
-            <Text style={styles.buttonTitle}>전화걸기</Text>
-          </TouchableOpacity>
-        </View>
-        {storeData.instagramAccount ? (
+        {/* <View style={styles.header}>
+          <Text style={styles.headerText}>상세정보</Text>
+        </View> */}
+        <View style={styles.infosContainer}>
+          {businessHours}
+          {breakDays}
           <View style={styles.detailsInfo_Item}>
             <Feather
               style={{ marginRight: 10 }}
-              name='instagram'
+              name='map-pin'
               size={16}
               color='#a8a8a8'
             />
             <Text style={styles.detailsInfo_ItemText} numberOfLines={1}>
-              @{storeData.instagramAccount}
+              {storeData.fullAddress}
+            </Text>
+          </View>
+          <View style={styles.detailsInfo_Item}>
+            <Feather
+              style={{ marginRight: 10 }}
+              name='phone-outgoing'
+              size={16}
+              color='#a8a8a8'
+            />
+            <Text style={styles.detailsInfo_ItemText}>
+              {storeData.phoneNumber}
             </Text>
             <TouchableOpacity
               style={styles.infoButton}
               onPress={() => {
-                Linking.openURL(
-                  `instagram://user?username=${storeData.instagramAccount}`
-                ).catch(() => {
+                Linking.openURL(`tel:${storeData.phoneNumber}`);
+              }}
+            >
+              <Feather name='external-link' size={15} color={colors.primary} />
+              <Text style={styles.buttonTitle}>전화걸기</Text>
+            </TouchableOpacity>
+          </View>
+          {storeData.instagramAccount ? (
+            <View style={styles.detailsInfo_Item}>
+              <Feather
+                style={{ marginRight: 10 }}
+                name='instagram'
+                size={16}
+                color='#a8a8a8'
+              />
+              <Text style={styles.detailsInfo_ItemText} numberOfLines={1}>
+                @{storeData.instagramAccount}
+              </Text>
+              <TouchableOpacity
+                style={styles.infoButton}
+                onPress={() => {
                   Linking.openURL(
-                    `https://www.instagram.com/${storeData.instagramAccount}`
-                  );
+                    `instagram://user?username=${storeData.instagramAccount}`
+                  ).catch(() => {
+                    Linking.openURL(
+                      `https://www.instagram.com/${storeData.instagramAccount}`
+                    );
+                  });
+                }}
+              >
+                <Feather
+                  name='external-link'
+                  size={15}
+                  color={colors.primary}
+                />
+                <Text style={styles.buttonTitle}>보기</Text>
+              </TouchableOpacity>
+            </View>
+          ) : null}
+          <View style={styles.detailsInfo_Item}>
+            <Feather
+              style={{ marginRight: 10 }}
+              name='link-2'
+              size={16}
+              color='#a8a8a8'
+            />
+            <View style={styles.naverLinkContainer}>
+              <Text style={styles.detailsInfo_ItemText} numberOfLines={1}>
+                {storeData.naverLink}
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={styles.infoButton}
+              onPress={() => {
+                Linking.openURL(storeData.naverLink).catch(() => {
+                  storeData.naverLink;
                 });
               }}
             >
@@ -171,30 +211,6 @@ const DetailsInfo = (props) => {
               <Text style={styles.buttonTitle}>보기</Text>
             </TouchableOpacity>
           </View>
-        ) : null}
-        <View style={styles.detailsInfo_Item}>
-          <Feather
-            style={{ marginRight: 10 }}
-            name='link-2'
-            size={16}
-            color='#a8a8a8'
-          />
-          <View style={styles.naverLinkContainer}>
-            <Text style={styles.detailsInfo_ItemText} numberOfLines={1}>
-              {storeData.naverLink}
-            </Text>
-          </View>
-          <TouchableOpacity
-            style={styles.infoButton}
-            onPress={() => {
-              Linking.openURL(storeData.naverLink).catch(() => {
-                storeData.naverLink;
-              });
-            }}
-          >
-            <Feather name='external-link' size={15} color={colors.primary} />
-            <Text style={styles.buttonTitle}>보기</Text>
-          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -205,16 +221,27 @@ export default DetailsInfo;
 
 const styles = StyleSheet.create({
   detailsInfo: {
-    marginTop: 20,
+    paddingHorizontal: 15,
+    alignItems: 'center',
+  },
+  detailsInfoWrapper: {
+    backgroundColor: 'white',
+    width: '100%',
+    borderRadius: 10,
     paddingHorizontal: 10,
+    paddingVertical: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 5,
   },
-  detailsInfoHeader: {
-    fontFamily: 'notoSans-Bold',
-    fontSize: 22,
-    marginVertical: 7,
-    marginLeft: 5,
-    letterSpacing: -1,
+  header: {
+    width: '100%',
+    alignItems: 'center',
+    paddingVertical: 12,
   },
+  headerText: { fontFamily: 'SD-SB', fontSize: 16, letterSpacing: -0.25 },
   detailsInfo_Item: {
     flexDirection: 'row',
     width: '100%',

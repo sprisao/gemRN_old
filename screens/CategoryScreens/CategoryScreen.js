@@ -143,7 +143,9 @@ const CategoryScreen = (props) => {
       <FlatList
         ref={pageRef}
         data={dataSet}
-        keyExtractor={(item) => item.category}
+        keyExtractor={(item) => {
+          return item.category;
+        }}
         renderItem={renderPage}
         onScroll={scrollHandler}
         horizontal

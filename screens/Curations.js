@@ -19,7 +19,6 @@ const Curations = (props) => {
     return (
       <TouchableOpacity
         style={styles.curationContainer}
-        key={item.id}
         onPress={() => {
           props.navigation.navigate({
             name: 'Details',
@@ -51,8 +50,8 @@ const Curations = (props) => {
       <FlatList
         renderItem={renderCuration}
         data={promotions}
-        keyExtractor={(item, index) => {
-          item.id;
+        keyExtractor={(item) => {
+          return item.name;
         }}
       />
     </View>
