@@ -45,9 +45,7 @@ const DetailsMenu = (props) => {
 export default DetailsMenu;
 
 const styles = StyleSheet.create({
-  menuContainer: {
-    marginTop: 10,
-  },
+  menuContainer: {},
   menuWrapper: { flex: 1, width: '100%', paddingHorizontal: 15 },
   menuHeader: {
     fontFamily: 'SD-EB',

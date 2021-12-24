@@ -346,13 +346,13 @@ const styles = StyleSheet.create({
     height: 400,
     width: '100%',
     paddingHorizontal: 15,
-    marginTop: 10,
+    marginVertical: 10,
     alignItems: 'center',
   },
   buttonContainer: {
     width: '100%',
     paddingHorizontal: 15,
-    paddingVertical: 10,
+    paddingVertical: 8,
   },
   button: {
     backgroundColor: 'white',
