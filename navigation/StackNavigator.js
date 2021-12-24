@@ -5,6 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import SecondSelectScreen from '../screens/SecondSelectScreen';
 import CategoryScreen from '../screens/CategoryScreens/CategoryScreen';
 import DetailsScreen from '../screens/DetailsScreen';
+import DetailsCuration from '../components/CurationScreen/DetailsCuration';
 import Curations from '../screens/Curations';
 
 import SpotsSelectScreen from '../screens/SpotsSelectScreen';
@@ -140,6 +141,28 @@ export default function GemStack() {
       <Stack.Screen
         name='Details'
         component={DetailsScreen}
+        options={({ route }) => ({
+          title: route.params.storeName,
+          // headerTransparent: true,
+          headerBackTitleStyle: { color: 'transparent', fontSize: 15 },
+          headerTintColor: 'black',
+          // headerTitleStyle: {
+          //   color: 'transparent',
+          // },
+          headerBackImage: () => (
+            <Ionicons
+              name='ios-chevron-back'
+              size={20}
+              color='black'
+              style={{ marginLeft: 10 }}
+            />
+          ),
+          headerRight: () => <DetailsHeaderRight />,
+        })}
+      />
+      <Stack.Screen
+        name='DetailsCuration'
+        component={DetailsCuration}
         options={({ route }) => ({
           title: route.params.storeName,
           // headerTransparent: true,

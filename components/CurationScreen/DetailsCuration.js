@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, ScrollView } from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 const DetailsCuration = (props) => {
@@ -10,10 +10,10 @@ const DetailsCuration = (props) => {
   const scaledHeight = curationHeight / theScale;
 
   return (
-    <View style={styles.detailsCuration}>
-      <View style={styles.detailsCurationWrapper}>
+    <ScrollView style={styles.detailsCuration}>
+      {/* <View style={styles.detailsCurationWrapper}>
         <Text style={styles.detailsCurationHeader}>큐레이션</Text>
-      </View>
+      </View> */}
       <View style={styles.curationContainer}>
         <FastImage
           source={{ uri: storeData.curation[0].url }}
@@ -24,7 +24,7 @@ const DetailsCuration = (props) => {
           resizeMode={FastImage.resizeMode.stretch}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -33,7 +33,7 @@ export default DetailsCuration;
 const styles = StyleSheet.create({
   detailsCurationWrapper: { flex: 1, width: '100%', paddingHorizontal: 10 },
   detailsCurationHeader: {
-    fontFamily: 'notoSans-Bold',
+    fontFamily: 'SD-B',
     fontSize: 22,
     marginVertical: 7,
     letterSpacing: -1,

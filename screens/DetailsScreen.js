@@ -8,10 +8,11 @@ import {
   Dimensions,
   Image,
   Linking,
+  ActivityIndicator,
 } from 'react-native';
 
-import ImagesContainer from '../components/DetailsScreen/ImagesContainer';
-import DetailsCuration from '../components/DetailsScreen/DetailsCuration';
+import { Entypo } from '@expo/vector-icons';
+import { Video } from 'expo-av';
 import DetailsMenu from '../components/DetailsScreen/DetailsMenu';
 import { Foundation } from '@expo/vector-icons';
 
@@ -20,6 +21,7 @@ import DetailsInfo from '../components/DetailsScreen/DetailsInfo';
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
 const DetailsScreen = (props) => {
+  const [isPreloading, setIsPreloading] = useState(true);
   const [isDetails, setIsDetails] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   storeData = props.route.params.storeDetails;
@@ -84,7 +86,6 @@ const DetailsScreen = (props) => {
       ref={scrollRef}
       showsVerticalScrollIndicator={false}
       style={{ flex: 1 }}
-      onContentSizeChange={(width, height) => {}}
     >
       <View style={styles.headerContainer}>
         <View style={styles.detailHeader}>
@@ -144,16 +145,62 @@ const DetailsScreen = (props) => {
       </View>
       {storeData.isMenu ? <DetailsMenu /> : null}
       {storeData.isPromotion ? (
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button}>
-            <View style={styles.buttonImageContainer}>
-              <Image
-                source={require('../assets/images/emojis/curation.png')}
-                style={{ width: '100%', height: '100%' }}
+        <View style={styles.curationContainer}>
+          <View style={styles.videoContainer}>
+            {isPreloading && (
+              <ActivityIndicator
+                animating
+                color={'gray'}
+                size='large'
+                style={{
+                  flex: 1,
+                  position: 'absolute',
+                  top: '50%',
+                  left: '45%',
+                }}
               />
-            </View>
-            <Text style={styles.buttonText}>젬 큐레이션</Text>
-          </TouchableOpacity>
+            )}
+            <Video
+              onReadyForDisplay={() => setIsPreloading(false)}
+              onLoadStart={() => setIsPreloading(true)}
+              style={styles.video}
+              source={{ uri: storeData.promotionMedia[0].url }}
+              resizeMode='cover'
+              rate={1}
+              shouldPlay={true}
+              isLooping={true}
+              // muted={true}
+            />
+          </View>
+          <Entypo
+            name='chevron-small-down'
+            size={24}
+            color='black'
+            style={{ marginTop: 5 }}
+          />
+          <View style={[styles.buttonContainer, { paddingTop: 3 }]}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                props.navigation.navigate({
+                  name: 'DetailsCuration',
+                  params: {
+                    categoryName: '맛집',
+                    storeName: storeData.name,
+                    data: storeData,
+                  },
+                });
+              }}
+            >
+              <View style={styles.buttonImageContainer}>
+                <Image
+                  source={require('../assets/images/emojis/curation.png')}
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </View>
+              <Text style={styles.buttonText}>{storeData.name} 큐레이션</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       ) : null}
       {storeData.instagramAccount ? (
@@ -339,5 +386,24 @@ const styles = StyleSheet.create({
     borderRadius: 2.5,
     margin: 3,
     backgroundColor: 'white',
+  },
+
+  curationContainer: {
+    alignItems: 'center',
+  },
+  videoContainer: {
+    width: '100%',
+    paddingHorizontal: 15,
+    height: 200,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 5,
+  },
+  video: {
+    borderRadius: 10,
+    width: '100%',
+    height: '100%',
   },
 });
