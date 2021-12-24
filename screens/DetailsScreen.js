@@ -275,6 +275,15 @@ const DetailsScreen = (props) => {
           </Text>
         </TouchableOpacity>
       </View>
+      <View style={styles.logoSection}>
+        <Text style={styles.logoText}>Powered by</Text>
+        <View style={styles.logoContainer}>
+          <Image
+            source={require('../assets/images/BI/LogoGrey.png')}
+            style={{ width: '100%', height: '100%' }}
+          />
+        </View>
+      </View>
     </ScrollView>
   );
 };
@@ -405,5 +414,22 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: '100%',
     height: '100%',
+  },
+  logoSection: {
+    width: '100%',
+    height: 'auto',
+    alignItems: 'center',
+    marginTop: 40,
+    marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  logoText: { fontFamily: 'SD-SB', color: '#666' },
+  logoContainer: {
+    width: 25,
+    height: 27,
+    marginLeft: 5,
+    padding: 3,
   },
 });
