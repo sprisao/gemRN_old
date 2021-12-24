@@ -146,19 +146,6 @@ const DetailsInfo = (props) => {
               {storeData.phoneNumber}
             </Text>
           </View>
-          {storeData.instagramAccount ? (
-            <View style={styles.detailsInfo_Item}>
-              <Feather
-                style={{ marginRight: 10 }}
-                name='instagram'
-                size={16}
-                color='#a8a8a8'
-              />
-              <Text style={styles.detailsInfo_ItemText} numberOfLines={1}>
-                @{storeData.instagramAccount}
-              </Text>
-            </View>
-          ) : null}
         </View>
       </View>
     </View>
