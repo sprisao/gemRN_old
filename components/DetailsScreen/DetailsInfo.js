@@ -145,15 +145,6 @@ const DetailsInfo = (props) => {
             <Text style={styles.detailsInfo_ItemText}>
               {storeData.phoneNumber}
             </Text>
-            <TouchableOpacity
-              style={styles.infoButton}
-              onPress={() => {
-                Linking.openURL(`tel:${storeData.phoneNumber}`);
-              }}
-            >
-              <Feather name='external-link' size={15} color={colors.primary} />
-              <Text style={styles.buttonTitle}>전화걸기</Text>
-            </TouchableOpacity>
           </View>
           {storeData.instagramAccount ? (
             <View style={styles.detailsInfo_Item}>
@@ -166,51 +157,8 @@ const DetailsInfo = (props) => {
               <Text style={styles.detailsInfo_ItemText} numberOfLines={1}>
                 @{storeData.instagramAccount}
               </Text>
-              <TouchableOpacity
-                style={styles.infoButton}
-                onPress={() => {
-                  Linking.openURL(
-                    `instagram://user?username=${storeData.instagramAccount}`
-                  ).catch(() => {
-                    Linking.openURL(
-                      `https://www.instagram.com/${storeData.instagramAccount}`
-                    );
-                  });
-                }}
-              >
-                <Feather
-                  name='external-link'
-                  size={15}
-                  color={colors.primary}
-                />
-                <Text style={styles.buttonTitle}>보기</Text>
-              </TouchableOpacity>
             </View>
           ) : null}
-          <View style={styles.detailsInfo_Item}>
-            <Feather
-              style={{ marginRight: 10 }}
-              name='link-2'
-              size={16}
-              color='#a8a8a8'
-            />
-            <View style={styles.naverLinkContainer}>
-              <Text style={styles.detailsInfo_ItemText} numberOfLines={1}>
-                {storeData.naverLink}
-              </Text>
-            </View>
-            <TouchableOpacity
-              style={styles.infoButton}
-              onPress={() => {
-                Linking.openURL(storeData.naverLink).catch(() => {
-                  storeData.naverLink;
-                });
-              }}
-            >
-              <Feather name='external-link' size={15} color={colors.primary} />
-              <Text style={styles.buttonTitle}>보기</Text>
-            </TouchableOpacity>
-          </View>
         </View>
       </View>
     </View>
@@ -223,12 +171,13 @@ const styles = StyleSheet.create({
   detailsInfo: {
     paddingHorizontal: 15,
     alignItems: 'center',
+    marginBottom: 7,
   },
   detailsInfoWrapper: {
     backgroundColor: 'white',
     width: '100%',
     borderRadius: 10,
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
     paddingVertical: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
@@ -268,6 +217,6 @@ const styles = StyleSheet.create({
     color: colors.primary,
   },
   naverLinkContainer: {
-    width: '75%',
+    width: '85%',
   },
 });
