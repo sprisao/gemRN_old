@@ -79,7 +79,7 @@ const HomeScreen = (props) => {
             <SightseeingBT
               Category={'가볼만한 곳'}
               Desc={'관광, 레져,\n인생샷 스팟까지 한눈에!'}
-              imageUrl={require('../assets/images/emojis/sightseeing.png')}
+              imageUrl={require('../assets/images/emojis/spot.png')}
               onSelect={() => {
                 props.navigation.navigate({
                   name: 'SpotSelect',
