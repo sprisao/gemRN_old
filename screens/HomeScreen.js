@@ -1,5 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, SafeAreaView } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  SafeAreaView,
+  Dimensions,
+} from 'react-native';
 
 import HomeButton2x1 from '../components/HomeScreen/HomeButton2x1';
 import HomeButton4x1 from '../components/HomeScreen/HomeButton4x1';
@@ -13,6 +20,7 @@ import HomeHeader from '../components/HomeScreen/HomeHeader';
 
 import { useGlobalContext } from '../Context';
 
+const DEVICE_WIDTH = Dimensions.get('window').width;
 const HomeScreen = (props) => {
   const { cafesLoading, restaurants, cafes, others, spots } =
     useGlobalContext();
@@ -260,6 +268,7 @@ const styles = StyleSheet.create({
   },
   homeScreen_Categories: {
     paddingHorizontal: 10,
+    paddingHorizontal: DEVICE_WIDTH > 400 ? 13 : 10,
   },
   homeButton_Container: {
     width: '100%',

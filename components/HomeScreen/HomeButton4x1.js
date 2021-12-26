@@ -5,9 +5,11 @@ import {
   View,
   TouchableOpacity,
   Image,
-  Platform,
+  Dimensions,
 } from 'react-native';
 
+const DEVICE_WIDTH = Dimensions.get('window').width;
+const DEVICE_HEIGHT = Dimensions.get('window').height;
 const HomeButton4x1 = (props) => {
   return (
     <TouchableOpacity style={styles.homeButton} onPress={props.onSelect}>
@@ -31,14 +33,14 @@ const styles = StyleSheet.create({
     borderRadius: 11.5,
     borderWidth: 1,
     borderColor: '#dfdfdf',
-    backgroundColor: '#f3f3f3',
+    backgroundColor: '#f8f8f8',
     overflow: 'hidden',
     width: '47%',
-    height: 76,
+    height: DEVICE_HEIGHT * 0.09,
     paddingHorizontal: 8,
   },
   homeBT_2_Header: {
-    fontSize: 16,
+    fontSize: DEVICE_WIDTH > 400 ? 17 : 16,
     fontFamily: 'SD-EB',
     letterSpacing: -0.8,
     includeFontPadding: false,

@@ -85,195 +85,199 @@ const DetailsScreen = (props) => {
     <ScrollView
       ref={scrollRef}
       showsVerticalScrollIndicator={false}
-      style={{ flex: 1 }}
+      style={styles.screen}
     >
-      <View style={styles.headerContainer}>
-        <View style={styles.detailHeader}>
-          <View style={styles.HeaderLeft}>
-            <Text style={styles.storeDesc}>{storeData.shortDescription}</Text>
-            <Text style={styles.storeName}>{storeData.name}</Text>
-          </View>
-          <View style={styles.HeaderRight}>
-            <View style={styles.rankContainer}>{preRank}</View>
-            <View style={styles.addressContainer}>
-              <Text style={styles.miniAddress}>{storeData.miniAddress}</Text>
+      <View style={styles.DetailsScreen}>
+        <View style={styles.headerContainer}>
+          <View style={styles.detailHeader}>
+            <View style={styles.HeaderLeft}>
+              <Text style={styles.storeDesc}>{storeData.shortDescription}</Text>
+              <Text style={styles.storeName}>{storeData.name}</Text>
+            </View>
+            <View style={styles.HeaderRight}>
+              <View style={styles.rankContainer}>{preRank}</View>
+              <View style={styles.addressContainer}>
+                <Text style={styles.miniAddress}>{storeData.miniAddress}</Text>
+              </View>
             </View>
           </View>
         </View>
-      </View>
-      <View style={styles.imagesContainer}>
-        <ScrollView
-          ref={imageBoxRef}
-          horizontal
-          onMomentumScrollEnd={scrollEnded}
-          showsHorizontalScrollIndicator={false}
-          pagingEnabled
-          style={{
-            borderRadius: 10,
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 3 },
-            shadowOpacity: 0.1,
-            shadowRadius: 10,
-            elevation: 5,
-          }}
-        >
-          {storeData.images.map((item) => {
-            return (
-              <Image
+        <View style={styles.imagesContainer}>
+          <ScrollView
+            ref={imageBoxRef}
+            horizontal
+            onMomentumScrollEnd={scrollEnded}
+            showsHorizontalScrollIndicator={false}
+            pagingEnabled
+            style={{
+              borderRadius: 10,
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 3 },
+              shadowOpacity: 0.1,
+              shadowRadius: 10,
+              elevation: 5,
+            }}
+          >
+            {storeData.images.map((item) => {
+              return (
+                <Image
+                  key={item.id}
+                  style={{
+                    width: DEVICE_WIDTH - 30,
+                    height: '100%',
+                  }}
+                  source={{ uri: item.url }}
+                  resizeMode='cover'
+                />
+              );
+            })}
+          </ScrollView>
+          <View style={styles.circleDiv}>
+            {storeData.images.map((item, i) => (
+              <View
                 key={item.id}
-                style={{
-                  width: DEVICE_WIDTH - 30,
-                  height: '100%',
-                }}
-                source={{ uri: item.url }}
-                resizeMode='cover'
+                style={[
+                  styles.whiteCircle,
+                  { opacity: i === selectedIndex ? 1 : 0.5 },
+                ]}
               />
-            );
-          })}
-        </ScrollView>
-        <View style={styles.circleDiv}>
-          {storeData.images.map((item, i) => (
-            <View
-              key={item.id}
-              style={[
-                styles.whiteCircle,
-                { opacity: i === selectedIndex ? 1 : 0.5 },
-              ]}
-            />
-          ))}
-        </View>
-      </View>
-      {storeData.isMenu ? <DetailsMenu /> : null}
-      {storeData.isPromotion ? (
-        <View style={styles.curationContainer}>
-          <View style={styles.videoContainer}>
-            {isPreloading && (
-              <ActivityIndicator
-                animating
-                color={'gray'}
-                size='large'
-                style={{
-                  flex: 1,
-                  position: 'absolute',
-                  top: '50%',
-                  left: '45%',
-                }}
-              />
-            )}
-            <Video
-              onReadyForDisplay={() => setIsPreloading(false)}
-              onLoadStart={() => setIsPreloading(true)}
-              style={styles.video}
-              source={{ uri: storeData.promotionMedia[0].url }}
-              resizeMode='cover'
-              rate={1}
-              shouldPlay={true}
-              isLooping={true}
-              // muted={true}
-            />
+            ))}
           </View>
-          <Entypo
-            name='chevron-small-down'
-            size={24}
-            color='black'
-            style={{ marginTop: 5 }}
-          />
-          <View style={[styles.buttonContainer, { paddingTop: 3 }]}>
+        </View>
+        {storeData.isMenu ? <DetailsMenu /> : null}
+        {storeData.isPromotion ? (
+          <View style={styles.curationContainer}>
+            <View style={styles.videoContainer}>
+              {isPreloading && (
+                <ActivityIndicator
+                  animating
+                  color={'gray'}
+                  size='large'
+                  style={{
+                    flex: 1,
+                    position: 'absolute',
+                    top: '50%',
+                    left: '45%',
+                  }}
+                />
+              )}
+              <Video
+                onReadyForDisplay={() => setIsPreloading(false)}
+                onLoadStart={() => setIsPreloading(true)}
+                style={styles.video}
+                source={{ uri: storeData.promotionMedia[0].url }}
+                resizeMode='cover'
+                rate={1}
+                shouldPlay={true}
+                isLooping={true}
+                // muted={true}
+              />
+            </View>
+            <Entypo
+              name='chevron-small-down'
+              size={24}
+              color='black'
+              style={{ marginTop: 5 }}
+            />
+            <View style={[styles.buttonContainer, { paddingTop: 3 }]}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => {
+                  props.navigation.navigate({
+                    name: 'DetailsCuration',
+                    params: {
+                      categoryName: '맛집',
+                      storeName: storeData.name,
+                      data: storeData,
+                    },
+                  });
+                }}
+              >
+                <View style={styles.buttonImageContainer}>
+                  <Image
+                    source={require('../assets/images/emojis/curation.png')}
+                    style={{ width: '100%', height: '100%' }}
+                  />
+                </View>
+                <Text style={styles.buttonText}>{storeData.name} 큐레이션</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        ) : null}
+        {storeData.instagramAccount ? (
+          <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
-                props.navigation.navigate({
-                  name: 'DetailsCuration',
-                  params: {
-                    categoryName: '맛집',
-                    storeName: storeData.name,
-                    data: storeData,
-                  },
+                Linking.openURL(
+                  `instagram://user?username=${storeData.instagramAccount}`
+                ).catch(() => {
+                  Linking.openURL(
+                    `https://www.instagram.com/${storeData.instagramAccount}`
+                  );
                 });
               }}
             >
               <View style={styles.buttonImageContainer}>
                 <Image
-                  source={require('../assets/images/emojis/curation.png')}
+                  source={require('../assets/images/SNS/INSTAGRAM.png')}
                   style={{ width: '100%', height: '100%' }}
                 />
               </View>
-              <Text style={styles.buttonText}>{storeData.name} 큐레이션</Text>
+              <Text style={styles.buttonText}>
+                @{storeData.instagramAccount}
+              </Text>
             </TouchableOpacity>
           </View>
-        </View>
-      ) : null}
-      {storeData.instagramAccount ? (
+        ) : null}
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              Linking.openURL(
-                `instagram://user?username=${storeData.instagramAccount}`
-              ).catch(() => {
-                Linking.openURL(
-                  `https://www.instagram.com/${storeData.instagramAccount}`
-                );
+              Linking.openURL(storeData.naverLink).catch(() => {
+                storeData.naverLink;
               });
             }}
           >
             <View style={styles.buttonImageContainer}>
               <Image
-                source={require('../assets/images/SNS/INSTAGRAM.png')}
+                source={require('../assets/images/SNS/NAVER.png')}
                 style={{ width: '100%', height: '100%' }}
               />
             </View>
-            <Text style={styles.buttonText}>@{storeData.instagramAccount}</Text>
+            <Text style={styles.buttonText}>스마트플레이스</Text>
           </TouchableOpacity>
         </View>
-      ) : null}
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            Linking.openURL(storeData.naverLink).catch(() => {
-              storeData.naverLink;
-            });
-          }}
-        >
-          <View style={styles.buttonImageContainer}>
-            <Image
-              source={require('../assets/images/SNS/NAVER.png')}
-              style={{ width: '100%', height: '100%' }}
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button} onPress={infosTabHandler}>
+            <View style={styles.buttonImageContainer}>
+              <Image
+                source={require('../assets/images/emojis/details.png')}
+                style={{ width: 'auto', height: '100%' }}
+              />
+            </View>
+            <Text style={styles.buttonText}>상세정보</Text>
+          </TouchableOpacity>
+        </View>
+        {isDetails ? <DetailsInfo /> : null}
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button}>
+            <Foundation
+              name='telephone'
+              size={35}
+              color='#51cf66'
+              style={{ marginRight: 10 }}
             />
-          </View>
-          <Text style={styles.buttonText}>스마트플레이스</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={infosTabHandler}>
-          <View style={styles.buttonImageContainer}>
-            <Image
-              source={require('../assets/images/emojis/details.png')}
-              style={{ width: '75%', height: '100%' }}
-            />
-          </View>
-          <Text style={styles.buttonText}>상세정보</Text>
-        </TouchableOpacity>
-      </View>
-      {isDetails ? <DetailsInfo /> : null}
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
-          <Foundation
-            name='telephone'
-            size={35}
-            color='#51cf66'
-            style={{ marginRight: 10 }}
-          />
-          <Text
-            style={styles.buttonText}
-            onPress={() => {
-              Linking.openURL(`tel:${storeData.phoneNumber}`);
-            }}
-          >
-            전화걸기
-          </Text>
-        </TouchableOpacity>
+            <Text
+              style={styles.buttonText}
+              onPress={() => {
+                Linking.openURL(`tel:${storeData.phoneNumber}`);
+              }}
+            >
+              전화걸기
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <View style={styles.logoSection}>
         <Text style={styles.logoText}>Powered by</Text>
@@ -291,9 +295,20 @@ const DetailsScreen = (props) => {
 export default DetailsScreen;
 
 const styles = StyleSheet.create({
-  detailScreen: {
+  screen: {
     flex: 1,
+    backgroundColor: '#e8e8e8',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.6,
+    shadowRadius: 5,
+    elevation: 5,
+  },
+  DetailsScreen: {
     backgroundColor: '#f6f6f6',
+    paddingBottom: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   headerContainer: {
     width: '100%',
@@ -327,7 +342,7 @@ const styles = StyleSheet.create({
   },
   storeDesc: {
     fontFamily: 'notoSans-Regular',
-    fontSize: 16,
+    fontSize: DEVICE_WIDTH > 400 ? 16 : DEVICE_WIDTH > 375 ? 14.5 : 13.5,
     letterSpacing: -1,
   },
 
@@ -378,7 +393,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   buttonText: { fontFamily: 'SD-SB', fontSize: 16, letterSpacing: -0.25 },
-  buttonImageContainer: { width: 30, height: 30, marginRight: 5 },
+  buttonImageContainer: { width: 30, height: 30, marginRight: 10 },
   circleDiv: {
     width: '100%',
     position: 'absolute',

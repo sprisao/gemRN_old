@@ -7,6 +7,7 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
+
 import GridWrapper from '../../components/CategoryScreen/GridWrapper';
 
 const deviceWidth = Dimensions.get('window').width;

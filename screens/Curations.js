@@ -5,11 +5,13 @@ import {
   View,
   TouchableOpacity,
   FlatList,
-  Image,
+  Dimensions,
 } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 import { useGlobalContext } from '../Context';
 
+const DEVICE_WIDTH = Dimensions.get('window').width;
 const Curations = (props) => {
   const { cafes } = useGlobalContext();
 
@@ -29,11 +31,11 @@ const Curations = (props) => {
           });
         }}
       >
-        <View style={styles.videoContainer}>
-          <Image
-            style={styles.video}
+        <View style={styles.imageContainer}>
+          <FastImage
+            style={styles.image}
             source={{ uri: item.images[0].url }}
-            resizeMode='cover'
+            resizeMode={FastImage.resizeMode.cover}
           />
         </View>
         <View style={styles.articleContainer}>
@@ -83,11 +85,11 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 5,
   },
-  videoContainer: {
+  imageContainer: {
     width: '100%',
-    height: 170,
+    height: DEVICE_WIDTH > 400 ? 200 : DEVICE_WIDTH > 375 ? 175 : 175,
   },
-  video: {
+  image: {
     width: '100%',
     height: '100%',
   },
@@ -104,13 +106,13 @@ const styles = StyleSheet.create({
   },
   copy: {
     fontFamily: 'SD-L',
-    fontSize: 13,
+    fontSize: DEVICE_WIDTH > 400 ? 14 : DEVICE_WIDTH > 375 ? 13 : 13,
     letterSpacing: -0.5,
     color: 'white',
   },
   storeName: {
     fontFamily: 'SD-B',
-    fontSize: 22,
+    fontSize: DEVICE_WIDTH > 400 ? 25 : DEVICE_WIDTH > 375 ? 22 : 22,
     letterSpacing: -0.5,
     color: 'white',
   },

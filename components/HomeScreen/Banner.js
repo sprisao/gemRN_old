@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { StyleSheet, View, ScrollView, Dimensions, Image } from 'react-native';
-
+import { StyleSheet, View, ScrollView, Dimensions } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import { useGlobalContext } from '../../Context';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
@@ -44,7 +44,7 @@ const Banner = (props) => {
         ref={scrollRef}
       >
         {ads.map((item) => (
-          <Image
+          <FastImage
             style={styles.bannerImage}
             key={item.id}
             source={{

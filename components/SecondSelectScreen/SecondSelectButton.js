@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import colors from '../../constants/styleSettings/colors';
 
 const SecondSelectButton = (props) => {
   return (
@@ -26,8 +25,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: 'hidden',
     borderWidth: 1.25,
-    borderColor: colors.borderColor,
-    backgroundColor: colors.backgroundColor,
+    borderColor: '#dfdfdf',
+    backgroundColor: '#f8f8f8',
   },
   buttonWrapper: {
     flexDirection: 'row',

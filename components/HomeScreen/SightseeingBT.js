@@ -1,8 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  Dimensions,
+} from 'react-native';
 import { EvilIcons } from '@expo/vector-icons';
+const DEVICE_WIDTH = Dimensions.get('window').width;
+const DEVICE_HEIGHT = Dimensions.get('window').height;
 const SightseeingBT = (props) => {
-  const imgSource = props.imageUrl;
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={props.onSelect}>
       <View style={styles.imageContainer}>
@@ -44,7 +52,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-end',
     width: '48.5%',
-    height: 76,
+    height: DEVICE_HEIGHT * 0.095,
   },
   imageContainer: {
     position: 'absolute',
@@ -81,14 +89,11 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     fontFamily: 'SD-UL',
-    lineHeight: 12,
-    fontSize: 11,
+    lineHeight: DEVICE_WIDTH > 400 ? 13 : 11,
+    fontSize: DEVICE_WIDTH > 400 ? 13 : 11,
     textAlign: 'left',
   },
   homeBT_1_emoji: {
-    // position: 'absolute',
-    // left: '45%',
-    // top: 10,
     width: '100%',
     height: '100%',
   },

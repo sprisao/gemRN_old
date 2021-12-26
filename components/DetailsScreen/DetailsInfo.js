@@ -1,13 +1,6 @@
 import * as React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Linking,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import colors from '../../constants/styleSettings/colors';
 
 import { Entypo } from '@expo/vector-icons';
 
@@ -198,10 +191,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  buttonTitle: {
-    marginLeft: 3,
-    color: colors.primary,
   },
   naverLinkContainer: {
     width: '85%',

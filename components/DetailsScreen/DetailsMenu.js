@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { useGlobalContext } from '../../Context';
 import FastImage from 'react-native-fast-image';
 
+const DEVICE_WIDTH = Dimensions.get('window').width;
+
 const DetailsMenu = (props) => {
   const { menu, menuLoading } = useGlobalContext();
-
   return (
     <View style={styles.menuContainer}>
       <View style={styles.menuWrapper}>
@@ -66,8 +67,8 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
   imageContainer: {
-    width: 120,
-    height: 120,
+    width: DEVICE_WIDTH > 400 ? 140 : DEVICE_WIDTH > 375 ? 125 : 120,
+    height: DEVICE_WIDTH > 400 ? 140 : DEVICE_WIDTH > 375 ? 125 : 120,
     borderRadius: 150,
     overflow: 'hidden',
   },
@@ -75,7 +76,6 @@ const styles = StyleSheet.create({
     width: '60%',
     flexDirection: 'column',
     justifyContent: 'center',
-    paddingVertical: 5,
   },
   menuName: {
     fontFamily: 'SD-B',

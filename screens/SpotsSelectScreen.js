@@ -3,11 +3,10 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-
+import FastImage from 'react-native-fast-image';
 import { useGlobalContext } from '../Context';
 
 const SpotsSelectScreen = (props) => {
@@ -16,7 +15,7 @@ const SpotsSelectScreen = (props) => {
   return (
     <View style={styles.screen}>
       <View style={styles.header}>
-        <Image
+        <FastImage
           source={require('../assets/images/illustrations/wonju.jpg')}
           style={{
             width: '100%',
@@ -47,7 +46,7 @@ const SpotsSelectScreen = (props) => {
                 }}
               >
                 <View style={styles.itemContent}>
-                  <Image
+                  <FastImage
                     style={styles.image}
                     source={{ uri: item.images[0].url }}
                   />

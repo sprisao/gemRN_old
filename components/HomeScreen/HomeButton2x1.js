@@ -1,9 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  Dimensions,
+} from 'react-native';
 import { EvilIcons } from '@expo/vector-icons';
 
+const DEVICE_HEIGHT = Dimensions.get('window').height;
+const DEVICE_WIDTH = Dimensions.get('window').width;
+
 const HomeButton2x1 = (props) => {
-  const imgSource = props.imageUrl;
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={props.onSelect}>
       <View style={styles.imageContainer}>
@@ -36,19 +45,21 @@ export default HomeButton2x1;
 const styles = StyleSheet.create({
   buttonContainer: {
     padding: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
     borderRadius: 11.5,
     borderWidth: 1,
     borderColor: '#dfdfdf',
-    backgroundColor: '#f3f3f3',
+    backgroundColor: '#f8f8f8',
     overflow: 'hidden',
     flexDirection: 'column',
     justifyContent: 'space-between',
     width: '48.5%',
-    height: 180,
+    height: DEVICE_HEIGHT * 0.22,
   },
   imageContainer: {
-    width: 85,
-    height: 85,
+    width: DEVICE_WIDTH * 0.22,
+    height: DEVICE_HEIGHT * 0.1,
     shadowColor: '#000',
     shadowOffset: { width: 2, height: 3 },
     shadowOpacity: 0.15,
@@ -61,7 +72,7 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
   },
   homeBT_1_Header: {
-    fontSize: 35,
+    fontSize: DEVICE_WIDTH > 400 ? 40 : 35,
     fontFamily: 'blackSans',
     letterSpacing: -1.25,
     includeFontPadding: false,
@@ -85,9 +96,6 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   homeBT_1_emoji: {
-    // position: 'absolute',
-    // left: '45%',
-    // top: 10,
     width: '100%',
     height: '100%',
   },

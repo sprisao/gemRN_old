@@ -1,9 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  Dimensions,
+} from 'react-native';
 import { EvilIcons } from '@expo/vector-icons';
 
+const DEVICE_WIDTH = Dimensions.get('window').width;
+const DEVICE_HEIGHT = Dimensions.get('window').height;
 const CurationBT = (props) => {
-  const imgSource = props.imageUrl;
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={props.onSelect}>
       <View style={styles.imageContainer}>
@@ -40,19 +48,19 @@ const styles = StyleSheet.create({
     borderRadius: 11.5,
     borderWidth: 1,
     borderColor: '#dfdfdf',
-    backgroundColor: '#f3f3f3',
+    backgroundColor: '#f8f8f8',
     overflow: 'hidden',
     flexDirection: 'column',
     justifyContent: 'flex-end',
     width: '48.5%',
-    height: 76,
+    height: DEVICE_HEIGHT * 0.095,
   },
   imageContainer: {
     position: 'absolute',
     top: 5,
     right: 5,
-    width: 45,
-    height: 45,
+    width: DEVICE_WIDTH > 400 ? 50 : 45,
+    height: DEVICE_WIDTH > 400 ? 50 : 45,
     shadowColor: '#000',
     shadowOffset: { width: 2, height: 3 },
     shadowOpacity: 0.15,
@@ -83,14 +91,11 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     fontFamily: 'SD-UL',
-    lineHeight: 12,
-    fontSize: 11,
+    lineHeight: DEVICE_WIDTH > 400 ? 13 : 11,
+    fontSize: DEVICE_WIDTH > 400 ? 13 : 11,
     textAlign: 'left',
   },
   homeBT_1_emoji: {
-    // position: 'absolute',
-    // left: '45%',
-    // top: 10,
     width: '100%',
     height: '100%',
   },

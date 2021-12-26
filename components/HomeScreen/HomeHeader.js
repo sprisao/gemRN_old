@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   },
   locationPicker_Container: {
     height: 47,
-    width: 118,
+    width: '64%',
     paddingHorizontal: 7,
     paddingVertical: 5,
     backgroundColor: '#f6f6f6',
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
 
   travelMode_Container: {
-    width: 53,
+    width: '31%',
     height: 47,
     backgroundColor: '#f6f6f6',
     borderRadius: 10,
