@@ -1,13 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { StyleSheet, View, ScrollView, Dimensions, Image } from 'react-native';
-// import FastImage from 'react-native-fast-image';
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  Dimensions,
+  Image,
+  Text,
+} from 'react-native';
 import { useGlobalContext } from '../../Context';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
 const Banner = (props) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const { ads } = useGlobalContext();
+  const { ads, adsLoading } = useGlobalContext();
 
   scrollRef = useRef();
 
@@ -33,6 +39,13 @@ const Banner = (props) => {
     setSelectedIndex(selectedIndex);
   };
 
+  // if (adsLoading) {
+  //   return (
+  //     <View style={{ flex: 1 }}>
+  //       <Text>로딩중</Text>
+  //     </View>
+  //   );
+  // }
   return (
     <View style={styles.container}>
       <ScrollView

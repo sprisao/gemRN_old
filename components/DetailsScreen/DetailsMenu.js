@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import { useGlobalContext } from '../../Context';
-import FastImage from 'react-native-fast-image';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
@@ -17,7 +16,7 @@ const DetailsMenu = (props) => {
               return (
                 <View style={styles.menuItem} key={item.menu}>
                   <View style={styles.imageContainer}>
-                    <FastImage
+                    <Image
                       source={{ uri: item.menuImage[0].url }}
                       style={{ width: '100%', height: '100%' }}
                     />

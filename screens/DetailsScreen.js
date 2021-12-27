@@ -261,21 +261,19 @@ const DetailsScreen = (props) => {
         </View>
         {isDetails ? <DetailsInfo /> : null}
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              Linking.openURL(`tel:${storeData.phoneNumber}`);
+            }}
+          >
             <Foundation
               name='telephone'
               size={35}
               color='#51cf66'
               style={{ marginRight: 10 }}
             />
-            <Text
-              style={styles.buttonText}
-              onPress={() => {
-                Linking.openURL(`tel:${storeData.phoneNumber}`);
-              }}
-            >
-              전화걸기
-            </Text>
+            <Text style={styles.buttonText}>전화걸기</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -341,13 +339,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   storeDesc: {
-    fontFamily: 'notoSans-Regular',
+    fontFamily: 'SD-R',
     fontSize: DEVICE_WIDTH > 400 ? 16 : DEVICE_WIDTH > 375 ? 14.5 : 13.5,
     letterSpacing: -1,
   },
 
   storeName: {
-    fontFamily: 'notoSans-Bold',
+    fontFamily: 'SD-B',
     fontSize: 32,
     letterSpacing: -1.5,
   },
@@ -359,7 +357,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   miniAddress: {
-    fontFamily: 'notoSans-Regular',
+    fontFamily: 'SD-R',
     fontSize: 16,
   },
   medals: {

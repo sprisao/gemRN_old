@@ -2,8 +2,6 @@ import React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import GridTile from './GridTile';
 
-import { useGlobalContext } from '../../Context';
-
 const GridWrapper = (props) => {
   if (props.isSpot) {
     spotFilter = 'SpotDetails';

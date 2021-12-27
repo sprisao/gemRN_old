@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, ScrollView } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import { StyleSheet, View, Dimensions, ScrollView, Image } from 'react-native';
 
 const DetailsCuration = (props) => {
   const deviceWidth = Dimensions.get('window').width;
@@ -15,13 +14,14 @@ const DetailsCuration = (props) => {
         <Text style={styles.detailsCurationHeader}>큐레이션</Text>
       </View> */}
       <View style={styles.curationContainer}>
-        <FastImage
+        <Image
           source={{ uri: storeData.curation[0].url }}
           style={{
             width: Dimensions.get('window').width,
             height: scaledHeight,
           }}
-          resizeMode={FastImage.resizeMode.stretch}
+          // resizeMode={FastImage.resizeMode.stretch}
+          resizeMode='cover'
         />
       </View>
     </ScrollView>

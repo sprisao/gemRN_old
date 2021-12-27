@@ -91,10 +91,7 @@ const DetailsInfo = (props) => {
               {breakDay}&nbsp;
             </Text>
           ))}
-          <Text
-            style={styles.detailsInfo_ItemText}
-            style={{ color: '#dfdfdf' }}
-          >
+          <Text style={styles.detailsInfo_ItemText} style={{ color: 'red' }}>
             휴무
           </Text>
         </View>
@@ -181,7 +178,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
   },
   detailsInfo_ItemText: {
-    fontFamily: 'notoSans-Light',
+    fontFamily: 'SD-L',
     fontSize: 16,
     includeFontPadding: false,
     paddingBottom: 2,

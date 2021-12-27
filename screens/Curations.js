@@ -6,8 +6,8 @@ import {
   TouchableOpacity,
   FlatList,
   Dimensions,
+  Image,
 } from 'react-native';
-import FastImage from 'react-native-fast-image';
 
 import { useGlobalContext } from '../Context';
 
@@ -32,10 +32,10 @@ const Curations = (props) => {
         }}
       >
         <View style={styles.imageContainer}>
-          <FastImage
+          <Image
             style={styles.image}
             source={{ uri: item.images[0].url }}
-            resizeMode={FastImage.resizeMode.cover}
+            resizeMode='cover'
           />
         </View>
         <View style={styles.articleContainer}>

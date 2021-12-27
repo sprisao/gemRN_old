@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import FastImage from 'react-native-fast-image';
 import { Feather } from '@expo/vector-icons';
 
 const GridTile = (props) => {
@@ -35,28 +34,25 @@ const GridTile = (props) => {
         </Text>
       </View>
     );
-  }
+  } else businessHour = null;
 
   return (
     <View style={{ ...styles.gridTile, ...props.style }}>
       <TouchableOpacity
         style={{
           flex: 1,
-          width: props.touchableValue,
-          justifyContent: 'center',
-          alignItems: 'center',
         }}
         onPress={props.onSecondSelect}
       >
         <View style={styles.tileWrapper}>
-          <FastImage
+          <Image
             style={styles.image}
-            resizeMode={FastImage.resizeMode.cover}
+            resizeMode='cover'
             source={{ uri: props.image }}
           />
           <View style={styles.articleContainer}>
             <View style={styles.nameContainer}>
-              <Text>{props.location}</Text>
+              <Text style={styles.location}>{props.location}</Text>
               <Text style={styles.name}>{props.name}</Text>
             </View>
             {preRank}
@@ -90,15 +86,23 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   articleContainer: {
+    display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     marginTop: 5,
     height: 'auto',
     width: '100%',
   },
   nameContainer: {
+    width: '100%',
     marginBottom: 3,
   },
+  location: {
+    fontFamily: 'SD-L',
+  },
   name: {
+    fontFamily: 'SD-R',
     letterSpacing: -0.35,
     fontSize: 20,
     marginTop: 4,
@@ -115,6 +119,8 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   businessHour: {
+    fontFamily: 'SD-L',
+    letterSpacing: -0.35,
     marginLeft: 3,
   },
 });
