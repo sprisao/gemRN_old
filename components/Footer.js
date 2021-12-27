@@ -75,25 +75,25 @@ const styles = StyleSheet.create({
   },
   CompanyNameText: {
     includeFontPadding: false,
-    fontFamily: 'notoSans-Medium',
+    fontFamily: 'SD-B',
     fontSize: 16,
     letterSpacing: -0.5,
   },
   CompanyDetailsText: {
-    fontFamily: 'notoSans-Regular',
+    fontFamily: 'SD-R',
     letterSpacing: -0.35,
     fontSize: 11,
     includeFontPadding: false,
   },
   CopyrightText: {
-    fontFamily: 'notoSans-Regular',
+    fontFamily: 'SD-R',
     letterSpacing: -0.35,
     fontSize: 11,
     includeFontPadding: false,
   },
 
   NoticeText: {
-    fontFamily: 'notoSans-Regular',
+    fontFamily: 'SD-R',
     letterSpacing: -0.35,
     fontSize: 11,
     includeFontPadding: false,
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   },
 
   policyText: {
-    fontFamily: 'notoSans-Medium',
+    fontFamily: 'SD-SB',
     letterSpacing: -0.35,
     fontSize: 12,
     includeFontPadding: false,

@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
   View,
   ScrollView,
   SafeAreaView,
@@ -22,16 +21,7 @@ import { useGlobalContext } from '../Context';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const HomeScreen = (props) => {
-  const { cafesLoading, restaurants, cafes, others, spots } =
-    useGlobalContext();
-
-  if (cafesLoading) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>로딩중이쥐롱</Text>
-      </View>
-    );
-  }
+  const { restaurants, cafes, others, spots, Image } = useGlobalContext();
 
   return (
     <SafeAreaView style={{ backgroundColor: 'white' }}>

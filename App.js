@@ -8,12 +8,6 @@ import StackNavigator from './navigation/StackNavigator';
 
 const fetchFonts = () => {
   return Font.loadAsync({
-    'notoSans-Black': require('./assets/fonts/Noto_Sans_KR/NotoSansKR-Black.otf'),
-    'notoSans-Bold': require('./assets/fonts/Noto_Sans_KR/NotoSansKR-Bold.otf'),
-    'notoSans-Medium': require('./assets/fonts/Noto_Sans_KR/NotoSansKR-Medium.otf'),
-    'notoSans-Regular': require('./assets/fonts/Noto_Sans_KR/NotoSansKR-Regular.otf'),
-    'notoSans-Light': require('./assets/fonts/Noto_Sans_KR/NotoSansKR-Light.otf'),
-    'notoSans-Thin': require('./assets/fonts/Noto_Sans_KR/NotoSansKR-Thin.otf'),
     'SD-UL': require('./assets/fonts/Apple_SD_Gothic_Neo/AppleSDGothicNeoUL.ttf'),
     'SD-L': require('./assets/fonts/Apple_SD_Gothic_Neo/AppleSDGothicNeoL.ttf'),
     'SD-T': require('./assets/fonts/Apple_SD_Gothic_Neo/AppleSDGothicNeoT.ttf'),
