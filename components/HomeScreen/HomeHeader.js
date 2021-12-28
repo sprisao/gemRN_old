@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
     paddingVertical: 14,
-    paddingTop: 20,
     backgroundColor: 'white',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 6 },
@@ -59,6 +58,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
+    zIndex: 2,
   },
   wrapper: {
     flexDirection: 'row',

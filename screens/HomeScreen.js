@@ -6,6 +6,9 @@ import {
   SafeAreaView,
   Dimensions,
   Text,
+  TouchableOpacity,
+  Linking,
+  Image,
 } from 'react-native';
 
 import HomeButton2x1 from '../components/HomeScreen/HomeButton2x1';
@@ -14,7 +17,6 @@ import Banner from '../components/HomeScreen/Banner';
 import SightseeingBT from '../components/HomeScreen/SightseeingBT';
 import CurationBT from '../components/HomeScreen/CurationBT';
 import Footer from '../components/Footer';
-import Separator from '../components/Separator';
 
 import HomeHeader from '../components/HomeScreen/HomeHeader';
 
@@ -46,6 +48,7 @@ const HomeScreen = (props) => {
       <ScrollView
         style={styles.homeScreen}
         showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={[0]}
       >
         <HomeHeader navigation={props.navigation} onTab={() => {}} />
         <View style={styles.homeScreen_Categories}>
@@ -109,7 +112,7 @@ const HomeScreen = (props) => {
               }}
             />
           </View>
-          <Banner></Banner>
+          <Banner />
           <View style={styles.homeButton_Container}>
             <View style={styles.buttonWrapper}>
               <HomeButton4x1
@@ -259,7 +262,85 @@ const HomeScreen = (props) => {
             </View>
           </View>
         </View>
-        <Separator />
+        <View style={styles.gemSection}>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={[styles.button]}
+              onPress={() => {
+                // Linking.openURL(`tel:${storeData.phoneNumber}`);
+              }}
+            >
+              {/* <Foundation
+              name='telephone'
+              size={35}
+              color='#51cf66'
+              style={{ marginRight: 10 }}
+            /> */}
+              <Text style={styles.buttonText}>젬 등급 기준은 무엇일까?</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                // Linking.openURL(`tel:${storeData.phoneNumber}`);
+              }}
+            >
+              {/* <Foundation
+              name='telephone'
+              size={35}
+              color='#51cf66'
+              style={{ marginRight: 10 }}
+            /> */}
+              <Text style={styles.buttonText}>광고 및 가게등록 문의</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                Linking.openURL(`instagram://user?username=gemchelin`).catch(
+                  () => {
+                    Linking.openURL(`https://www.instagram.com/gemchelin`);
+                  }
+                );
+              }}
+            >
+              <View style={styles.buttonImageContainer}>
+                <Image
+                  source={require('../assets/images/SNS/INSTAGRAM.png')}
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </View>
+              <Text style={styles.buttonText}>젬스타그램</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                // Linking.openURL(`tel:${storeData.phoneNumber}`);
+              }}
+            >
+              {/* <Foundation
+              name='telephone'
+              size={35}
+              color='#51cf66'
+              style={{ marginRight: 10 }}
+            /> */}
+              <Text style={styles.buttonText}>후원하기</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.logoSection}>
+          <Text style={styles.logoText}>Powered by</Text>
+          <View style={styles.logoContainer}>
+            <Image
+              source={require('../assets/images/BI/LogoGrey.png')}
+              style={{ width: '100%', height: '100%' }}
+            />
+          </View>
+        </View>
         <Footer />
       </ScrollView>
     </SafeAreaView>
@@ -272,11 +353,25 @@ const styles = StyleSheet.create({
   homeScreen: {
     width: '100%',
     height: '100%',
-    backgroundColor: 'white',
+    backgroundColor: '#f6f6f6',
+    zIndex: 0,
   },
   homeScreen_Categories: {
-    paddingHorizontal: 10,
+    width: '100%',
+    zIndex: 1,
+    marginTop: -15,
+    paddingTop: 20,
     paddingHorizontal: DEVICE_WIDTH > 400 ? 13 : 10,
+    paddingBottom: 35,
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+    backgroundColor: 'white',
+    marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 5,
   },
   homeButton_Container: {
     width: '100%',
@@ -286,10 +381,47 @@ const styles = StyleSheet.create({
     marginTop: 10,
     overflow: 'hidden',
   },
-
   buttonWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '48.5%',
+  },
+  buttonContainer: {
+    width: '100%',
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+  },
+  button: {
+    backgroundColor: 'white',
+    height: 65,
+    borderRadius: 12,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 5,
+  },
+  buttonText: { fontFamily: 'SD-SB', fontSize: 15, letterSpacing: -0.25 },
+  buttonImageContainer: { width: 30, height: 30, marginRight: 10 },
+  logoSection: {
+    width: '100%',
+    height: 'auto',
+    alignItems: 'center',
+    marginTop: 40,
+    marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  logoText: { fontFamily: 'SD-SB', color: '#666' },
+  logoContainer: {
+    width: 25,
+    height: 27,
+    marginLeft: 5,
+    padding: 3,
   },
 });

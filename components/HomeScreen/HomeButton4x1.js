@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   homeButton: {
     paddingTop: 5,
     borderRadius: 11.5,
-    borderWidth: 1,
+    borderWidth: 0.75,
     borderColor: '#dfdfdf',
     backgroundColor: '#f8f8f8',
     overflow: 'hidden',
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   homeBT_2_Header: {
     fontSize: DEVICE_WIDTH > 400 ? 17 : 16,
-    fontFamily: 'SD-EB',
+    fontFamily: 'SD-B',
     letterSpacing: -0.8,
     includeFontPadding: false,
     color: '#333333',

@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   footer: {
     width: '100%',
     backgroundColor: '#f3f3f3',
-    marginTop: 120,
+    marginTop: 20,
   },
   footer_Wrapper: {
     height: 230,

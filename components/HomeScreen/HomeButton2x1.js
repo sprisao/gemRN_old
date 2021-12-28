@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 11.5,
-    borderWidth: 1,
+    borderWidth: 0.75,
     borderColor: '#dfdfdf',
     backgroundColor: '#f8f8f8',
     overflow: 'hidden',
