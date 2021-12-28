@@ -263,38 +263,16 @@ const HomeScreen = (props) => {
           </View>
         </View>
         <View style={styles.gemSection}>
-          <View style={styles.buttonContainer}>
+          {/* <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={[styles.button]}
               onPress={() => {
-                // Linking.openURL(`tel:${storeData.phoneNumber}`);
               }}
             >
-              {/* <Foundation
-              name='telephone'
-              size={35}
-              color='#51cf66'
-              style={{ marginRight: 10 }}
-            /> */}
               <Text style={styles.buttonText}>젬 등급 기준은 무엇일까?</Text>
             </TouchableOpacity>
-          </View>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => {
-                // Linking.openURL(`tel:${storeData.phoneNumber}`);
-              }}
-            >
-              {/* <Foundation
-              name='telephone'
-              size={35}
-              color='#51cf66'
-              style={{ marginRight: 10 }}
-            /> */}
-              <Text style={styles.buttonText}>광고 및 가게등록 문의</Text>
-            </TouchableOpacity>
-          </View>
+          </View> */}
+
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={styles.button}
@@ -319,18 +297,27 @@ const HomeScreen = (props) => {
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
-                // Linking.openURL(`tel:${storeData.phoneNumber}`);
+                Linking.openURL('https://pf.kakao.com/_FCGCs/chat').catch(
+                  () => {
+                    'https://pf.kakao.com/_FCGCs/chat';
+                  }
+                );
               }}
             >
-              {/* <Foundation
-              name='telephone'
-              size={35}
-              color='#51cf66'
-              style={{ marginRight: 10 }}
-            /> */}
-              <Text style={styles.buttonText}>후원하기</Text>
+              <View style={styles.buttonImageContainer}>
+                <Image
+                  source={require('../assets/images/emojis/ask.png')}
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </View>
+              <Text style={styles.buttonText}>가게 홍보 및 등록 문의</Text>
             </TouchableOpacity>
           </View>
+          {/* <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button} onPress={() => {}}>
+              <Text style={styles.buttonText}>후원하기</Text>
+            </TouchableOpacity>
+          </View> */}
         </View>
         <View style={styles.logoSection}>
           <Text style={styles.logoText}>Powered by</Text>
