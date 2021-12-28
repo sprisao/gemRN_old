@@ -28,7 +28,12 @@ const GridTile = (props) => {
   if (props.openHour) {
     businessHour = (
       <View style={styles.hourContainer}>
-        <Feather name='clock' size={13} color='black' />
+        <Feather
+          name='clock'
+          size={13}
+          color='black'
+          style={{ marginTop: 2 }}
+        />
         <Text style={styles.businessHour}>
           {props.openHour} ~ {props.closeHour}
         </Text>
@@ -71,7 +76,7 @@ const styles = StyleSheet.create({
     width: '47%',
     // maxHeight: 300,
     marginHorizontal: 5,
-    marginBottom: 8,
+    marginBottom: 15,
     overflow: 'hidden',
   },
   tileWrapper: {
@@ -99,28 +104,27 @@ const styles = StyleSheet.create({
     marginBottom: 3,
   },
   location: {
-    fontFamily: 'SD-L',
+    fontFamily: 'SD-UL',
   },
   name: {
     fontFamily: 'SD-R',
     letterSpacing: -0.35,
     fontSize: 20,
-    marginTop: 4,
   },
-  medalContainer: { marginVertical: 5 },
+  medalContainer: { marginVertical: 2 },
   medals: {
     fontSize: 14,
     letterSpacing: -5,
-    marginLeft: -4,
   },
   hourContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 1,
   },
   businessHour: {
     fontFamily: 'SD-L',
     letterSpacing: -0.35,
-    marginLeft: 3,
+    marginLeft: 2,
   },
 });
