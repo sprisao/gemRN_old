@@ -5,6 +5,7 @@ import {
   ScrollView,
   SafeAreaView,
   Dimensions,
+  Text,
 } from 'react-native';
 
 import HomeButton2x1 from '../components/HomeScreen/HomeButton2x1';
@@ -19,10 +20,27 @@ import HomeHeader from '../components/HomeScreen/HomeHeader';
 
 import { useGlobalContext } from '../Context';
 
+import { Video } from 'expo-av';
+
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const HomeScreen = (props) => {
-  const { restaurants, cafes, others, spots, Image } = useGlobalContext();
+  const { restaurants, cafes, others, spots, restaurantLoading } =
+    useGlobalContext();
 
+  if (restaurantLoading) {
+    return (
+      <View style={{ flex: 1 }}>
+        <Video
+          style={{ width: '100%', height: '100%' }}
+          source={require('../assets/videos/splash.mp4')}
+          resizeMode='cover'
+          rate={1}
+          shouldPlay={true}
+          // muted={true}
+        />
+      </View>
+    );
+  }
   return (
     <SafeAreaView style={{ backgroundColor: 'white' }}>
       <ScrollView

@@ -2,12 +2,12 @@
   "expo": {
     "name": "젬",
     "slug": "gem",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -16,8 +16,8 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.brucecompany.gem",
-      "buildNumber": "1.5.0"
+      "buildNumber": "1.5.1",
+      "bundleIdentifier": "com.brucecompany.gem"
     },
     "android": {
       "adaptiveIcon": {
