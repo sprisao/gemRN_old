@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import { TransitionPresets } from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import SecondSelectScreen from '../screens/SecondSelectScreen';
 import CategoryScreen from '../screens/CategoryScreens/CategoryScreen';
@@ -158,6 +158,7 @@ export default function GemStack() {
             />
           ),
           headerRight: () => <DetailsHeaderRight />,
+          ...TransitionPresets.ModalPresentationIOS,
         })}
       />
       <Stack.Screen
@@ -180,6 +181,7 @@ export default function GemStack() {
             />
           ),
           headerRight: () => <DetailsHeaderRight />,
+          ...TransitionPresets.ModalPresentationIOS,
         })}
       />
     </Stack.Navigator>
