@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Linking,
   Image,
+  Share,
 } from 'react-native';
 
 import HomeButton2x1 from '../components/HomeScreen/HomeButton2x1';
@@ -33,6 +34,27 @@ const HomeScreen = (props) => {
 
   const handleTab = () => {
     scrollRef.current.scrollTo({ x: 0, y: 0, animated: true });
+  };
+
+  const link = 'https://https://linktr.ee/gemchelin';
+
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message: link,
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          console.log('acitivtyType!');
+        } else {
+          console.log('Share!');
+        }
+      } else if (result.action === Share.dismissedAction) {
+        console.log('dismissed');
+      }
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   if (restaurantLoading) {
@@ -308,6 +330,22 @@ const HomeScreen = (props) => {
                 />
               </View>
               <Text style={styles.buttonText}>가게 홍보 및 등록 문의</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                onShare();
+              }}
+            >
+              <View style={styles.buttonImageContainer}>
+                <Image
+                  source={require('../assets/images/emojis/heart.png')}
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </View>
+              <Text style={styles.buttonText}>친구에게도 젬 알려주기!</Text>
             </TouchableOpacity>
           </View>
         </View>
