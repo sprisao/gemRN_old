@@ -62,7 +62,7 @@ const DetailsScreen = (props) => {
       setSelectedIndex((prev) =>
         prev === storeData.images.length - 1 ? 0 : prev + 1
       );
-    }, 2000);
+    }, 1500);
     imageBoxRef.current.scrollTo({
       animated: true,
       y: 0,
@@ -86,6 +86,7 @@ const DetailsScreen = (props) => {
       ref={scrollRef}
       showsVerticalScrollIndicator={false}
       style={styles.screen}
+      // bounces={false}
     >
       <View style={styles.DetailsScreen}>
         <View style={styles.headerContainer}>

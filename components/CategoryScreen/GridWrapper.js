@@ -38,6 +38,7 @@ const GridWrapper = (props) => {
         columnWrapperStyle={{ justifyContent: 'space-between' }}
         numColumns={2}
         windowSize={2}
+        bounces={false}
       />
     </View>
   );

@@ -148,6 +148,7 @@ const CategoryScreen = (props) => {
           return item.category;
         }}
         renderItem={renderPage}
+        bounces={false}
         onScroll={scrollHandler}
         horizontal
         showsHorizontalScrollIndicator={false}

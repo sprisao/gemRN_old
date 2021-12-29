@@ -9,10 +9,7 @@ const DetailsCuration = (props) => {
   const scaledHeight = curationHeight / theScale;
 
   return (
-    <ScrollView style={styles.detailsCuration}>
-      {/* <View style={styles.detailsCurationWrapper}>
-        <Text style={styles.detailsCurationHeader}>큐레이션</Text>
-      </View> */}
+    <ScrollView style={styles.detailsCuration} bounces={false}>
       <View style={styles.curationContainer}>
         <Image
           source={{ uri: storeData.curation[0].url }}
@@ -20,7 +17,6 @@ const DetailsCuration = (props) => {
             width: Dimensions.get('window').width,
             height: scaledHeight,
           }}
-          // resizeMode={FastImage.resizeMode.stretch}
           resizeMode='cover'
         />
       </View>
