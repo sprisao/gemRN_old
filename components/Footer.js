@@ -63,11 +63,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   footer_Wrapper: {
-    height: 230,
+    height: 190,
     flexDirection: 'column',
     justifyContent: 'space-between',
     padding: 13,
     paddingBottom: 40,
+    marginBottom: 40,
   },
   CompanyName: {
     flexDirection: 'row',

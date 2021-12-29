@@ -14,10 +14,12 @@ const HomeHeader = (props) => {
     <View style={styles.homeHeader}>
       <View style={styles.wrapper}>
         <TouchableOpacity style={styles.leftBox} onPress={props.onTab}>
-          <Image
-            source={require('../../assets/images/BI/logo.png')}
-            style={{ width: 30, height: 33 }}
-          />
+          <View style={styles.logoContainer}>
+            <Image
+              source={require('../../assets/images/BI/logo.png')}
+              style={{ width: '100%', height: '100%' }}
+            />
+          </View>
           <Text style={styles.headerText}>어디가지? 고민할 땐-!</Text>
         </TouchableOpacity>
         <View style={styles.rightBox}>
@@ -46,9 +48,9 @@ export default HomeHeader;
 
 const styles = StyleSheet.create({
   homeHeader: {
-    flex: 1,
+    width: '100%',
     paddingHorizontal: 10,
-    paddingVertical: 14,
+    paddingVertical: 15,
     backgroundColor: 'white',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 6 },
@@ -61,6 +63,7 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   wrapper: {
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -70,6 +73,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 10,
   },
+  logoContainer: { width: 30, height: 33 },
   rightBox: {
     width: '50%',
     paddingLeft: 5,

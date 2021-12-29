@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   StyleSheet,
   View,
@@ -29,6 +29,12 @@ const HomeScreen = (props) => {
   const { restaurants, cafes, others, spots, restaurantLoading } =
     useGlobalContext();
 
+  const scrollRef = useRef();
+
+  const handleTab = () => {
+    scrollRef.current.scrollTo({ x: 0, y: 0, animated: true });
+  };
+
   if (restaurantLoading) {
     return (
       <View style={{ flex: 1 }}>
@@ -38,19 +44,20 @@ const HomeScreen = (props) => {
           resizeMode='cover'
           rate={1}
           shouldPlay={true}
-          // muted={true}
+          muted={true}
         />
       </View>
     );
   }
+
   return (
     <SafeAreaView style={{ backgroundColor: 'white' }}>
+      <HomeHeader navigation={props.navigation} onTab={handleTab} />
       <ScrollView
+        ref={scrollRef}
         style={styles.homeScreen}
         showsVerticalScrollIndicator={false}
-        stickyHeaderIndices={[0]}
       >
-        <HomeHeader navigation={props.navigation} onTab={() => {}} />
         <View style={styles.homeScreen_Categories}>
           <View style={styles.homeButton_Container}>
             <HomeButton2x1
@@ -263,16 +270,6 @@ const HomeScreen = (props) => {
           </View>
         </View>
         <View style={styles.gemSection}>
-          {/* <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              style={[styles.button]}
-              onPress={() => {
-              }}
-            >
-              <Text style={styles.buttonText}>젬 등급 기준은 무엇일까?</Text>
-            </TouchableOpacity>
-          </View> */}
-
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={styles.button}
@@ -313,11 +310,6 @@ const HomeScreen = (props) => {
               <Text style={styles.buttonText}>가게 홍보 및 등록 문의</Text>
             </TouchableOpacity>
           </View>
-          {/* <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={() => {}}>
-              <Text style={styles.buttonText}>후원하기</Text>
-            </TouchableOpacity>
-          </View> */}
         </View>
         <View style={styles.logoSection}>
           <Text style={styles.logoText}>Powered by</Text>
@@ -346,9 +338,9 @@ const styles = StyleSheet.create({
   homeScreen_Categories: {
     width: '100%',
     zIndex: 1,
-    marginTop: -15,
-    paddingTop: 20,
     paddingHorizontal: DEVICE_WIDTH > 400 ? 13 : 10,
+    marginTop: -200,
+    paddingTop: 200,
     paddingBottom: 35,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
