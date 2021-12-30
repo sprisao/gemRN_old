@@ -154,8 +154,8 @@ const CategoryScreen = (props) => {
         showsHorizontalScrollIndicator={false}
         pagingEnabled
         initialScrollIndex={initialIndex[0]}
-        initialNumToRender={1}
-        maxToRenderPerBatch={1}
+        initialNumToRender={0}
+        maxToRenderPerBatch={0}
         getItemLayout={(data, index) => ({
           length: deviceWidth,
           offset: deviceWidth * index,

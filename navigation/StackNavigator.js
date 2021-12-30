@@ -158,7 +158,6 @@ export default function GemStack() {
             />
           ),
           headerRight: () => <DetailsHeaderRight />,
-          ...TransitionPresets.ModalPresentationIOS,
         })}
       />
       <Stack.Screen

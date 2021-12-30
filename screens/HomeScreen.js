@@ -316,6 +316,28 @@ const HomeScreen = (props) => {
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
+                Linking.openURL(`instagram://user?username=brave.choe`).catch(
+                  () => {
+                    Linking.openURL(`https://www.instagram.com/gemchelin`);
+                  }
+                );
+              }}
+            >
+              <View style={styles.buttonImageContainer}>
+                <Image
+                  source={require('../assets/images/SNS/INSTAGRAM.png')}
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </View>
+              <Text style={styles.buttonText}>
+                개발자 인스타 (팔로우 환영!🤗)
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
                 Linking.openURL('https://pf.kakao.com/_FCGCs/chat').catch(
                   () => {
                     'https://pf.kakao.com/_FCGCs/chat';
