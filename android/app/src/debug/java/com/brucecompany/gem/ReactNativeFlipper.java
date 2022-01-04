@@ -4,24 +4,24 @@
  * <p>This source code is licensed under the MIT license found in the LICENSE file in the root
  * directory of this source tree.
  */
-package com.brucechoe.gemRN.;
+package com.brucecompany.gem.;
 
 import android.content.Context;
-import com.brucechoe.gemRN.facebook.flipper.android.AndroidFlipperClient;
-import com.brucechoe.gemRN.facebook.flipper.android.utils.FlipperUtils;
-import com.brucechoe.gemRN.facebook.flipper.core.FlipperClient;
-import com.brucechoe.gemRN.facebook.flipper.plugins.crashreporter.CrashReporterPlugin;
-import com.brucechoe.gemRN.facebook.flipper.plugins.databases.DatabasesFlipperPlugin;
-import com.brucechoe.gemRN.facebook.flipper.plugins.fresco.FrescoFlipperPlugin;
-import com.brucechoe.gemRN.facebook.flipper.plugins.inspector.DescriptorMapping;
-import com.brucechoe.gemRN.facebook.flipper.plugins.inspector.InspectorFlipperPlugin;
-import com.brucechoe.gemRN.facebook.flipper.plugins.network.FlipperOkhttpInterceptor;
-import com.brucechoe.gemRN.facebook.flipper.plugins.network.NetworkFlipperPlugin;
-import com.brucechoe.gemRN.facebook.flipper.plugins.react.ReactFlipperPlugin;
-import com.brucechoe.gemRN.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin;
-import com.brucechoe.gemRN.facebook.react.ReactInstanceManager;
-import com.brucechoe.gemRN.facebook.react.bridge.ReactContext;
-import com.brucechoe.gemRN.facebook.react.modules.network.NetworkingModule;
+import com.brucecompany.gem.facebook.flipper.android.AndroidFlipperClient;
+import com.brucecompany.gem.facebook.flipper.android.utils.FlipperUtils;
+import com.brucecompany.gem.facebook.flipper.core.FlipperClient;
+import com.brucecompany.gem.facebook.flipper.plugins.crashreporter.CrashReporterPlugin;
+import com.brucecompany.gem.facebook.flipper.plugins.databases.DatabasesFlipperPlugin;
+import com.brucecompany.gem.facebook.flipper.plugins.fresco.FrescoFlipperPlugin;
+import com.brucecompany.gem.facebook.flipper.plugins.inspector.DescriptorMapping;
+import com.brucecompany.gem.facebook.flipper.plugins.inspector.InspectorFlipperPlugin;
+import com.brucecompany.gem.facebook.flipper.plugins.network.FlipperOkhttpInterceptor;
+import com.brucecompany.gem.facebook.flipper.plugins.network.NetworkFlipperPlugin;
+import com.brucecompany.gem.facebook.flipper.plugins.react.ReactFlipperPlugin;
+import com.brucecompany.gem.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin;
+import com.brucecompany.gem.facebook.react.ReactInstanceManager;
+import com.brucecompany.gem.facebook.react.bridge.ReactContext;
+import com.brucecompany.gem.facebook.react.modules.network.NetworkingModule;
 import okhttp3.OkHttpClient;
 
 public class ReactNativeFlipper {

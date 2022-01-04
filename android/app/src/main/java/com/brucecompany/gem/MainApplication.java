@@ -1,4 +1,4 @@
-package com.brucechoe.gemRN.;
+package com.brucecompany.gem.;
 import expo.modules.updates.UpdatesDevLauncherController;
 import expo.modules.devlauncher.DevLauncherController;
 
@@ -7,26 +7,29 @@ import android.content.Context;
 import android.content.res.Configuration;
 import androidx.annotation.NonNull;
 
-import com.brucechoe.gemRN.facebook.react.PackageList;
-import com.brucechoe.gemRN.facebook.react.ReactApplication;
-import com.brucechoe.gemRN.facebook.react.ReactInstanceManager;
-import com.brucechoe.gemRN.facebook.react.ReactNativeHost;
-import com.brucechoe.gemRN.facebook.react.ReactPackage;
-import com.brucechoe.gemRN.facebook.soloader.SoLoader;
+import com.brucecompany.gem.facebook.react.PackageList;
+import com.brucecompany.gem.facebook.react.ReactApplication;
+import com.brucecompany.gem.facebook.react.ReactInstanceManager;
+import com.brucecompany.gem.facebook.react.ReactNativeHost;
+import com.brucecompany.gem.facebook.react.ReactPackage;
+import com.brucecompany.gem.facebook.soloader.SoLoader;
 
 import expo.modules.ApplicationLifecycleDispatcher;
 import expo.modules.ReactNativeHostWrapper;
 
-import com.brucechoe.gemRN.facebook.react.bridge.JSIModulePackage;
-import com.brucechoe.gemRN.swmansion.reanimated.ReanimatedJSIModulePackage;
+import com.brucecompany.gem.facebook.react.bridge.JSIModulePackage;
+import com.brucecompany.gem.swmansion.reanimated.ReanimatedJSIModulePackage;
+
+import com.reactnativenavigation.NavigationApplication;
+import com.reactnativenavigation.react.NavigationReactNativeHost;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-public class MainApplication extends Application implements ReactApplication {
+public class MainApplication extends NavigationApplication {
   private final ReactNativeHost mReactNativeHost = new ReactNativeHostWrapper(
     this,
-    new ReactNativeHost(this) {
+    new NavigationReactNativeHost(this) {
     @Override
     public boolean getUseDeveloperSupport() {
       return DevLauncherController.getInstance().getUseDeveloperSupport();
@@ -60,7 +63,7 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
-    SoLoader.init(this, /* native exopackage */ false);
+    
 
     DevLauncherController.initialize(this, getReactNativeHost());
     if (BuildConfig.DEBUG) {
@@ -91,7 +94,7 @@ public class MainApplication extends Application implements ReactApplication {
          We use reflection here to pick up the class that initializes Flipper,
         since Flipper library is not available in release mode
         */
-        Class<?> aClass = Class.forName("com.brucechoe.gemRN..ReactNativeFlipper");
+        Class<?> aClass = Class.forName("com.brucecompany.gem..ReactNativeFlipper");
         aClass
             .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
             .invoke(null, context, reactInstanceManager);

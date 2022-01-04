@@ -1,4 +1,4 @@
-package com.brucechoe.gemRN.;
+package com.brucecompany.gem.;
 import expo.modules.devmenu.react.DevMenuAwareReactActivity;
 import expo.modules.devlauncher.DevLauncherController;
 import android.content.res.Configuration;
@@ -6,12 +6,14 @@ import android.content.Intent;
 
 import android.os.Bundle;
 
-import com.brucechoe.gemRN.facebook.react.ReactActivity;
-import com.brucechoe.gemRN.facebook.react.ReactActivityDelegate;
-import com.brucechoe.gemRN.facebook.react.ReactRootView;
-import com.brucechoe.gemRN.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
+import com.brucecompany.gem.facebook.react.ReactActivity;
+import com.brucecompany.gem.facebook.react.ReactActivityDelegate;
+import com.brucecompany.gem.facebook.react.ReactRootView;
+import com.brucecompany.gem.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 
 import expo.modules.ReactActivityDelegateWrapper;
+
+import com.reactnativenavigation.NavigationActivity;
 
 
 public class MainActivity extends DevMenuAwareReactActivity {
@@ -43,14 +45,7 @@ public class MainActivity extends DevMenuAwareReactActivity {
     super.onCreate(null);
   }
 
-  /**
-   * Returns the name of the main com.brucechoe.gemRNponent registered from JavaScript.
-   * This is used to schedule rendering of the com.brucechoe.gemRNponent.
-   */
-  @Override
-  protected String getMainComponentName() {
-    return "main";
-  }
+  
 
   @Override
   protected ReactActivityDelegate createReactActivityDelegate() {

@@ -2,17 +2,22 @@
 
 buildscript {
     ext {
+        RNNKotlinVersion = "1.4.31"
         buildToolsVersion = "29.0.3"
         minSdkVersion = 21
-        compileSdkVersion = 30
-        targetSdkVersion = 30
+        compileSdkVersion = 31
+        targetSdkVersion = 31
+        kotlinVersion = "1.5.31" // Or any version above 1.4.x
+        RNNKotlinVersion = kotlinVersion
     }
     repositories {
         google()
         mavenCentral()
         jcenter()
+        mavenLocal()
     }
     dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31"
         classpath("com.android.tools.build:gradle:4.1.0")
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -22,6 +27,9 @@ buildscript {
 
 allprojects {
     repositories {
+        maven {
+            url "https://maven.google.com"
+        }
         mavenLocal()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
@@ -31,10 +39,8 @@ allprojects {
             // Android JSC is installed from npm
             url(new File(["node", "--print", "require.resolve('jsc-android/package.json')"].execute(null, rootDir).text.trim(), "../dist"))
         }
-
-        google()
-        mavenCentral()
         jcenter()
+        mavenCentral()
         maven { url 'https://www.jitpack.io' }
     }
 }
